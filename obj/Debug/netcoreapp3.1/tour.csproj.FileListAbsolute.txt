@@ -1,75 +1,9 @@
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\appsettings.Development.json
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\tour.exe
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\tour.deps.json
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\tour.runtimeconfig.json
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\tour.runtimeconfig.dev.json
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\tour.dll
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\tour.pdb
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\tour.Views.dll
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\tour.Views.pdb
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.csprojAssemblyReference.cache
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.AssemblyInfoInputs.cache
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.AssemblyInfo.cs
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.csproj.CoreCompileInputs.cache
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.RazorAssemblyInfo.cache
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.RazorAssemblyInfo.cs
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.TagHelpers.input.cache
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.TagHelpers.output.cache
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.RazorCoreGenerate.cache
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.RazorTargetAssemblyInfo.cache
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.RazorTargetAssemblyInfo.cs
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.Views.pdb
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\staticwebassets\tour.StaticWebAssets.Manifest.cache
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\staticwebassets\tour.StaticWebAssets.xml
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.dll
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.pdb
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.genruntimeconfig.cache
-C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.csproj.CopyComplete
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\appsettings.json
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\tour.exe
-D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\tour.deps.json
-D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\tour.runtimeconfig.json
-D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\tour.runtimeconfig.dev.json
-D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\tour.dll
-D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\tour.pdb
-D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\tour.Views.dll
-D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\tour.Views.pdb
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.csprojAssemblyReference.cache
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.AssemblyInfoInputs.cache
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.AssemblyInfo.cs
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.RazorAssemblyInfo.cache
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.RazorAssemblyInfo.cs
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.TagHelpers.input.cache
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.TagHelpers.output.cache
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.RazorCoreGenerate.cache
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.RazorTargetAssemblyInfo.cache
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.RazorTargetAssemblyInfo.cs
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.Views.pdb
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\staticwebassets\tour.StaticWebAssets.Manifest.cache
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\staticwebassets\tour.StaticWebAssets.xml
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.dll
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.pdb
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.genruntimeconfig.cache
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.csproj.CopyComplete
+D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\Dapper.dll
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
@@ -91,6 +25,7 @@ D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\System.Composition.Convention.d
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll
+D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll
@@ -143,6 +78,32 @@ D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Works
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Doan\Index.cshtml.g.cs
+D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Projects\Tour-du-lich\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.csprojAssemblyReference.cache
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.AssemblyInfoInputs.cache
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.AssemblyInfo.cs
 D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.csproj.CoreCompileInputs.cache
 D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.MvcApplicationPartsAssemblyInfo.cache
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.RazorAssemblyInfo.cache
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.RazorAssemblyInfo.cs
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.TagHelpers.input.cache
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.TagHelpers.output.cache
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.RazorCoreGenerate.cache
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Doan\Index.cshtml.g.cs
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.RazorTargetAssemblyInfo.cache
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.RazorTargetAssemblyInfo.cs
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.Views.pdb
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.csproj.CopyComplete
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\staticwebassets\tour.StaticWebAssets.Manifest.cache
+D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\staticwebassets\tour.StaticWebAssets.xml
