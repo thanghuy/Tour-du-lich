@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using tour.DataAccess.Internal;
 using tour.DataAccess.SqlAccess;
 using tour.Models.Entities;
+using tour.Services.Doan;
 
 namespace tour
 {
@@ -21,10 +23,19 @@ namespace tour
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
             services.AddControllersWithViews();
             //services.AddSingleton(Configuration);
             services.AddSingleton<IDataAccess, DataAccess.Internal.DataAccess>();
             services.AddScoped<IDoanAccess, DoanAccess>();
+            services.AddScoped<IDoanService, DoanService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

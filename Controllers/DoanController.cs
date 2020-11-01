@@ -1,25 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using tour.Services;
+using tour.Models.DTOs;
+using tour.Services.Doan;
+using tour.ViewModels;
 
 namespace tour.Controllers
 {
     public class DoanController : Controller
     {
-        private readonly DoanService _doanService;
-        public DoanController(DoanService doanService)
+        private readonly IDoanService _doanService;
+        private readonly IMapper _mapper;
+        public DoanController(IDoanService doanService, IMapper mapper)
         {
+            _mapper = mapper;
             _doanService = doanService;
         }
         // GET: DoanController
         public ActionResult Index()
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            else
+            {
+                List<DoanDTO> src = _doanService.GetAll();
+                var list = _mapper.Map<List<DoanDTO>, List<DoanViewModel>>(src);
+                return View("Index", list);
+            }
+
             
-            return View();
         }
 
         // GET: DoanController/Details/5
