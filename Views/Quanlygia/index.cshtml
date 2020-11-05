@@ -1,17 +1,18 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Quản lý giá";
 }
-<div class="content-wrapper">
+ <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Danh sách địa điểm</h1>
+            <h1>Danh sách giá theo ngày</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-              <li class="breadcrumb-item active">Danh sách địa điểm</li>
+              <li class="breadcrumb-item active">Danh sách giá</li>
             </ol>
           </div>
         </div>
@@ -24,7 +25,7 @@
               <div class="card">
                 <div class="card-header">
                   <div class="btn-group btn-add" role="group" aria-label="Basic example">
-                    <a href="../quanlydiadiem/adddiadiem.html" class="btn btn-primary">Thêm địa điểm mới</a>
+                    <a href="/Quanlygia/Create" class="btn btn-primary">Thêm giá mới</a>
                   </div>
                 </div>
                 <!-- /.card-header -->
@@ -32,19 +33,19 @@
                   <table class="table table-bordered table-hover" id="tableXemGiaTour">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col">Mã địa điểm</th>
-                        <th scope="col">Tên địa điểm</th>
-                        <th scope="col">Thành phố</th>
-                        <th scope="col">Mô tả</th>
+                        <th scope="col">Id giá</th>
+                        <th scope="col">Giá</th>
+                        <th scope="col">Giá từ</th>
+                        <th scope="col">Giá đến</th>
                         <th scope="col">Hành động</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <th>DL001</th>
-                        <td>Đà lạt</td>
-                        <td>Đà lạt</td>
-                        <td>Mô tả</td>
+                        <td>1.500.000 VNĐ</td>
+                        <td>2-2-2020</td>
+                        <td>5-5-2020</td>
                         <td>
                           <a class="btn btn-primary btn-sm" href="#">
                             <i class="fas fa-pencil-alt">

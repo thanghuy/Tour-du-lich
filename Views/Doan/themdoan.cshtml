@@ -1,0 +1,216 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Thêm 1 đoàn du lịch";
+}
+<div class="content-wrapper">
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Thêm 1 đoàn mới</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+              <li class="breadcrumb-item active">Thêm đoàn khách</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+      <div class="container-fluid card">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-12" style="padding: 20px;">
+                <form>
+                  <div class="form-group">
+                    <label>Chọn tour</label>
+                    <select class="form-control" id="select_tour">
+                      <option value='0' selected='true'>Chọn tour cần đi</option>
+                      <option value="1">Đà lạt - Nha trang</option>
+                      <option>Nha trang - Đà nẵng - Huế</option>
+                      <option>Nha trang - Đà nẵng - Huế</option>
+                      <option>Nha trang - Đà nẵng - Huế</option>
+                      <option>Nha trang - Đà nẵng - Huế</option>
+                    </select>
+                  </div>
+                </form>
+              </div>
+              <div class="col-12 form_tour" style="padding: 20px;margin-bottom: 10px;">
+                <div class="d-flex justify-content-center" style="margin-bottom: 10px;">
+                  <h3 class="text-danger">Thông tin cơ bản</h3>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label>Tên đoàn</label>
+                    <input type="text" class="form-control" placeholder="Nhập tên đoàn">
+                  </div>
+                  <div class="col">
+                    <label>Ngày đi</label>
+                    <input type="date" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label>Ngày về</label>
+                    <input type="date" class="form-control">
+                  </div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                  <div class="col">
+                    <label>Chi tiết chương trình</label>
+                    <textarea class="form-control"></textarea> 
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 form_tour">
+                <div class="d-flex justify-content-center" style="margin-bottom: 20px;">
+                  <h3 class="text-danger">Gá tour cơ bản</h3>
+                </div>
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Mã tour</th>
+                      <th scope="col">Giá tour</th>
+                      <th scope="col">Người lớn (Từ 12 tuổi trở lên)</th>
+                      <th scope="col">Trẻ em (Từ 5 tuổi đến dưới 12 tuổi</th>
+                      <th scope="col">Giá phòng khách sạn</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">HD001</th>
+                      <td>2.499.000 VNĐ</td>
+                      <td>2.499.000 VNĐ</td>
+                      <td>1.299.000 VNĐ</td>
+                      <td>1.000.000 VNĐ</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-12 form_tour" style="padding: 20px;">
+                <div class="d-flex justify-content-center" style="margin-bottom: 12px;">
+                  <h3 class="text-danger">Nhân viên</h3>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label>Hướng dẫn viên</label>
+                    <input type="number" class="form-control" value="1" id="in_hdv">
+                  </div>
+                  <div class="col">
+                    <label>Thông dịch viên</label>
+                    <input type="number" class="form-control" value="0" id="in_pdv">
+                  </div>
+                  <div class="col">
+                    <label>Tài xế</label>
+                    <input type="number" class="form-control" value="1" id="in_tx">
+                  </div>
+                  <div class="col"">
+                    <label>Xử lý</label>
+                    <button type="button" class="form-control btn btn-primary" id="btn_nhan_vien">Xác nhận</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 form_nhanvien">
+                <div class="d-flex justify-content-center" style="margin-bottom: 20px;">
+                  <h3 class="text-danger">Danh sách nhân viên</h3>
+                </div>
+                <div class="card" id="list_customer_nv">
+                  <ul class="list-group list-group-hdv">
+                    <li class="list-group-item text-dark title-list">Hướng dẫn viên</li>
+                    <li class="list-group-item">
+                      <div class="row">
+                        <table class="table table-bordered table-fixed">
+                          <thead>
+                            <tr>
+                              <th scope="col" class="col-2">Chọn</th>
+                              <th scope="col" class="col-4">Tên</th>
+                              <th scope="col" class="col-3">Số điện thoại</th>
+                              <th scope="col" class="col-3">Email</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="col-2">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox">
+                              </div>
+                              </td>
+                              <td class="col-4">Nguyễn Huy Thắng</td>
+                              <td class="col-3">04025945203</td>
+                              <td class="col-3">huythang0903@gmail.com</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="list-group list-group-pdv">
+                    <li class="list-group-item text-dark title-list">Phiên dịch viên</li>
+                    <li class="list-group-item">
+                      <div class="row">
+                        <table class="table table-bordered table-fixed">
+                          <thead>
+                            <tr>
+                              <th scope="col" class="col-2">Chọn</th>
+                              <th scope="col" class="col-4">Tên</th>
+                              <th scope="col" class="col-3">Số điện thoại</th>
+                              <th scope="col" class="col-3">Email</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="col-2">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox">
+                                </div>
+                              </td>
+                              <td class="col-4">Nguyễn Huy Thắng</td>
+                              <td class="col-3">04025945203</td>
+                              <td class="col-3">huythang0903@gmail.com</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul class="list-group list-group-tx">
+                    <li class="list-group-item text-dark title-list">Tài xế</li>
+                    <li class="list-group-item">
+                      <div class="row header-fixed">
+                        <table class="table table-bordered table-fixed">
+                          <thead>
+                            <tr>
+                              <th scope="col" class="col-2">Chọn</th>
+                              <th scope="col" class="col-4">Tên</th>
+                              <th scope="col" class="col-3">Số điện thoại</th>
+                              <th scope="col" class="col-3">Email</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="col-2">
+                                <div class="custom-control custom-checkbox">
+                                  <input type="checkbox">
+                              </div>
+                              </td>
+                              <td class="col-4">Nguyễn Huy Thắng</td>
+                              <td class="col-3">04025945203</td>
+                              <td class="col-3">huythang0903@gmail.com</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </li>
+                  </ul>
+                </div> 
+              </div>
+              <div class="col-12" style="padding: 20px;">
+                <div class="d-flex justify-content-end">
+                  <a href="\Doan\themkhach" type="button" class="btn btn-primary" id="btn_save_tour">Tiếp theo</a>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>

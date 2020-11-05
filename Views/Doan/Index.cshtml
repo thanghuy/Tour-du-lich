@@ -1,73 +1,78 @@
-﻿@model IEnumerable<tour.ViewModels.DoanViewModel>
-
-@{
-    Layout = null;
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Quản lý đoàn";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TourId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DoanName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NgayDi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NgayVe)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChiTietChuongTrinh)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TourId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DoanName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayDi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayVe)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChiTietChuongTrinh)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-</body>
-</html>
+ <div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Danh sách đoàn khách</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="\">Trang chủ</a></li>
+                <li class="breadcrumb-item active">Danh sách đoàn</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="btn-group btn-add" role="group" aria-label="Basic example">
+                      <a href="\Doan\themdoan" class="btn btn-primary">Thêm đoàn khách</a>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <table class="table table-bordered table-hover" id="tableXemGiaTour">
+                      <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Mã đoàn</th>
+                            <th scope="col">Mã Tour</th>
+                            <th scope="col">Ngày đi</th>
+                            <th scope="col">Ngày về</th>
+                            <th scope="col">Số lượng nhân viên</th>
+                            <th scope="col">Số lượng khách</th>
+                            <th scope="col">Giá Tour</th>
+                            <th scope="col">Hành động</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>D01</td>
+                            <td>T01</td>
+                            <td>2020-10-12</td>
+                            <td>2020-10-16</td>
+                            <td>3</td>
+                            <td>10</td>
+                            <td>1.200000</td>
+                            <td>
+                              <a href="#" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
+                              <a class="btn btn-primary btn-sm" href="#">
+                                <i class="fas fa-pencil-alt">
+                                </i>
+                                Sửa
+                              </a>
+                              <a class="btn btn-danger btn-sm" href="#">
+                                <i class="fas fa-trash"></i>
+                              </a>
+                            </td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+    </section>
+  </div>

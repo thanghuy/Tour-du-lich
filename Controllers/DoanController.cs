@@ -20,20 +20,27 @@ namespace tour.Controllers
         // GET: DoanController
         public ActionResult Index()
         {
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
-            else
-            {
-                List<DoanDTO> src = _doanService.GetAll();
-                var list = _mapper.Map<List<DoanDTO>, List<DoanViewModel>>(src);
-                return View("Index", list);
-            }
+            // if (!ModelState.IsValid)
+            // {
+            //     return View();
+            // }
+            // else
+            // {
+            //     List<DoanDTO> src = _doanService.GetAll();
+            //     var list = _mapper.Map<List<DoanDTO>, List<DoanViewModel>>(src);
+            //     return View("Index", list);
+            // }
 
-            
+            return View();
         }
-
+        public ActionResult themdoan()
+        {
+            return View();
+        }
+        public ActionResult themkhach()
+        {
+            return View();
+        }
         // GET: DoanController/Details/5
         public ActionResult Details(int id)
         {
