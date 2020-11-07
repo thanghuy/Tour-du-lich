@@ -6,6 +6,10 @@ body {
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
+.list-place-tour{
+  height: 180px;
+  overflow-y: scroll;
+}
 .back-to-top {
   position: fixed;
   display: none;
