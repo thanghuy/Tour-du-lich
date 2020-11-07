@@ -1,11 +1,13 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using tour.DataAccess.Internal;
 using tour.DataAccess.SqlAccess;
+using tour.Models;
 using tour.Models.Entities;
 using tour.Services.Doan;
 
@@ -32,6 +34,7 @@ namespace tour
             services.AddSingleton(mapper);
 
             services.AddControllersWithViews();
+            services.AddDbContext<Tour_DBContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //services.AddSingleton(Configuration);
             services.AddSingleton<IDataAccess, DataAccess.Internal.DataAccess>();
             services.AddScoped<IDoanAccess, DoanAccess>();
