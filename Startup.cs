@@ -33,7 +33,7 @@ namespace tour
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddDbContext<Tour_DBContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //services.AddSingleton(Configuration);
             services.AddSingleton<IDataAccess, DataAccess.Internal.DataAccess>();
