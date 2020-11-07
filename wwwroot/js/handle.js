@@ -133,4 +133,16 @@ $(document).ready(function(){
         }
       }
       loadBirthay();
+      $("#link-nv").click(function(){
+        $("#link-customer").removeClass( "active");
+        $("#link-nv").addClass("active");
+        $("#list-customer").hide();
+        $("#list-nv").show();
+    })
+    $("#link-customer").click(function(){
+        $("#link-nv").removeClass( "active");
+        $("#link-customer").addClass("active");
+        $("#list-customer").show();
+        $("#list-nv").hide();
+    })
 });

@@ -238,3 +238,4 @@ C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\Nhanvien\index.cshtml.g.cs
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\Nhanvien\Create.cshtml.g.cs
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\quanlygia\Create.cshtml.g.cs
+C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\Doan\Details.cshtml.g.cs

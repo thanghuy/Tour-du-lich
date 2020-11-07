@@ -1,0 +1,233 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Chi tiết đoàn";
+}
+ <div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Danh sách đoàn khách</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="index3.html">Trang chủ</a></li>
+                <li class="breadcrumb-item active">Danh sách đoàn</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+      <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <ul class="nav nav-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#" id="link-customer">Danh sách người đi</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="link-nv">Nhân viên</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Thêm chi phí</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-12">
+                <div class="card" id="list-customer">
+                  <div class="card-header">
+                    <div class="btn-group btn-add">
+                      <button class="btn btn-primary" data-toggle="modal" data-target="#form-add">Thêm người đi</button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <table class="table table-bordered table-hover" id="tableXemGiaTour">
+                      <thead class="thead-light">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Tên</th>
+                            <th scope="col">Số điện thoại</th>
+                            <th scope="col">Ngày sinh</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Số chứng minh</th>
+                            <th scope="col">Thao tác</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>D01</td>
+                            <td>T01</td>
+                            <td>2020-10-12</td>
+                            <td>2020-10-16</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>
+                              <a class="btn btn-primary btn-sm" href="#">
+                                <i class="fas fa-pencil-alt">
+                                </i>
+                                Sửa
+                              </a>
+                              <a class="btn btn-danger btn-sm" href="#">
+                                <i class="fas fa-trash"></i>
+                              </a>
+                            </td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <div class="card" id="list-nv">
+                  <div class="card-header">
+                    <div class="col-12">
+                      <div class="row">
+                        <div class="col">
+                          <select class="form-control" id="select_tour">
+                            <option value='0' selected='true'>Chọn nhân viên</option>
+                            <option value="1">Đà lạt - Nha trang</option>
+                            <option>Nha trang - Đà nẵng - Huế</option>
+                            <option>Nha trang - Đà nẵng - Huế</option>
+                            <option>Nha trang - Đà nẵng - Huế</option>
+                            <option>Nha trang - Đà nẵng - Huế</option>
+                          </select>
+                        </div>
+                        <div class="col">
+                          <button class="btn btn-primary">Thêm nhân viên</button>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <table class="table table-bordered table-hover" id="tableXemGiaTour">
+                      <thead class="thead-light">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Tên nhân viên</th>
+                            <th scope="col">Số điện thoại</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Nhiệm vụ</th>
+                            <th scope="col">Thao tác</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>D01</td>
+                            <td>T01</td>
+                            <td>2020-10-12</td>
+                            <td>2020-10-16</td>
+                            <td>3</td>
+                            <td>
+                              <a class="btn btn-danger btn-sm" href="#">
+                                <i class="fas fa-trash"></i>
+                              </a>
+                            </td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+      </section>
+  </div>
+  <!-- /.content-wrapper -->
+  <div class="modal fade" id="form-add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Thêm khách hàng</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="col-12">
+            <div class="row">
+                <div class="col-12 form_tour_" style="padding: 20px;">
+                  <div class="row">
+                    <div class="col">
+                      <label>Người lớn</label>
+                      <input type="number" class="form-control" value="1" id="nguoi_lon">
+                    </div>
+                    <div class="col">
+                      <label>Trẻ em</label>
+                      <input type="number" class="form-control" value="0" id="tre_em">
+                    </div>
+                    <div class="col">
+                      <label>Số khách</label>
+                      <input type="text" class="form-control" value="1" id="tong_ng_di" readonly>
+                    </div>
+                    <div class="col">
+                        <label>Xử lý</label>
+                        <button type="button" class="form-control btn btn-primary" id="btn_khach_hang">Xác nhận</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 collapse form_list_customer">
+                  <div class="d-flex justify-content-center" style="margin-bottom: 20px;">
+                    <h3 class="text-danger">Danh sách khách hàng</h3>
+                  </div>
+                  <div class="card" id="list_customer_main">
+                    <!-- <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Khách hàng 1</li>
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col">
+                            <label>Họ tên</label>
+                            <input type="text" class="form-control" placeholder="Nhập họ tên">
+                          </div>
+                          <div class="col">
+                            <label>Số CMND</label>
+                            <input type="text" class="form-control" placeholder="Nhập số chứng minh">
+                          </div>
+                          <div class="col">
+                            <label>Địa chỉ</label>
+                            <input type="text" class="form-control" placeholder="Nhập địa chỉ">
+                          </div>
+                          <div class="col">
+                            <label>Số điện thoại</label>
+                            <input type="text" class="form-control" placeholder="Nhập số điện thoại">
+                          </div>
+                          <div class="col-3">
+                            <label>Ngày sinh</label>
+                            <div class="d-flex justify-content-end">
+                              <select class="form-control">
+                                <option value='0' selected='true'>Ngày</option>
+                                <option>2</option>
+                              </select>
+                              <select class="form-control">
+                                <option value='1' selected='true'>Tháng</option>
+                                <option>2</option>
+                              </select>
+                              <select class="form-control">
+                                <option value='1' selected='true'>Năm</option>
+                                <option>2</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="list-group-item">
+                        <div class="d-flex justify-content-end">Trị giá :&nbsp
+                          <label class="text-danger">2.399.000 VNĐ</label>
+                        </div>
+                      </li>
+                    </ul> -->
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-primary">Lưu</button>
+        </div>
+      </div>
+    </div>
+  </div>
