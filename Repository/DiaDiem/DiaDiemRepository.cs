@@ -7,10 +7,12 @@ using tour.Models;
 
 namespace tour.Repository.DiaDiem
 {
-    public class DiaDiemRepository : IDiaDiemRepo
+    public class DiaDiemRepository : Repository,IDiaDiemRepo
     {
-        private readonly Tour_DBContext _context;
-        public DiaDiemRepository(Tour_DBContext context) => _context = context;
+        public DiaDiemRepository(Tour_DBContext context) : base(context)
+        {
+        }
+
         public bool Add(DiaDiems d)
         {
             _context.Add(d);
@@ -27,7 +29,7 @@ namespace tour.Repository.DiaDiem
             return null;
         }
 
-        public IEnumerable<DiaDiems> GetAllDiaDiems()
+        public IEnumerable<DiaDiems> GetAll()
         {
             return _context.DiaDiems.AsEnumerable();
         }

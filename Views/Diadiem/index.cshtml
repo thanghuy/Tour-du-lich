@@ -2,6 +2,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Quản lý địa điểm";
 }
+@model IEnumerable<DiaDiems>
 <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
@@ -41,22 +42,41 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th>DL001</th>
-                        <td>Đà lạt</td>
-                        <td>Đà lạt</td>
-                        <td>Mô tả</td>
-                        <td>
-                          <a class="btn btn-primary btn-sm" href="#">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Sửa
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                            <i class="fas fa-trash"></i>
-                          </a>
-                        </td>
-                      </tr>
+                        @*<tr>
+                            <th>DL001</th>
+                            <td>Đà lạt</td>
+                            <td>Đà lạt</td>
+                            <td>Mô tả</td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" href="#">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Sửa
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="#">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+*@                @foreach (var d in Model)
+                    {
+                        <tr>
+                            <th>@d.DiadiemId</th>
+                            <td>@d.Ten</td>
+                            <td>@d.Thanhpho</td>
+                            <td>@d.Mota</td>
+                            <td>
+                                <a class="btn btn-primary btn-sm" href="#">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Sửa
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="#">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    }
                     </tbody>
                   </table>
                 </div>
