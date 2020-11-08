@@ -2,12 +2,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Chi tiết đoàn";
 }
- <div class="content-wrapper">
+  <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Danh sách đoàn khách</h1>
+              <h1>Chi tiết đoàn</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -30,7 +30,30 @@
                     <a class="nav-link" href="#" id="link-nv">Nhân viên</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Thêm chi phí</a>
+                    <a class="nav-link" href="#" id="link-cp">Chi phí</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-12">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <div class="d-flex justify-content-start">
+                      <div class="bd-highlight">Số lượng nhân viên :
+                        <span class="text-black">1</span>
+                      </div>
+                      <div class="bd-highlight">Số lượng khách :
+                        <span class="text-black">1</span>
+                      </div>
+                      <div class="bd-highlight">Giá tour :
+                        <span class="text-danger">1.500.000 VNĐ</span>
+                      </div>
+                      <div class="bd-highlight">Tổng chi phí :
+                        <span class="text-danger">1.500.000 VNĐ</span>
+                      </div>
+                      <div class="bd-highlight">Tổng tiền :
+                        <span class="text-danger">1.500.000 VNĐ</span>
+                      </div>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -129,6 +152,45 @@
                     </table>
                   </div>
                 </div>
+                <div class="card" id="list-cp">
+                  <div class="card-header">
+                    <div class="col-12">
+                      <div class="row">
+                        <div class="col">
+                          <button class="btn btn-primary" data-toggle="modal" data-target="#form-add-cp">Thêm chi phí</button>
+                        </div>
+                      </div>       
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <table class="table table-bordered table-hover" id="tableXemGiaTour">
+                      <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Tên tour</th>
+                            <th scope="col">Tên đoàn</th>
+                            <th scope="col">Loại</th>
+                            <th scope="col">Chi tiết</th>
+                            <th scope="col">Tổng tiền</th>
+                            <th scope="col">Thao tác</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>D01</td>
+                            <td>T01</td>
+                            <td>2020-10-12</td>
+                            <td>2020-10-16</td>
+                            <td>3</td>
+                            <td>
+                              <a class="btn btn-danger btn-sm" href="#">
+                                <i class="fas fa-trash"></i>
+                              </a>
+                            </td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
               <!-- /.col -->
             </div>
@@ -170,9 +232,6 @@
                   </div>
                 </div>
                 <div class="col-12 collapse form_list_customer">
-                  <div class="d-flex justify-content-center" style="margin-bottom: 20px;">
-                    <h3 class="text-danger">Danh sách khách hàng</h3>
-                  </div>
                   <div class="card" id="list_customer_main">
                     <!-- <ul class="list-group list-group-flush">
                       <li class="list-group-item">Khách hàng 1</li>
@@ -221,6 +280,60 @@
                     </ul> -->
                   </div>
                 </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+          <button type="button" class="btn btn-primary">Lưu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="form-add-cp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Thêm chi phí</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="col-12">
+            <div class="row">
+              <div class="col-6" style="padding: 20px;">
+                <div class="form-group">
+                  <label>Tên tour</label>
+                  <input type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                  <label>Tên đoàn</label>
+                  <input type="text" class="form-control" readonly>
+                </div>
+                <div class="form-group">
+                  <label>Loại chi phí</label>
+                  <select class="form-control">
+                      <option value='0' selected='true'>Hướng dẫn viên</option>
+                      <option value='1'>Thông dịch viên</option>
+                      <option value='2'>Tài xế</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-6" style="padding: 20px;">
+                <div class="form-group">
+                  <label>Nội dung</label>
+                  <input type="text" class="form-control" placeholder="Nhập nội dung">
+                </div>
+                <div class="form-group">
+                  <label>Hóa đơn</label>
+                  <input type="text" class="form-control" placeholder="Nhập mã hóa đơn">
+                </div>
+                <div class="form-group">
+                  <label>Giá</label>
+                  <input type="number" class="form-control" placeholder="Nhập giá">
+              </div>
+              </div>
             </div>
           </div>
         </div>

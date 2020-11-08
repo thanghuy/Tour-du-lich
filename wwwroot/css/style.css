@@ -4,15 +4,26 @@ body {
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
-.select2-container .select2-selection--single{
-  height: 38px !important;
-  min-width: 500px;
+.bd-highlight {
+  padding-right: 10px;
+  padding-left: 10px;
+  border-right: 1px solid rgb(216, 216, 216);
+}
+.bd-highlight > span {
+  font-style: italic;
 }
 .form-add-doan{
   width: 700px;
 }
 #list-nv{
   display: none;
+}
+#list-cp{
+  display: none;
+}
+.select2-container .select2-selection--single{
+  height: 38px !important;
+  min-width: 500px;
 }
 .list-place-tour{
   height: 180px;

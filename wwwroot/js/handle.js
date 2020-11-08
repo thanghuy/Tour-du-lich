@@ -135,14 +135,26 @@ $(document).ready(function(){
       loadBirthay();
       $("#link-nv").click(function(){
         $("#link-customer").removeClass( "active");
+        $("#link-cp").removeClass( "active");
         $("#link-nv").addClass("active");
         $("#list-customer").hide();
+        $("#list-cp").hide();
         $("#list-nv").show();
     })
     $("#link-customer").click(function(){
         $("#link-nv").removeClass( "active");
+        $("#link-cp").removeClass( "active");
         $("#link-customer").addClass("active");
         $("#list-customer").show();
         $("#list-nv").hide();
+        $("#list-cp").hide();
+    })
+    $("#link-cp").click(function(){
+        $("#link-nv").removeClass( "active");
+        $("#link-customer").removeClass( "active");
+        $("#link-cp").addClass("active");
+        $("#list-cp").show();
+        $("#list-nv").hide();
+        $("#list-customer").hide();
     })
 });
