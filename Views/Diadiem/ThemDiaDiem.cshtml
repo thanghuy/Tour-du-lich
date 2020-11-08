@@ -3,6 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Quản lý địa điểm";
 }
+@inject tour.Repository.DiaDiem.IDiaDiemRepo _repo;
  <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
@@ -22,7 +23,7 @@
     <section class="content">
       <div class="container-fluid card">
         <div class="col-12">
-            <form action="/" method="GET">
+            <form method="post">
                       <div class="row">
                         <div class="col-6" style="padding: 20px;">
                           <div class="form-group">
@@ -50,6 +51,7 @@
                         </div>
                         <div class="modal-footer col-12">
                           <button type="submit" class="btn btn-primary">Lưu</button>
+                            total = @_repo.Count();
                         </div>
                       </div>
             </form>

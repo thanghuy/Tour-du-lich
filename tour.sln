@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30523.141
+VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tour", "..\..\Tour-du-lich\tour.csproj", "{3C6EE354-90BF-4B3F-B532-BDF0D5EE2157}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tour", "tour.csproj", "{AB86A540-91A5-4F9D-8727-F441E3247D3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3C6EE354-90BF-4B3F-B532-BDF0D5EE2157}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C6EE354-90BF-4B3F-B532-BDF0D5EE2157}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C6EE354-90BF-4B3F-B532-BDF0D5EE2157}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C6EE354-90BF-4B3F-B532-BDF0D5EE2157}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB86A540-91A5-4F9D-8727-F441E3247D3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB86A540-91A5-4F9D-8727-F441E3247D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB86A540-91A5-4F9D-8727-F441E3247D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB86A540-91A5-4F9D-8727-F441E3247D3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2C90B24B-11A5-42BF-80FB-18204469D7D3}
+		SolutionGuid = {96A6F6C6-6B37-446B-B4B8-FA90A28081D5}
 	EndGlobalSection
 EndGlobal
