@@ -11,7 +11,7 @@ namespace tour.Repository.DiaDiem
         DiaDiems Get(int id);
         bool Add(DiaDiems d);
         bool Update(DiaDiems d);
-        IEnumerable<DiaDiems> GetAllDiaDiems();
+        IEnumerable<DiaDiems> GetAll();
         int Count();
     }
 }

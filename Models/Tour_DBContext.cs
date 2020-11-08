@@ -20,9 +20,11 @@ namespace tour.Models
         public virtual DbSet<DiaDiems> DiaDiems { get; set; }
         public virtual DbSet<Doans> Doans { get; set; }
         public virtual DbSet<Gias> Gias { get; set; }
+        public virtual DbSet<KhachHangs> KhachHangs { get; set; }
         public virtual DbSet<LoaiChiPhis> LoaiChiPhis { get; set; }
         public virtual DbSet<Loais> Loais { get; set; }
         public virtual DbSet<NguoiDis> NguoiDis { get; set; }
+        public virtual DbSet<NhanViens> NhanViens { get; set; }
         public virtual DbSet<Tours> Tours { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -92,7 +94,42 @@ namespace tour.Models
 
                 entity.Property(e => e.Sotien).HasColumnName("sotien");
 
+                entity.Property(e => e.ToudId).HasColumnName("toud_id");
+
                 entity.Property(e => e.Tungay).HasColumnName("tungay");
+            });
+
+            modelBuilder.Entity<KhachHangs>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.KhCmnd)
+                    .IsRequired()
+                    .HasColumnName("kh_cmnd")
+                    .HasMaxLength(10)
+                    .IsFixedLength();
+
+                entity.Property(e => e.KhEmail)
+                    .HasColumnName("kh_email")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.KhId)
+                    .HasColumnName("kh_id")
+                    .ValueGeneratedOnAdd();
+
+                entity.Property(e => e.KhNgaysinh)
+                    .HasColumnName("kh_ngaysinh")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.KhSdt)
+                    .IsRequired()
+                    .HasColumnName("kh_sdt")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.KhTen)
+                    .IsRequired()
+                    .HasColumnName("kh_ten")
+                    .HasMaxLength(50);
             });
 
             modelBuilder.Entity<LoaiChiPhis>(entity =>
@@ -134,11 +171,38 @@ namespace tour.Models
                 entity.Property(e => e.DoanId).HasColumnName("doan_id");
             });
 
+            modelBuilder.Entity<NhanViens>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.Property(e => e.NvEmail)
+                    .HasColumnName("nv_email")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.NvId)
+                    .HasColumnName("nv_id")
+                    .ValueGeneratedOnAdd();
+
+                entity.Property(e => e.NvNgaysinh)
+                    .IsRequired()
+                    .HasColumnName("nv_ngaysinh")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.NvNhiemvu).HasColumnName("nv_nhiemvu");
+
+                entity.Property(e => e.NvSdt)
+                    .HasColumnName("nv_sdt")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.NvTen)
+                    .IsRequired()
+                    .HasColumnName("nv_ten")
+                    .HasMaxLength(50);
+            });
+
             modelBuilder.Entity<Tours>(entity =>
             {
                 entity.HasKey(e => e.TourId);
-
-                entity.Property(e => e.GiaId).HasColumnName("gia_id");
 
                 entity.Property(e => e.LoaiId).HasColumnName("loai_id");
 

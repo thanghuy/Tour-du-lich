@@ -2,6 +2,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Quản lý giá";
 }
+@model IEnumerable<Gias>
  <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
@@ -41,22 +42,41 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th>DL001</th>
-                        <td>1.500.000 VNĐ</td>
-                        <td>2-2-2020</td>
-                        <td>5-5-2020</td>
-                        <td>
-                          <a class="btn btn-primary btn-sm" href="#">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Sửa
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                            <i class="fas fa-trash"></i>
-                          </a>
-                        </td>
-                      </tr>
+                        @*<tr>
+          <th>DL001</th>
+          <td>1.500.000 VNĐ</td>
+          <td>2-2-2020</td>
+          <td>5-5-2020</td>
+          <td>
+            <a class="btn btn-primary btn-sm" href="#">
+              <i class="fas fa-pencil-alt">
+              </i>
+              Sửa
+            </a>
+            <a class="btn btn-danger btn-sm" href="#">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+*@                  @foreach (var p in Model)
+                        {
+                            <tr>
+                                <th>@p.GiaId</th>
+                                <td>@p.Sotien VNĐ</td>
+                                <td>@p.Tungay</td>
+                                <td>@p.Denngay</td>
+                                <td>
+                                    <a class="btn btn-primary btn-sm" href="#">
+                                        <i class="fas fa-pencil-alt">
+                                        </i>
+                                        Sửa
+                                    </a>
+                                    <a class="btn btn-danger btn-sm" href="#">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                   </table>
                 </div>
