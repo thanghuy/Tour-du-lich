@@ -9,6 +9,8 @@ using tour.DataAccess.Internal;
 using tour.DataAccess.SqlAccess;
 using tour.Models;
 using tour.Models.Entities;
+using tour.Repository;
+using tour.Repository.DiaDiem;
 using tour.Services.Doan;
 
 namespace tour
@@ -36,6 +38,7 @@ namespace tour
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddDbContext<Tour_DBContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //services.AddSingleton(Configuration);
+            services.AddScoped<IDiaDiemRepo,DiaDiemRepository>();
             services.AddSingleton<IDataAccess, DataAccess.Internal.DataAccess>();
             services.AddScoped<IDoanAccess, DoanAccess>();
             services.AddScoped<IDoanService, DoanService>();
