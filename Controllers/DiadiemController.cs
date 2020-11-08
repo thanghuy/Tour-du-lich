@@ -28,7 +28,7 @@ namespace tour.Controllers
         {
             if (ModelState.IsValid)
             {
-                _logger.LogInformation(_repo.Add(diaDiems).ToString());
+                return View(_repo.GetAllDiaDiems());
             }
             return View();
         }

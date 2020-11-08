@@ -27,15 +27,15 @@ namespace tour.Repository.DiaDiem
             return null;
         }
 
+        public IEnumerable<DiaDiems> GetAllDiaDiems()
+        {
+            return _context.DiaDiems.AsEnumerable();
+        }
+
         public bool Update(DiaDiems d)
         {
             
             return true;
-        }
-
-        List<DiaDiems> IDiaDiemRepo.GetAllDiaDiems()
-        {
-            return _context.Set<DiaDiems>().ToList();
         }
     }
 }
