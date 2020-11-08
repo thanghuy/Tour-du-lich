@@ -18,6 +18,7 @@ namespace tour.Controllers
         {
             return View();
         }
+        [HttpGet]
         public IActionResult ThemDiaDiem(){
             return View();
         }

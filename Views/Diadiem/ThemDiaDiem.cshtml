@@ -1,3 +1,4 @@
+@model DiaDiems
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Quản lý địa điểm";
@@ -21,32 +22,37 @@
     <section class="content">
       <div class="container-fluid card">
         <div class="col-12">
-          <div class="row">
-            <div class="col-6" style="padding: 20px;">
-              <div class="form-group">
-                <label>Tên địa điểm</label>
-                <input type="text" class="form-control" placeholder="Nhập tên địa điểm">
-              </div>
-              <div class="form-group">
-                <label>Tên thành phố</label>
-                <input type="text" class="form-control" placeholder="Nhập tên thành phố">
-              </div>
-              <div class="form-group">
-                <label>Mô tả</label>
-                <textarea class="form-control"></textarea>
-              </div>
-            </div>
-            <div class="col-6" style="padding: 20px;">
-                <div class="form-group">
-                    <label for="exampleInputFile">Nhập hình ảnh</label>
-                    <input type="file" id="exampleInputFile" width="200"  height="200">
-                </div>
-                <img src="../../pngtree-travel-promotion-background-creative-synthesis-parent-child-tour-couple-tour-image_13277.jpg" alt="..." class="img-thumbnail">
-            </div>
-            <div class="modal-footer col-12">
-              <button type="button" class="btn btn-primary">Lưu</button>
-            </div>
-          </div>
+            <form action="/" method="GET">
+                      <div class="row">
+                        <div class="col-6" style="padding: 20px;">
+                          <div class="form-group">
+                            <label>Tên địa điểm</label>
+                            <input asp-for="Ten" type="text" class="form-control" placeholder="Nhập tên địa điểm">
+                            <span class="text-danger" asp-validation-for="Ten"></span>
+                          </div>
+                          <div class="form-group">
+                              <label>Tên thành phố</label>
+                              <input asp-for="Thanhpho" type="text" class="form-control" placeholder="Nhập tên thành phố">
+                              <span class="text-danger" asp-validation-for="Thanhpho"></span>
+                          </div>
+                          <div class="form-group">
+                              <label>Mô tả</label>
+                              <textarea asp-for="Mota" class="form-control"></textarea>
+                              <span class="text-danger" asp-validation-for="Mota"></span>
+                          </div>
+                        </div>
+                        <div class="col-6" style="padding: 20px;">
+                            <div class="form-group">
+                                <label for="exampleInputFile">Nhập hình ảnh</label>
+                                <input type="file" id="exampleInputFile" width="200"  height="200">
+                            </div>
+                            <img src="../../pngtree-travel-promotion-background-creative-synthesis-parent-child-tour-couple-tour-image_13277.jpg" alt="..." class="img-thumbnail">
+                        </div>
+                        <div class="modal-footer col-12">
+                          <button type="submit" class="btn btn-primary">Lưu</button>
+                        </div>
+                      </div>
+            </form>
         </div>
       </div>
     </section>
