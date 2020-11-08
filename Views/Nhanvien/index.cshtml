@@ -2,74 +2,110 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Quản lý đoàn";
 }
- <div class="content-wrapper">
+@model IEnumerable<NhanViens>
+<div class="content-wrapper">
     <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Danh sách nhân viên</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-              <li class="breadcrumb-item active">Danh sách nhân viên</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Danh sách nhân viên</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Danh sách nhân viên</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
     </section>
     <section class="content">
-      <div class="container-fluid">
-          <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <div class="btn-group btn-add" role="group" aria-label="Basic example">
-                    <a href="/Nhanvien/Create" class="btn btn-primary">Thêm nhân viên</a>
-                  </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="btn-group btn-add" role="group" aria-label="Basic example">
+                                <a href="/Nhanvien/Create" class="btn btn-primary">Thêm nhân viên</a>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-hover" id="tableXemGiaTour">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Mã nhân viên</th>
+                                        <th scope="col">Tên nhân viên</th>
+                                        <th scope="col">Số điện thoại</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Ngày sinh</th>
+                                        <th scope="col">Nhiệm vụ</th>
+                                        <th scope="col">Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @*                        <tr>
+                                            <th>NV001</th>
+                                            <td>Nguyễn Huy Thắng</td>
+                                            <td>094352345</td>
+                                            <td>huythang0903@gmail.com</td>
+                                            <td>09-03-1999</td>
+                                            <td>Hướng dẫn viên</td>
+                                            <td>
+                                                <a class="btn btn-primary btn-sm" href="#">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                    Sửa
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>*@
+                                    @foreach (var nv in Model)
+                                    {
+                                    <tr>
+                                        <th>@nv.NvId</th>
+                                        <td>@nv.NvTen</td>
+                                        <td>@nv.NvSdt</td>
+                                        <td>@nv.NvEmail</td>
+                                        <td>@nv.NvNgaysinh</td>
+                                            @{
+                                                switch (nv.NvNhiemvu)
+                                                {
+                                                    case 0:
+                                                    <td>Hướng dẫn viên</td>
+                                                        break;
+                                                    case 1:
+                                                    <td>Thông dịch viên</td>
+                                                        break;
+                                                    case 2:
+                                                    <td>Tài xế</td>
+                                                        break;
+                                                    default: break;
+                                                }
+                                            }
+                                            <td>
+                                                <a class="btn btn-primary btn-sm" href="#">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                    Sửa
+                                                </a>
+                                                <a class="btn btn-danger btn-sm" href="#">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        }       
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table class="table table-bordered table-hover" id="tableXemGiaTour">
-                    <thead class="thead-light">
-                      <tr>
-                        <th scope="col">Mã nhân viên</th>
-                        <th scope="col">Tên nhân viên</th>
-                        <th scope="col">Số điện thoại</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Ngày sinh</th>
-                        <th scope="col">Nhiệm vụ</th>
-                        <th scope="col">Hành động</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th>NV001</th>
-                        <td>Nguyễn Huy Thắng</td>
-                        <td>094352345</td>
-                        <td>huythang0903@gmail.com</td>
-                        <td>09-03-1999</td>
-                        <td>Hướng dẫn viên</td>
-                        <td>
-                            <a class="btn btn-primary btn-sm" href="#">
-                              <i class="fas fa-pencil-alt">
-                              </i>
-                              Sửa
-                            </a>
-                            <a class="btn btn-danger btn-sm" href="#">
-                              <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <!-- /.card-body -->
-              </div>
+                <!-- /.col -->
             </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-      </div>
-    </section>  
-  </div>
+            <!-- /.row -->
+        </div>
+    </section>
+</div>

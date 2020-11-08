@@ -10,7 +10,7 @@ namespace tour.Controllers
     {
         private readonly ILogger<DiadiemController> _logger;
         private readonly IDiaDiemRepo _repo;
-        public DiadiemController(IDiaDiemRepo repo,ILogger<DiadiemController> logger)
+        public DiadiemController(IDiaDiemRepo repo, ILogger<DiadiemController> logger)
         {
             _logger = logger;
             _repo = repo;
@@ -18,7 +18,7 @@ namespace tour.Controllers
 
         public IActionResult index()
         {
-            return View();
+            return View(_repo.GetAll());
         }
         public ViewResult ThemDiaDiem(){
             return View();
@@ -28,7 +28,7 @@ namespace tour.Controllers
         {
             if (ModelState.IsValid)
             {
-                return View(_repo.GetAllDiaDiems());
+                _logger.LogInformation(_repo.Add(diaDiems).ToString());
             }
             return View();
         }

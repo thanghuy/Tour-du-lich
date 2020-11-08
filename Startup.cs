@@ -11,6 +11,9 @@ using tour.Models;
 using tour.Models.Entities;
 using tour.Repository;
 using tour.Repository.DiaDiem;
+using tour.Repository.Gia;
+using tour.Repository.NhanVien;
+using tour.Repository.Tour;
 using tour.Services.Doan;
 
 namespace tour
@@ -39,6 +42,8 @@ namespace tour
             services.AddDbContext<Tour_DBContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //services.AddSingleton(Configuration);
             services.AddScoped<IDiaDiemRepo,DiaDiemRepository>();
+            services.AddScoped<IGiaRepo,GiaRepository>();
+            services.AddScoped<INhanVienRepo, NhanVienRepository>();
             services.AddSingleton<IDataAccess, DataAccess.Internal.DataAccess>();
             services.AddScoped<IDoanAccess, DoanAccess>();
             services.AddScoped<IDoanService, DoanService>();
