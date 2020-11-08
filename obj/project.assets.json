@@ -8780,23 +8780,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Hieu\\.nuget\\packages\\": {}
+    "C:\\Users\\huyth\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hieu\\Documents\\GitHub\\Tour-du-lich\\tour.csproj",
+      "projectUniqueName": "C:\\Users\\huyth\\OneDrive\\Máy tính\\Tour\\tour\\tour.csproj",
       "projectName": "tour",
-      "projectPath": "C:\\Users\\Hieu\\Documents\\GitHub\\Tour-du-lich\\tour.csproj",
-      "packagesPath": "C:\\Users\\Hieu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hieu\\Documents\\GitHub\\Tour-du-lich\\obj\\",
+      "projectPath": "C:\\Users\\huyth\\OneDrive\\Máy tính\\Tour\\tour\\tour.csproj",
+      "packagesPath": "C:\\Users\\huyth\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\huyth\\OneDrive\\Máy tính\\Tour\\tour\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\huyth\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\Hieu\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> pr/4
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8876,5 +8872,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\huyth\\OneDrive\\Máy tính\\Tour\\tour\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
