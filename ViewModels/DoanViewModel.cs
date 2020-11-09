@@ -12,6 +12,6 @@ namespace tour.ViewModels
         public string DoanName { get; set; }
         public DateTime NgayDi { get; set; }
         public DateTime NgayVe { get; set; }
-        public string ChiTietChuongTrinh { get; set; }
+        public string TongTien { get; set; }
     }
 }

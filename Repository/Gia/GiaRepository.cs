@@ -25,6 +25,11 @@ namespace tour.Repository.Gia
 
         public Gias Get(int id)
         {
+            return _context.Gias.Find(id);
+        }
+
+        public int Get(object sotien)
+        {
             throw new NotImplementedException();
         }
 

@@ -13,5 +13,6 @@ namespace tour.Repository.Gia
         bool Update(Gias d);
         IEnumerable<Gias> GetAll();
         int Count();
+        int Get(object sotien);
     }
 }

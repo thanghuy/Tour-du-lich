@@ -2,6 +2,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Thêm 1 đoàn du lịch";
 }
+@model IEnumerable<Tours>
 <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
@@ -47,18 +48,18 @@
                 </div>
                 <div class="form-group">
                   <label>Chọn tour</label>
-                  <select class="form-control" id="select_tour">
-                    <option value='0' selected='true'>Chọn tour cần đi</option>
-                    <option value="1">Đà lạt - Nha trang</option>
-                    <option>Nha trang - Đà nẵng - Huế</option>
-                    <option>Nha trang - Đà nẵng - Huế</option>
-                    <option>Nha trang - Đà nẵng - Huế</option>
-                    <option>Nha trang - Đà nẵng - Huế</option>
+                  <select class="form-control" id="select-tour-price">
+                      <option selected='true'>Chọn tour cần đi</option>
+                      @foreach (var item in Model)
+                      {
+                          <option value="@item.TourId">@item.Ten</option>
+                      }
+
                   </select>
                 </div>
                 <div class="form-group">
                   <label>Giá</label>
-                  <input type="number" class="form-control" readonly>
+                  <input type="number" class="form-control" id="price-tour-d" readonly>
                 </div>
               </div>
               <div class="col-12" style="padding: 20px;">

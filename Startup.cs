@@ -14,7 +14,7 @@ using tour.Repository.DiaDiem;
 using tour.Repository.Gia;
 using tour.Repository.NhanVien;
 using tour.Repository.Tour;
-using tour.Services.Doan;
+using tour.Repository.Doan;
 
 namespace tour
 {
@@ -46,7 +46,9 @@ namespace tour
             services.AddScoped<INhanVienRepo, NhanVienRepository>();
             services.AddSingleton<IDataAccess, DataAccess.Internal.DataAccess>();
             services.AddScoped<IDoanAccess, DoanAccess>();
-            services.AddScoped<IDoanService, DoanService>();
+            services.AddScoped<ITourRepo, TourRepositoty>();
+            // services.AddScoped<IDoanService, DoanService>();
+            services.AddScoped<IDoanRepo, DoanRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

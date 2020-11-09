@@ -1,41 +1,46 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using tour.Models.DTOs;
-using tour.Services.Doan;
+using tour.Repository.Doan;
+using tour.Repository.Gia;
+using tour.Repository.Tour;
 using tour.ViewModels;
 
 namespace tour.Controllers
 {
     public class DoanController : Controller
     {
-        private readonly IDoanService _doanService;
-        private readonly IMapper _mapper;
-        public DoanController(IDoanService doanService, IMapper mapper)
+        private readonly IDoanRepo _doanService;
+        private readonly ITourRepo tour;
+        private readonly IGiaRepo gia;
+
+        public DoanController(IDoanRepo doanService, ITourRepo tour, IGiaRepo gia)
         {
-            _mapper = mapper;
             _doanService = doanService;
+            this.tour = tour;
+            this.gia = gia;
         }
         // GET: DoanController
         public ActionResult Index()
         {
-            // if (!ModelState.IsValid)
-            // {
-            //     return View();
-            // }
-            // else
-            // {
-            //     List<DoanDTO> src = _doanService.GetAll();
-            //     var list = _mapper.Map<List<DoanDTO>, List<DoanViewModel>>(src);
-            //     return View("Index", list);
-            // }
 
-            return View();
+
+            return View(_doanService.GetAll());
+        }
+        [HttpGet]
+        public int getGia()
+        {
+            var id = Request.Query["id"];
+            Console.WriteLine(id);
+            return gia.Get(Convert.ToInt32(id)).Sotien;
         }
         public ActionResult themdoan()
         {
-            return View();
+            return View(tour.GetAll());
         }
         public ActionResult themkhach()
         {

@@ -4,6 +4,21 @@ $("#select_tour").select2({
 $("#select_tour").change(function(){
     $(".form_tour").show();
 })
+$("#select-tour-price").change(function () {
+    var tourid = $('#select-tour-price').val();
+    $.ajax({
+        type: "GET",
+        url: "/Doan/getGia?id=" + tourid,
+        data: null,
+        dataType: "text",
+        success: function (data) {
+            $("#price-tour-d").val(data);
+        },
+        error: function (req, status, error) {
+            console.log(msg);
+        }
+    }); 
+})
 $("#btn_nhan_vien").click(function(){
     $(".form_nhanvien").show();
     var numberHdv = $("#in_hdv").val();
