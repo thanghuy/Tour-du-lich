@@ -4,6 +4,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using tour.Models;
 using tour.Models.DTOs;
 using tour.Repository.Doan;
 using tour.Repository.Gia;
@@ -28,19 +29,24 @@ namespace tour.Controllers
         public ActionResult Index()
         {
 
-
             return View(_doanService.GetAll());
         }
         [HttpGet]
         public int getGia()
         {
             var id = Request.Query["id"];
-            Console.WriteLine(id);
             return gia.Get(Convert.ToInt32(id)).Sotien;
         }
         public ActionResult themdoan()
         {
-            return View(tour.GetAll());
+            ViewBag.tour = tour.GetAll();
+            return View();
+        }
+        [HttpPost]
+        public ActionResult themdoan(Doans doans)
+        {
+            _doanService.Add(doans);
+            return Redirect("Index"); 
         }
         public ActionResult themkhach()
         {
