@@ -1,8 +1,6 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Quản lý tour";
-    @*var Loai = ViewData["Loai"] as IEnumerable<Loais>;*@
-    var Loai = ViewBag.Loai;
+    ViewData["Title"] = "Thêm mới";
 }
 @model Tours
   <div class="content-wrapper">
@@ -24,107 +22,55 @@
     <section class="content">
       <div class="container-fluid card">
         <div class="col-12">
-            <form method="post">
-                <div class="row">
-                    <div class="col-6" style="padding: 20px;">
-                        <div class="form-group">
-                            <label>Tên tour</label>
-                            <input asp-for="Ten" type="text" class="form-control" placeholder="Nhập tên tour">
-                            <span class="text-danger" asp-validation-for="Ten"></span>
-                        </div>
-                        <div class="form-group">
-                            <label>Loại</label>
-                            <select asp-for="LoaiId" class="form-control">
-                                @foreach (var l in Loai)
-                                {
-                                    <option value="@l.LoaiId">@l.Ten</option>
-                                }
-                            </select>
-                            <span class="text-danger" asp-validation-for="LoaiId"></span>
-                        </div>
-                        <div class="form-group">
-                            <label>Mô tả</label>
-                            <textarea asp-for="Mota" class="form-control" placeholder="Place some text here"></textarea>
-                            <span class="text-danger" asp-validation-for="Mota"></span>
-                        </div>
+          <div class="row">
+            <div class="col-12" style="padding: 20px;">
+              <div class="form-group">
+                <label>Tên tour</label>
+                <input type="text" class="form-control" placeholder="Nhập tên tour">
+              </div>
+              <div class="form-group">
+                <label>Loại</label>
+                <select class="form-control">
+                  <option>Chọn loại hình du lịch</option>
+                  <option>Du lịch di động</option>
+                  <option>Du lịch nghề nghiệp</option>
+                  <option>Du lịch xã hội</option>
+                  <option>Du lịch gia đình</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Mô tả</label>
+                <textarea class="form-control" placeholder="Place some text here"></textarea>
+              </div>
+            </div>
+            <div class="col-12" style="padding: 20px;">
+              <div class="row">
+                <div class="col-4">
+                  <label>Chọn địa điểm</label>
+                  <div class="form-group">
+                    <select class="form-control" id="select-location-tour">
+                      <option>Chọn thành phố</option>
+                      <option value="0">Nha trang</option>
+                      <option value="1">Phan thiết</option>
+                    </select>
+                  </div>
+                  <div class="card list-place-tour">
+                    <div class="card-body check-main-tour list-place1" id="check-main-tour-to">
                     </div>
-                    <div class="col-6" style="padding: 20px;">
-                        <div class="row">
-                            <div class="col-6">
-                                <label>Chọn địa điểm</label>
-                                <div class="form-group">
-                                    <select class="form-control">
-                                        <option>Chọn thành phố</option>
-                                        <option>Nha trang</option>
-                                        <option>Phan thiết</option>
-                                    </select>
-                                </div>
-                                <div class="card list-place-tour">
-                                    <div class="card-body">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                            <label class="form-check-label" for="defaultCheck1">
-                                                Mũi né
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                                            <label class="form-check-label" for="defaultCheck2">
-                                                Phan thiết
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                                            <label class="form-check-label" for="defaultCheck2">
-                                                Phan thiết
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                                            <label class="form-check-label" for="defaultCheck2">
-                                                Phan thiết
-                                            </label>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <label>Kết quả</label>
-                                <div class="form-group">
-                                    <button class="btn btn-outline-primary form-control">Xóa tất cả</button>
-                                </div>
-                                <div class="card list-place-tour">
-                                    <div class="card-body">
-                                        <div class="form-check">
-                                            <i class="fas fa-trash form-check-input"></i>
-                                            <label class="form-check-label" for="defaultCheck1">
-                                                Mũi né
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <i class="fas fa-trash form-check-input"></i>
-                                            <label class="form-check-label" for="defaultCheck2">
-                                                Phan thiết
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <i class="fas fa-trash form-check-input"></i>
-                                            <label class="form-check-label" for="defaultCheck2">
-                                                Phan thiết
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <i class="fas fa-trash form-check-input"></i>
-                                            <label class="form-check-label" for="defaultCheck2">
-                                                Phan thiết
-                                            </label>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                  </div>
+                </div>
+                <div class="col-1 justify-content-center align-self-center">
+                   <button class="btn btn-outline-primary form-control" style="margin-bottom:10px;" id="location-add">></button>
+                    <button class="btn btn-outline-primary form-control" id="location-de"><</button>
+                </div>
+                <div class="col-4">
+                  <label>Kết quả</label>
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="kq-list-place">
+                    <button class="btn btn-outline-primary form-control">Xóa tất cả</button>
+                  </div>
+                  <div class="card list-place-tour">
+                    <div class="card-body check-main-tour list-place2" id="check-main-tour-form">
                     </div>
                     <div class="modal-footer col-12">
                         <button type="submit" class="btn btn-primary">Lưu</button>
