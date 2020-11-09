@@ -239,6 +239,7 @@ C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\Nhanvien\Create.cshtml.g.cs
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\quanlygia\Create.cshtml.g.cs
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\Doan\Details.cshtml.g.cs
+<<<<<<< HEAD
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -991,3 +992,5 @@ C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\runtimes\un
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.MvcApplicationPartsAssemblyInfo.cs
+=======
+>>>>>>> pr/7
