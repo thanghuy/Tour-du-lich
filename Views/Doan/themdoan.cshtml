@@ -1,8 +1,9 @@
+@model Doans
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Thêm 1 đoàn du lịch";
+    var tour = ViewBag.tour;
 }
-@model IEnumerable<Tours>
 <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
@@ -22,52 +23,59 @@
     <section class="content">
       <div class="container-fluid card">
         <div class="col-12">
-          <div class="row">
-            <div class="col-12" style="padding: 20px;">
-                <div class="form-group">
-                  <label>Tên đoàn</label>
-                  <input type="text" class="form-control" placeholder="Nhập tên đoàn">
-                </div>
-              </div>
-              <div class="col-12" style="padding: 20px;margin-bottom: 10px;">
+            <form method="post">
                 <div class="row">
-                  <div class="col">
-                    <label>Ngày đi</label>
-                    <input type="date" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label>Ngày về</label>
-                    <input type="date" class="form-control">
-                  </div>
-                </div>
-                <div class="row" style="margin-top: 10px;">
-                  <div class="col">
-                    <label>Chi tiết chương trình</label>
-                    <textarea class="form-control"></textarea> 
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Chọn tour</label>
-                  <select class="form-control" id="select-tour-price">
-                      <option selected='true'>Chọn tour cần đi</option>
-                      @foreach (var item in Model)
-                      {
-                          <option value="@item.TourId">@item.Ten</option>
-                      }
+                    <div class="col-12" style="padding: 20px;">
+                        <div class="form-group">
+                            <label>Tên đoàn</label>
+                            <input type="text" asp-for="Ten" class="form-control" placeholder="Nhập tên đoàn">
+                            <span class="text-danger" asp-validation-for="Ten"></span>
+                        </div>
+                    </div>
+                    <div class="col-12" style="padding: 20px;margin-bottom: 10px;">
+                        <div class="row">
+                            <div class="col">
+                                <label>Ngày đi</label>
+                                <input type="date" asp-for="NgayDi" class="form-control">
+                                <span class="text-danger" asp-validation-for="NgayDi"></span>
+                            </div>
+                            <div class="col">
+                                <label>Ngày về</label>
+                                <input type="date" asp-for="NgayVe" class="form-control">
+                                <span class="text-danger" asp-validation-for="NgayVe"></span>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col">
+                                <label>Chi tiết chương trình</label>
+                                <textarea asp-for="ChiTietChuongTrinh" class="form-control"></textarea>
+                                <span class="text-danger" asp-validation-for="ChiTietChuongTrinh"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Chọn tour</label>
+                            <select asp-for="TourId" class="form-control" id="select-tour-price">
+                                <option selected='true'>Chọn tour cần đi</option>
+                                @foreach (var item in tour)
+                                {
+                                    <option value="@item.TourId">@item.Ten</option>
+                                }
 
-                  </select>
+                            </select>
+                            <span class="text-danger" asp-validation-for="TourId"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Giá</label>
+                            <input type="number" class="form-control" id="price-tour-d" readonly>
+                        </div>
+                    </div>
+                    <div class="col-12" style="padding: 20px;">
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary" id="btn_save_tour">Lưu</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                  <label>Giá</label>
-                  <input type="number" class="form-control" id="price-tour-d" readonly>
-                </div>
-              </div>
-              <div class="col-12" style="padding: 20px;">
-                <div class="d-flex justify-content-end">
-                  <a href="#" type="button" class="btn btn-primary" id="btn_save_tour">Lưu</a>
-                </div>
-              </div>
-          </div>
+            </form>
         </div>
       </div>
     </section>
