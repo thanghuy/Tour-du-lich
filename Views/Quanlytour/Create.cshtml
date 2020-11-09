@@ -2,7 +2,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Quản lý tour";
     @*var Loai = ViewData["Loai"] as IEnumerable<Loais>;*@
-    var Loai = ViewBag.Loai;
+var Loai = ViewBag.Loai as IEnumerable<Loais>;
+var ThanhPho = ViewBag.ThanhPho as IEnumerable<DiaDiems>;
 }
 @model Tours
   <div class="content-wrapper">
@@ -54,9 +55,10 @@
                                 <label>Chọn địa điểm</label>
                                 <div class="form-group">
                                     <select class="form-control">
-                                        <option>Chọn thành phố</option>
-                                        <option>Nha trang</option>
-                                        <option>Phan thiết</option>
+                                        @foreach(var tp in ThanhPho)
+                                        {
+                                            <option>@tp.Thanhpho</option>
+                                        }
                                     </select>
                                 </div>
                                 <div class="card list-place-tour">

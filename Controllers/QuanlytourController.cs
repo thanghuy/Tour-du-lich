@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using tour.Models;
@@ -28,9 +31,15 @@ namespace tour.Controllers
         public IActionResult Create()
         {
             //ViewData["Loai"] = loai.GetAll();
-            ViewBag.ThanhPho = diaDiemRepo.GetAllNameCity();
+            ViewBag.ThanhPho = diaDiemRepo.GetGroupNameCity();
             ViewBag.Loai = loaiRepo.GetAll();
             return View();
+        }
+        
+        [HttpGet]
+        public JsonResult GetLocation()
+        {
+            return Json(new {Data = diaDiemRepo.FindByName("DakLak")});
         }
 
         [HttpPost]
