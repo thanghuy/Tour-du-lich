@@ -11,3 +11,6 @@ obj/tour.csproj.nuget.dgspec.json
 obj/tour.csproj.nuget.g.props
 *.dll
 .vs/tour/v16/.suo
+*.cache
+*.txt
+*.dll

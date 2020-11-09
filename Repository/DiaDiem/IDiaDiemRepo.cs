@@ -13,5 +13,6 @@ namespace tour.Repository.DiaDiem
         bool Update(DiaDiems d);
         IEnumerable<DiaDiems> GetAll();
         int Count();
+        List<DiaDiems> GetAllNameCity();
     }
 }

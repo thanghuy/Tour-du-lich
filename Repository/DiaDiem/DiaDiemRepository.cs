@@ -39,5 +39,10 @@ namespace tour.Repository.DiaDiem
             
             return true;
         }
+
+        List<DiaDiems> IDiaDiemRepo.GetAllNameCity()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
