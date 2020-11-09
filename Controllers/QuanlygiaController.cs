@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using tour.Models;
 using tour.Repository.Gia;
+using tour.Repository.Tour;
 
 namespace tour.Controllers
 {
@@ -10,11 +11,13 @@ namespace tour.Controllers
     {
         private readonly ILogger<QuanlygiaController> _logger;
         private readonly IGiaRepo giaRepo;
+        private readonly ITourRepo tourRepo;
 
-        public QuanlygiaController(ILogger<QuanlygiaController> logger, IGiaRepo giaRepo)
+        public QuanlygiaController(ILogger<QuanlygiaController> logger, IGiaRepo giaRepo, ITourRepo tourRepo)
         {
             _logger = logger;
             this.giaRepo = giaRepo;
+            this.tourRepo = tourRepo;
         }
 
         public IActionResult index()
@@ -23,6 +26,7 @@ namespace tour.Controllers
         }
         public IActionResult Create()
         {
+            ViewBag.Tours = tourRepo.GetAll();
             return View();
         }
 
