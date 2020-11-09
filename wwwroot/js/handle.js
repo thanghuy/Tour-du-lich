@@ -157,4 +157,61 @@ $(document).ready(function(){
         $("#list-nv").hide();
         $("#list-customer").hide();
     })
+    // data table tour
+    $("#tableXemGiaTour").DataTable();
+    // data table doan
+    $("#table-doan").DataTable();
+    // data table nguoi di
+    $("#table-nguoi-di").DataTable({
+        "paging": false,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": false,
+        "autoWidth": false,
+    });
+
+    //xử lý chọn địa điểm cho tour
+    var list_location = [];
+    $("#select-location-tour").change(function(){
+        var list_location_giaodien = "";
+        for(var i = 0; i < 3;i++){
+            list_location_giaodien +='<div class="form-group check-place" id="p-'+i+'">'
+            +'<input class="form-check-input check-value listbox1" type="checkbox" value="'+i+'" id="defaultCheck'+i+'">'
+            +'<label class="form-check-label name-place" for="defaultCheck'+i+'">'
+            +'Địa điểm '+i
+            +'</label>'
+          +'</div>';
+        }
+        $("#check-main-tour-to").html(list_location_giaodien);
+        $("#location-add").click(function(){
+            var arr = [];
+            $('.listbox1:checked').each(function () {
+                arr.push($(this).val());
+                list_location.push($(this).val());
+                $(this).prop('checked', false); 
+            });
+            for(var item of arr){
+                $('#check-main-tour-form').append($("#p-"+item).clone());
+                $('#p-'+item).remove();
+            }
+            $("#kq-list-place").val(list_location);
+        })
+        $("#location-de").click(function(){
+            var arr = [];
+            $('.listbox1:checked').each(function () {
+                arr.push($(this).val());
+            });
+            for(var item of arr){
+                const index = list_location.indexOf(item);
+                if (index > -1) {
+                    list_location.splice(index, 1);
+                }
+                $('#p-' + item).remove();
+            }
+            //$('#check-main-tour-to').append($("#p-"+item).clone());  
+            $("#kq-list-place").val(list_location);
+        })
+    })
+    
 });
