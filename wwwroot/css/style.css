@@ -4,6 +4,28 @@ body {
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
+.check-main-tour{
+  padding: 0 !important;
+}
+.check-place{
+  padding: 7px;
+  margin-bottom: 0px !important;
+}
+.check-place:hover{
+  background-color: #f1f1f1;
+}
+.check-value{
+  margin-left: 0px !important;
+}
+.name-place{
+  width: 93%;
+  margin-left: 1.25em;
+
+  cursor: pointer;
+}
+table.dataTable.no-footer {
+  border-bottom: 0 !important;
+}
 .bd-highlight {
   padding-right: 10px;
   padding-left: 10px;
