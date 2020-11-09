@@ -9,12 +9,12 @@ namespace tour.Controllers
     public class QuanlytourController : Controller
     {
         private readonly ILogger<QuanlytourController> _logger;
-        private readonly ILoaiRepo loai;
+        private readonly ILoaiRepo loaiRepo;
 
-        public QuanlytourController(ILogger<QuanlytourController> logger, ILoaiRepo loai)
+        public QuanlytourController(ILogger<QuanlytourController> logger, ILoaiRepo loaiRepo)
         {
             _logger = logger;
-            this.loai = loai;
+            this.loaiRepo = loaiRepo;
         }
 
         public IActionResult index()
@@ -25,7 +25,7 @@ namespace tour.Controllers
         public IActionResult Create()
         {
             //ViewData["Loai"] = loai.GetAll();
-            ViewBag.Loai = loai.GetAll();
+            ViewBag.Loai = loaiRepo.GetAll();
             return View();
         }
 
