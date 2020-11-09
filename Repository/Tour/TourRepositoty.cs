@@ -17,6 +17,13 @@ namespace tour.Repository.Tour
             throw new NotImplementedException();
         }
 
+        public int AddAndGetLastId(Tours t)
+        {
+            _ = _context.Add(t);
+            _ = _context.SaveChanges();
+            return t.TourId;
+        }
+
         public int Count()
         {
             throw new NotImplementedException();

@@ -5,8 +5,10 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using tour.Models;
+using tour.Repository.ChiTiet;
 using tour.Repository.DiaDiem;
 using tour.Repository.Loai;
+using tour.Repository.Tour;
 
 namespace tour.Controllers
 {
@@ -15,12 +17,16 @@ namespace tour.Controllers
         private readonly ILogger<QuanlytourController> _logger;
         private readonly ILoaiRepo loaiRepo;
         private readonly IDiaDiemRepo diaDiemRepo;
+        private readonly ITourRepo tourRepo;
+        private readonly IChiTietRepo chiTietRepo;
 
-        public QuanlytourController(ILogger<QuanlytourController> logger, ILoaiRepo loaiRepo, IDiaDiemRepo diaDiemRepo)
+        public QuanlytourController(ILogger<QuanlytourController> logger, ILoaiRepo loaiRepo, IDiaDiemRepo diaDiemRepo, ITourRepo tourRepo,IChiTietRepo chiTietRepo)
         {
             _logger = logger;
             this.loaiRepo = loaiRepo;
             this.diaDiemRepo = diaDiemRepo;
+            this.tourRepo = tourRepo;
+            this.chiTietRepo = chiTietRepo;
         }
 
         public IActionResult index()
@@ -39,13 +45,38 @@ namespace tour.Controllers
         [HttpGet]
         public JsonResult GetLocation()
         {
-            return Json(new {Data = diaDiemRepo.FindByName("DakLak")});
+            var location = Request.Query["location"];
+            return Json(new {Data = diaDiemRepo.FindByName(location)});
         }
 
         [HttpPost]
-        public IActionResult Create(Tours tours)
+        public IActionResult Create(tour.ViewModels.ChiTietTourVM chiTietTourVM)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                Tours tours = new Tours() 
+                {
+                    Ten = chiTietTourVM.TenTour,
+                    Mota = chiTietTourVM.Mota,
+                    LoaiId = chiTietTourVM.IdLoai
+                } ;
+                string[] DiaDiem = chiTietTourVM.IdDiaDiem.Split(",");
+
+                int LastId = tourRepo.AddAndGetLastId(tours);
+                foreach(String id in DiaDiem)
+                {
+                    ChiTietTours chiTiet = new ChiTietTours()
+                    {
+                        TourId = LastId,
+                        DiadiemId = Int32.Parse(id)
+                    };
+                    if (chiTietRepo.Add(chiTiet))
+                    {
+                        Console.WriteLine("Them dia diem thanh cong!");
+                    }
+                }
+            }
+            return Redirect("index");
         }
     }
 }

@@ -13,6 +13,7 @@ namespace tour.Repository.Tour
         bool Update(Tours d);
         IEnumerable<Tours> GetAll();
         int Count();
+        int AddAndGetLastId(Tours t);
     }
 }
 
