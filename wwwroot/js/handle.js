@@ -207,8 +207,8 @@ $(document).ready(function(){
                 if (index > -1) {
                     list_location.splice(index, 1);
                 }
+                $('#p-' + item).remove();
             }
-            $('#p-'+item).remove();
             //$('#check-main-tour-to').append($("#p-"+item).clone());  
             $("#kq-list-place").val(list_location);
         })
