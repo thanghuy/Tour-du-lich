@@ -1,7 +1,10 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Quản lý tour";
+    @*var Loai = ViewData["Loai"] as IEnumerable<Loais>;*@
+    var Loai = ViewBag.Loai;
 }
+@model Tours
   <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
@@ -21,109 +24,113 @@
     <section class="content">
       <div class="container-fluid card">
         <div class="col-12">
-          <div class="row">
-            <div class="col-6" style="padding: 20px;">
-              <div class="form-group">
-                <label>Tên tour</label>
-                <input type="text" class="form-control" placeholder="Nhập tên tour">
-              </div>
-              <div class="form-group">
-                <label>Loại</label>
-                <select class="form-control">
-                  <option>Chọn loại hình du lịch</option>
-                  <option>Du lịch di động</option>
-                  <option>Du lịch nghề nghiệp</option>
-                  <option>Du lịch xã hội</option>
-                  <option>Du lịch gia đình</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Mô tả</label>
-                <textarea class="form-control" placeholder="Place some text here"></textarea>
-              </div>
-            </div>
-            <div class="col-6" style="padding: 20px;">
-              <div class="row">
-                <div class="col-6">
-                  <label>Chọn địa điểm</label>
-                  <div class="form-group">
-                    <select class="form-control">
-                      <option>Chọn thành phố</option>
-                      <option>Nha trang</option>
-                      <option>Phan thiết</option>
-                    </select>
-                  </div>
-                  <div class="card list-place-tour">
-                    <div class="card-body">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                        <label class="form-check-label" for="defaultCheck1">
-                          Mũi né
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                        <label class="form-check-label" for="defaultCheck2">
-                          Phan thiết
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                        <label class="form-check-label" for="defaultCheck2">
-                          Phan thiết
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
-                        <label class="form-check-label" for="defaultCheck2">
-                          Phan thiết
-                        </label>
-                      </div>
-                      
+            <form method="post">
+                <div class="row">
+                    <div class="col-6" style="padding: 20px;">
+                        <div class="form-group">
+                            <label>Tên tour</label>
+                            <input asp-for="Ten" type="text" class="form-control" placeholder="Nhập tên tour">
+                            <span class="text-danger" asp-validation-for="Ten"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Loại</label>
+                            <select asp-for="LoaiId" class="form-control">
+                                @foreach (var l in Loai)
+                                {
+                                    <option value="@l.LoaiId">@l.Ten</option>
+                                }
+                            </select>
+                            <span class="text-danger" asp-validation-for="LoaiId"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>Mô tả</label>
+                            <textarea asp-for="Mota" class="form-control" placeholder="Place some text here"></textarea>
+                            <span class="text-danger" asp-validation-for="Mota"></span>
+                        </div>
                     </div>
-                  </div>
+                    <div class="col-6" style="padding: 20px;">
+                        <div class="row">
+                            <div class="col-6">
+                                <label>Chọn địa điểm</label>
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>Chọn thành phố</option>
+                                        <option>Nha trang</option>
+                                        <option>Phan thiết</option>
+                                    </select>
+                                </div>
+                                <div class="card list-place-tour">
+                                    <div class="card-body">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Mũi né
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                                            <label class="form-check-label" for="defaultCheck2">
+                                                Phan thiết
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                                            <label class="form-check-label" for="defaultCheck2">
+                                                Phan thiết
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                                            <label class="form-check-label" for="defaultCheck2">
+                                                Phan thiết
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <label>Kết quả</label>
+                                <div class="form-group">
+                                    <button class="btn btn-outline-primary form-control">Xóa tất cả</button>
+                                </div>
+                                <div class="card list-place-tour">
+                                    <div class="card-body">
+                                        <div class="form-check">
+                                            <i class="fas fa-trash form-check-input"></i>
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Mũi né
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <i class="fas fa-trash form-check-input"></i>
+                                            <label class="form-check-label" for="defaultCheck2">
+                                                Phan thiết
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <i class="fas fa-trash form-check-input"></i>
+                                            <label class="form-check-label" for="defaultCheck2">
+                                                Phan thiết
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <i class="fas fa-trash form-check-input"></i>
+                                            <label class="form-check-label" for="defaultCheck2">
+                                                Phan thiết
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer col-12">
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    </div>
                 </div>
-                <div class="col-6">
-                  <label>Kết quả</label>
-                  <div class="form-group">
-                    <button class="btn btn-outline-primary form-control">Xóa tất cả</button>
-                  </div>
-                  <div class="card list-place-tour">
-                    <div class="card-body">
-                      <div class="form-check">
-                        <i class="fas fa-trash form-check-input"></i>
-                        <label class="form-check-label" for="defaultCheck1">
-                          Mũi né
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <i class="fas fa-trash form-check-input"></i>
-                        <label class="form-check-label" for="defaultCheck2">
-                          Phan thiết
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <i class="fas fa-trash form-check-input"></i>
-                        <label class="form-check-label" for="defaultCheck2">
-                          Phan thiết
-                        </label>
-                      </div>
-                      <div class="form-check">
-                          <i class="fas fa-trash form-check-input"></i>
-                        <label class="form-check-label" for="defaultCheck2">
-                          Phan thiết
-                        </label>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>  
-              </div>     
-            </div>
-            <div class="modal-footer col-12">
-              <button type="button" class="btn btn-primary">Lưu</button>
-            </div>
-          </div>
+            </form>
         </div>
       </div>
     </section>

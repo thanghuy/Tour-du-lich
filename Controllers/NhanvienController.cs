@@ -9,18 +9,17 @@ namespace tour.Controllers
     public class NhanvienController : Controller
     {
         private readonly ILogger<NhanvienController> _logger;
+        private readonly INhanVienRepo nhanVien;
 
-        public INhanVienRepo Repo { get; }
-
-        public NhanvienController(ILogger<NhanvienController> logger,INhanVienRepo repo)
+        public NhanvienController(ILogger<NhanvienController> logger,INhanVienRepo nhanVien)
         {
             _logger = logger;
-            Repo = repo;
+            this.nhanVien = nhanVien;
         }
 
         public IActionResult index()
         {
-            return View(Repo.GetAll());
+            return View(nhanVien.GetAll());
         }
         public IActionResult Create(){
             return View();
@@ -31,7 +30,8 @@ namespace tour.Controllers
         {
             if (ModelState.IsValid)
             {
-                _logger.LogInformation(Repo.Add(nv).ToString());
+                _logger.LogInformation(nhanVien.Add(nv).ToString());
+                return RedirectToAction("Index");
             }
             return View();
         }

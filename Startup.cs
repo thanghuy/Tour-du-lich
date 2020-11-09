@@ -12,6 +12,7 @@ using tour.Models.Entities;
 using tour.Repository;
 using tour.Repository.DiaDiem;
 using tour.Repository.Gia;
+using tour.Repository.Loai;
 using tour.Repository.NhanVien;
 using tour.Repository.Tour;
 using tour.Services.Doan;
@@ -44,6 +45,7 @@ namespace tour
             services.AddScoped<IDiaDiemRepo,DiaDiemRepository>();
             services.AddScoped<IGiaRepo,GiaRepository>();
             services.AddScoped<INhanVienRepo, NhanVienRepository>();
+            services.AddScoped<ILoaiRepo, LoaiRepository>();
             services.AddSingleton<IDataAccess, DataAccess.Internal.DataAccess>();
             services.AddScoped<IDoanAccess, DoanAccess>();
             services.AddScoped<IDoanService, DoanService>();

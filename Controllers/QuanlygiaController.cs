@@ -2,22 +2,24 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using tour.Models;
+using tour.Repository.Gia;
 
 namespace tour.Controllers
 {
     public class QuanlygiaController : Controller
     {
         private readonly ILogger<QuanlygiaController> _logger;
-        private readonly tour.Repository.Gia.IGiaRepo _repo;
-        public QuanlygiaController(ILogger<QuanlygiaController> logger, tour.Repository.Gia.IGiaRepo repo)
+        private readonly IGiaRepo giaRepo;
+
+        public QuanlygiaController(ILogger<QuanlygiaController> logger, IGiaRepo giaRepo)
         {
-            _repo = repo;
             _logger = logger;
+            this.giaRepo = giaRepo;
         }
 
         public IActionResult index()
         {
-            return View(_repo.GetAll());
+            return View(giaRepo.GetAll());
         }
         public IActionResult Create()
         {
@@ -29,7 +31,8 @@ namespace tour.Controllers
         {
             if (ModelState.IsValid)
             {
-                _logger.LogInformation(_repo.Add(gias).ToString());
+                giaRepo.Add(gias);
+                return RedirectToAction("Index");
             }
             return View();
         }
