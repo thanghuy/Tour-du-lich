@@ -29,7 +29,7 @@ namespace tour.Repository.Tour
 
         public IEnumerable<Tours> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Tours.AsEnumerable();
         }
 
         public bool Update(Tours d)

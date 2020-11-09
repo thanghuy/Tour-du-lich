@@ -107,6 +107,7 @@ D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.Views.pdb
 D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.csproj.CopyComplete
 D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\staticwebassets\tour.StaticWebAssets.Manifest.cache
 D:\Projects\Tour-du-lich\obj\Debug\netcoreapp3.1\staticwebassets\tour.StaticWebAssets.xml
+<<<<<<< HEAD
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -240,6 +241,8 @@ C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\quanlygia\Create.cshtml.g.cs
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\Doan\Details.cshtml.g.cs
 <<<<<<< HEAD
+=======
+>>>>>>> datatabletour
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -682,6 +685,7 @@ C:\Users\Hieu\Documents\GitHub\Tour-du-lich\bin\Debug\netcoreapp3.1\System.Text.
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.csproj.CoreCompileInputs.cache
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.MvcApplicationPartsAssemblyInfo.cache
+<<<<<<< HEAD
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\libman.json
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Antiforgery.dll
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.Abstractions.dll
@@ -994,3 +998,5 @@ C:\Users\huyth\OneDrive\Máy tính\Tour\tour\bin\Debug\netcoreapp3.1\runtimes\wi
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.MvcApplicationPartsAssemblyInfo.cs
 =======
 >>>>>>> pr/7
+=======
+>>>>>>> datatabletour
