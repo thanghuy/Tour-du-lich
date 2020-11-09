@@ -63,12 +63,13 @@ namespace tour.Controllers
                 string[] DiaDiem = chiTietTourVM.IdDiaDiem.Split(",");
 
                 int LastId = tourRepo.AddAndGetLastId(tours);
-                foreach(String id in DiaDiem)
+                for(int i=0;i<DiaDiem.Length;i++)
                 {
                     ChiTietTours chiTiet = new ChiTietTours()
                     {
                         TourId = LastId,
-                        DiadiemId = Int32.Parse(id)
+                        DiadiemId = Int32.Parse(DiaDiem[i]),
+                        CtThutu = i
                     };
                     if (chiTietRepo.Add(chiTiet))
                     {

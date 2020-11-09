@@ -18,9 +18,11 @@ namespace tour.ViewModels
         public string Mota { get; set; }
 
         [Required]
-        public string IdDiaDiem{ get; set; }
+        public string IdDiaDiem { get; set; }
+        public string TenDiaDiem{ get; set; }
 
         [Required]
         public int IdLoai { get; set; }
+        public string TenLoai { get; set; }
     }
 }

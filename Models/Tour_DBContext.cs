@@ -32,7 +32,7 @@ namespace tour.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=localhost;Database=Tour_DB;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=localhost;Database=Tour_DB;Trusted_Connection=True;MultipleActiveResultSets=true;");
             }
         }
 
@@ -56,6 +56,8 @@ namespace tour.Models
                 entity.HasKey(e => e.ChitietId);
 
                 entity.Property(e => e.ChitietId).HasColumnName("chitiet_id");
+
+                entity.Property(e => e.CtThutu).HasColumnName("ct_thutu");
 
                 entity.Property(e => e.DiadiemId).HasColumnName("diadiem_id");
             });

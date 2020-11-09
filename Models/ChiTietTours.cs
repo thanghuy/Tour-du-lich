@@ -8,5 +8,6 @@ namespace tour.Models
         public int ChitietId { get; set; }
         public int TourId { get; set; }
         public int DiadiemId { get; set; }
+        public int? CtThutu { get; set; }
     }
 }
