@@ -410,7 +410,6 @@ C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.TagHelp
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.TagHelpers.output.cache
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.RazorCoreGenerate.cache
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Diadiem\index.cshtml.g.cs
-C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Diadiem\suadiadiem.cshtml.g.cs
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Diadiem\ThemDiaDiem.cshtml.g.cs
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Doan\Details.cshtml.g.cs
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Doan\Index.cshtml.g.cs
@@ -442,3 +441,4 @@ C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.pdb
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.genruntimeconfig.cache
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.csprojAssemblyReference.cache
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Quanlytour\Edit.cshtml.g.cs
+C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Diadiem\Edit.cshtml.g.cs

@@ -25,6 +25,12 @@ namespace tour.Repository.ChiTiet
             return _context.SaveChanges()!=0;
         }
 
+        public bool DeleteByDiaDiemId(int id)
+        {
+            _context.ChiTietTours.RemoveRange(_context.ChiTietTours.Where(c => c.DiadiemId == id));
+            return _context.SaveChanges()!=0;
+        }
+
         public List<ChiTietTourVM> getAllChiTietTour()
         {
 

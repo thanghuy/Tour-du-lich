@@ -42,23 +42,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @*<tr>
-                            <th>DL001</th>
-                            <td>Đà lạt</td>
-                            <td>Đà lạt</td>
-                            <td>Mô tả</td>
-                            <td>
-                                <a class="btn btn-primary btn-sm" href="#">
-                                    <i class="fas fa-pencil-alt">
-                                    </i>
-                                    Sửa
-                                </a>
-                                <a class="btn btn-danger btn-sm" href="#">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-*@                @foreach (var d in Model)
+                    @foreach (var d in Model)
                     {
                         <tr>
                             <th>@d.DiadiemId</th>
@@ -66,12 +50,12 @@
                             <td>@d.Thanhpho</td>
                             <td>@d.Mota</td>
                             <td>
-                                <a class="btn btn-primary btn-sm" href="#">
+                                <a href="DiaDiem/Edit/@d.DiadiemId" class="btn btn-primary btn-sm">
                                     <i class="fas fa-pencil-alt">
                                     </i>
                                     Sửa
                                 </a>
-                                <a class="btn btn-danger btn-sm" href="#">
+                                <a class="btn btn-danger btn-sm" href="DiaDiem/Delete/@d.DiadiemId">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>

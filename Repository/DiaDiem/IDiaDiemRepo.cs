@@ -15,5 +15,6 @@ namespace tour.Repository.DiaDiem
         int Count();
         IEnumerable<DiaDiems> GetGroupNameCity();
         IEnumerable<DiaDiems> FindByName(String name);
+        bool Delete(int id);
     }
 }

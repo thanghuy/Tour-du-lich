@@ -25,6 +25,12 @@ namespace tour.Repository.DiaDiem
             return 1;
         }
 
+        public bool Delete(int id)
+        {
+            _context.DiaDiems.Remove(_context.DiaDiems.Find(id));
+            return _context.SaveChanges()!=0;
+        }
+
         public IEnumerable<DiaDiems> FindByName(string name)
         {
             return _context.DiaDiems.Where(c=>c.Thanhpho == name).AsEnumerable();
@@ -32,7 +38,7 @@ namespace tour.Repository.DiaDiem
 
         public DiaDiems Get(int id)
         {
-            return null;
+            return _context.DiaDiems.Find(id);
         }
 
         public IEnumerable<DiaDiems> GetAll()
@@ -55,8 +61,8 @@ namespace tour.Repository.DiaDiem
 
         public bool Update(DiaDiems d)
         {
-            
-            return true;
+            _context.Update(d);
+            return _context.SaveChanges()!=0;
         }
 
        
