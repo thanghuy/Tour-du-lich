@@ -9,6 +9,10 @@ namespace tour.ViewModels
 {
     public class ChiTietTourVM
     {
+        public ChiTietTourVM()
+        {
+           DanhSachDiaDiem = new List<string>();
+        }
         public int TourId { get; set; }
 
         [Required]
@@ -19,10 +23,13 @@ namespace tour.ViewModels
 
         [Required]
         public string IdDiaDiem { get; set; }
-        public string TenDiaDiem{ get; set; }
-
+        public string TenDiaDiem { get; set; }
+        public string ThanhPho{ get; set; }
         [Required]
         public int IdLoai { get; set; }
         public string TenLoai { get; set; }
+        public int? GiaTour{ get; set; }
+        public List<String> DanhSachDiaDiem { get; set; }
+
     }
 }

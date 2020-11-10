@@ -1,3 +1,6 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -20,10 +23,23 @@ namespace tour.Controllers
             this.tourRepo = tourRepo;
         }
 
-        public IActionResult index()
+        [Route("Quanlygia/")]
+        [Route("Quanlygia/{id?}")]
+        public IActionResult index(int? id)
         {
-            return View(giaRepo.GetAll());
+            /*if (!id.HasValue)
+            {
+                return View(giaRepo.GetAll());
+            }
+            else
+            {
+                return View(giaRepo.GetAllGiasByIdLoai(id));
+            }*/
+            ViewBag.Tour = tourRepo.GetAll();
+            return View(!id.HasValue ? giaRepo.GetAll() : giaRepo.GetAllGiasByIdLoai(id));
+
         }
+        [HttpGet]
         public IActionResult Create()
         {
             ViewBag.Tours = tourRepo.GetAll();
@@ -39,6 +55,32 @@ namespace tour.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+        }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            ViewBag.Tours = tourRepo.GetAll();
+            return View(giaRepo.Get(id));
+        }
+        [HttpPost]
+        public IActionResult Edit(Gias GiaMoi)
+        {
+            if (ModelState.IsValid)
+            {
+                Gias GiaCu = giaRepo.Get(GiaMoi.GiaId);
+                GiaCu.ToudId = GiaMoi.ToudId;
+                GiaCu.Tungay = GiaMoi.Tungay;
+                GiaCu.Denngay = GiaMoi.Denngay;
+                GiaCu.Sotien = GiaMoi.Sotien;
+                giaRepo.Update(GiaCu);
+            }
+            return RedirectToAction("index");
+        }
+
+        public IActionResult Delete(int id)
+        {
+            giaRepo.Delele(id);
+            return RedirectToAction("index");
         }
     }
 }

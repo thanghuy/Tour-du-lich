@@ -10,9 +10,11 @@ namespace tour.Repository.Gia
     {
         Gias Get(int id);
         bool Add(Gias d);
-        bool Update(Gias d);
         IEnumerable<Gias> GetAll();
         int Count();
         int Get(object sotien);
+        IEnumerable<Gias> GetAllGiasByIdLoai(int? id);
+        bool Update(Gias gias);
+        bool Delele(int id);
     }
 }

@@ -23,6 +23,13 @@ namespace tour.Repository.Gia
             throw new NotImplementedException();
         }
 
+        public bool Delele(int id)
+        {
+            Gias gia = _context.Gias.Find(id);
+            _context.Gias.Remove(gia);
+            return _context.SaveChanges()!=0;
+        }
+
         public Gias Get(int id)
         {
             return _context.Gias.Find(id);
@@ -38,9 +45,20 @@ namespace tour.Repository.Gia
             return _context.Gias.AsEnumerable();
         }
 
+        public IEnumerable<Gias> GetAllGiasByIdLoai(int? id)
+        {
+            return _context.Gias.Where(g => g.ToudId == id).AsEnumerable();
+        }
+
         public bool Update(Gias d)
         {
             throw new NotImplementedException();
+        }
+
+        bool IGiaRepo.Update(Gias gias)
+        {
+            _context.Update(gias);
+            return _context.SaveChanges()!=0;
         }
     }
 }

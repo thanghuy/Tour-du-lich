@@ -9,6 +9,7 @@ using tour.Repository.ChiTiet;
 using tour.Repository.DiaDiem;
 using tour.Repository.Loai;
 using tour.Repository.Tour;
+using tour.ViewModels;
 
 namespace tour.Controllers
 {
@@ -30,8 +31,8 @@ namespace tour.Controllers
         }
 
         public IActionResult index()
-        {
-            return View();
+        { 
+            return View(chiTietRepo.getAllChiTietTour());
         }
 
         public IActionResult Create()
