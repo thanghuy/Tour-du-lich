@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using tour.Models;
+using tour.ViewModels;
 
 namespace tour.Repository.Gia
 {
@@ -30,6 +31,12 @@ namespace tour.Repository.Gia
             return _context.SaveChanges()!=0;
         }
 
+        public bool DeleteByTourId(int id)
+        {
+            _context.Gias.RemoveRange(_context.Gias.Where(g => g.ToudId == id));
+            return _context.SaveChanges()!=0;
+        }
+
         public Gias Get(int id)
         {
             return _context.Gias.Find(id);
@@ -53,6 +60,19 @@ namespace tour.Repository.Gia
         public bool Update(Gias d)
         {
             throw new NotImplementedException();
+        }
+
+        public bool UpdateIdTour(ChiTietTourVM chiTietTourVM,int Id)
+        {
+            _context.Gias.UpdateRange(_context.Gias.Where(g => g.ToudId == chiTietTourVM.TourId).Select(s => new Gias
+            {
+                ToudId = Id,
+                GiaId = s.GiaId,
+                Sotien = s.Sotien,
+                Tungay = s.Tungay,
+                Denngay = s.Denngay
+            }));
+            return _context.SaveChanges()!=0;
         }
 
         bool IGiaRepo.Update(Gias gias)

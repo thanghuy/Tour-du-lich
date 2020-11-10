@@ -28,12 +28,14 @@
                         <div class="col-12" style="padding: 20px;">
                             <div class="form-group">
                                 <label>Tên tour</label>
-                                <select class="form-control" asp-for="ToudId" >
+                                <select class="form-control" asp-for="ToudId">
+                                    <option>Chọn tour</option>
                                     @foreach (Tours t in Tours)
                                     {
                                         <option value="@t.TourId">@t.Ten</option>
                                     }
                                 </select>
+                                <span class="text-danger" asp-validation-for="ToudId" id="Tour_Id"></span>
                             </div>
                             <div class="form-group">
                                 <label>Giá</label>

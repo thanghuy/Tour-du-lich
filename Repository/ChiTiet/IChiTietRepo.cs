@@ -11,5 +11,6 @@ namespace tour.Repository.ChiTiet
     {
         public bool Add(ChiTietTours chiTietTours);
         List<ChiTietTourVM> getAllChiTietTour();
+        bool Delete(int id);
     }
 }

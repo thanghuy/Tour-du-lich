@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using tour.Models;
+using tour.ViewModels;
 
 namespace tour.Repository.Gia
 {
@@ -16,5 +17,7 @@ namespace tour.Repository.Gia
         IEnumerable<Gias> GetAllGiasByIdLoai(int? id);
         bool Update(Gias gias);
         bool Delele(int id);
+        bool DeleteByTourId(int id);
+        bool UpdateIdTour(ChiTietTourVM chiTietTourVM,int TourId);
     }
 }

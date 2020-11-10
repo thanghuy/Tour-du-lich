@@ -240,3 +240,11 @@ $(document).ready(function(){
     })
     
 });
+/*function ValidateSelectList() {
+    if ($("#ToudId")[0].selectedIndex = 0) {
+        $("#Tour_Id").text("ádhasd");
+        return false;
+    } else {
+        return true;
+    }
+}*/

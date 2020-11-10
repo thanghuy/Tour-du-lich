@@ -1,4 +1,4 @@
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Quản lý tour";
     @*var Loai = ViewData["Loai"] as IEnumerable<Loais>;*@
@@ -11,7 +11,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Thêm tour mới</h1>
+                    <h1>Sửa thông tin tour</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -25,7 +25,9 @@
     <section class="content">
         <div class="container-fluid card">
             <div class="col-12">
-                <form method="post">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="TourId" />
                     <div class="row">
                         <div class="col-12" style="padding: 20px;">
                             <div class="form-group">
@@ -90,4 +92,10 @@
                 </form>
 
     </section>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<div>
+    <a asp-action="Index">Back to List</a>
 </div>

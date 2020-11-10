@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using tour.Models;
 using tour.Repository.ChiTiet;
 using tour.Repository.DiaDiem;
+using tour.Repository.Gia;
 using tour.Repository.Loai;
 using tour.Repository.Tour;
 using tour.ViewModels;
@@ -20,14 +21,17 @@ namespace tour.Controllers
         private readonly IDiaDiemRepo diaDiemRepo;
         private readonly ITourRepo tourRepo;
         private readonly IChiTietRepo chiTietRepo;
+        private readonly IGiaRepo giaRepo;
+        private int LastId;
 
-        public QuanlytourController(ILogger<QuanlytourController> logger, ILoaiRepo loaiRepo, IDiaDiemRepo diaDiemRepo, ITourRepo tourRepo,IChiTietRepo chiTietRepo)
+        public QuanlytourController(ILogger<QuanlytourController> logger, ILoaiRepo loaiRepo, IDiaDiemRepo diaDiemRepo, ITourRepo tourRepo,IChiTietRepo chiTietRepo, IGiaRepo giaRepo)
         {
             _logger = logger;
             this.loaiRepo = loaiRepo;
             this.diaDiemRepo = diaDiemRepo;
             this.tourRepo = tourRepo;
             this.chiTietRepo = chiTietRepo;
+            this.giaRepo = giaRepo;
         }
 
         public IActionResult index()
@@ -51,7 +55,7 @@ namespace tour.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(tour.ViewModels.ChiTietTourVM chiTietTourVM)
+        public IActionResult Create(ChiTietTourVM chiTietTourVM)
         {
             if (ModelState.IsValid)
             {
@@ -63,7 +67,7 @@ namespace tour.Controllers
                 } ;
                 string[] DiaDiem = chiTietTourVM.IdDiaDiem.Split(",");
 
-                int LastId = tourRepo.AddAndGetLastId(tours);
+                LastId = tourRepo.AddAndGetLastId(tours);
                 for(int i=0;i<DiaDiem.Length;i++)
                 {
                     ChiTietTours chiTiet = new ChiTietTours()
@@ -79,6 +83,29 @@ namespace tour.Controllers
                 }
             }
             return Redirect("index");
+        }
+        public IActionResult Edit(int? id,ChiTietTourVM chiTietTourVM)
+        {
+            ViewBag.ThanhPho = diaDiemRepo.GetGroupNameCity();
+            ViewBag.Loai = loaiRepo.GetAll();
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Edit(ChiTietTourVM chiTietTourVM)
+        {
+            chiTietRepo.Delete(chiTietTourVM.TourId);
+            tourRepo.Delete(chiTietTourVM.TourId);
+            Create(chiTietTourVM);
+            giaRepo.UpdateIdTour(chiTietTourVM, LastId);
+            return RedirectToAction("index");
+        }
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            chiTietRepo.Delete(id);
+            giaRepo.DeleteByTourId(id);
+            tourRepo.Delete(id);
+            return RedirectToAction("index");
         }
     }
 }
