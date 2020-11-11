@@ -55,6 +55,7 @@ namespace tour.Controllers
         // GET: DoanController/Details/5
         public ActionResult Details(int id)
         {
+            Console.WriteLine(id);
             return View();
         }
 
