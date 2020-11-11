@@ -442,3 +442,4 @@ C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.genrunt
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.csprojAssemblyReference.cache
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Quanlytour\Edit.cshtml.g.cs
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Diadiem\Edit.cshtml.g.cs
+C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Nhanvien\Edit.cshtml.g.cs

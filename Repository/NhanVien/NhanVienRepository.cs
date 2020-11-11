@@ -25,7 +25,7 @@ namespace tour.Repository.NhanVien
 
         public NhanViens Get(int id)
         {
-            throw new NotImplementedException();
+            return _context.NhanViens.Find(id);
         }
 
         public IEnumerable<NhanViens> GetAll()

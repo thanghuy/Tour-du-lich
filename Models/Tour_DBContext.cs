@@ -175,7 +175,7 @@ namespace tour.Models
 
             modelBuilder.Entity<NhanViens>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e=>e.NvId);
 
                 entity.Property(e => e.NvEmail)
                     .HasColumnName("nv_email")

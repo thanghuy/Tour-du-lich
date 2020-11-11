@@ -1,0 +1,90 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Quản lý đoàn";
+}
+@model NhanViens
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Thêm nhân viên mới</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Thêm nhân viên mới</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+        <div class="container-fluid card">
+            <div class="col-12">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="NvId" />
+                    <div class="row">
+                        <div class="col-6" style="padding: 20px;">
+                            <div class="form-group">
+                                <label>Tên nhân viên</label>
+                                <input asp-for="NvTen" type="text" class="form-control" placeholder="Nhập tên nhân viên">
+                                <span class="text-danger" asp-validation-for="NvTen"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Số điện thoại</label>
+                                <input asp-for="NvSdt" type="text" class="form-control" placeholder="Nhập số điện thoại">
+                                <span class="text-danger" asp-validation-for="NvSdt"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input asp-for="NvEmail" type="text" class="form-control" placeholder="Nhập email">
+                                <span class="text-danger" asp-validation-for="NvEmail"></span>
+                            </div>
+                        </div>
+                        <div class="col-6" style="padding: 20px;">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label>Ngày sinh</label>
+                                    <div class="d-flex justify-content-end">
+                                        <selects class="form-control day-nv">
+                                            <option value='' selected='true'>Ngày</option>
+                                        </selects>
+                                        <select class="form-control month-nv">
+                                            <option value='1' selected='true'>Tháng</option>
+                                        </select>
+                                        <select class="form-control year-nv">
+                                            <option value='1' selected='true'>Năm</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 16px;">
+                                <div class="col-12">
+                                    <label>Nhiệm vụ</label>
+                                    <select asp-for="NvNhiemvu" class="form-control">
+                                        <option value='0' selected='true'>Hướng dẫn viên</option>
+                                        <option value='1'>Thông dịch viên</option>
+                                        <option value='2'>Tài xế</option>
+                                    </select>
+                                    <span class="text-danger" asp-validation-for="NvNhiemvu"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer col-12">
+                            <button type="submit" class="btn btn-primary">Lưu</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

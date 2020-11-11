@@ -34,7 +34,7 @@
                             <table class="table table-bordered table-hover" id="tableXemGiaTour">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">Mã nhân viên</th>
+                                        <th scope="col">Id</th>
                                         <th scope="col">Tên nhân viên</th>
                                         <th scope="col">Số điện thoại</th>
                                         <th scope="col">Email</th>
@@ -44,49 +44,31 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @*                        <tr>
-                                            <th>NV001</th>
-                                            <td>Nguyễn Huy Thắng</td>
-                                            <td>094352345</td>
-                                            <td>huythang0903@gmail.com</td>
-                                            <td>09-03-1999</td>
-                                            <td>Hướng dẫn viên</td>
-                                            <td>
-                                                <a class="btn btn-primary btn-sm" href="#">
-                                                    <i class="fas fa-pencil-alt">
-                                                    </i>
-                                                    Sửa
-                                                </a>
-                                                <a class="btn btn-danger btn-sm" href="#">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
-                                        </tr>*@
                                     @foreach (var nv in Model)
                                     {
-                                    <tr>
-                                        <th>@nv.NvId</th>
-                                        <td>@nv.NvTen</td>
-                                        <td>@nv.NvSdt</td>
-                                        <td>@nv.NvEmail</td>
-                                        <td>@nv.NvNgaysinh</td>
+                                        <tr>
+                                            <th>@nv.NvId</th>
+                                            <td>@nv.NvTen</td>
+                                            <td>@nv.NvSdt</td>
+                                            <td>@nv.NvEmail</td>
+                                            <td>@nv.NvNgaysinh</td>
                                             @{
                                                 switch (nv.NvNhiemvu)
                                                 {
                                                     case 0:
-                                                    <td>Hướng dẫn viên</td>
+                                                        <td>Hướng dẫn viên</td>
                                                         break;
                                                     case 1:
-                                                    <td>Thông dịch viên</td>
+                                                        <td>Thông dịch viên</td>
                                                         break;
                                                     case 2:
-                                                    <td>Tài xế</td>
+                                                        <td>Tài xế</td>
                                                         break;
                                                     default: break;
                                                 }
                                             }
                                             <td>
-                                                <a class="btn btn-primary btn-sm" href="#">
+                                                <a class="btn btn-primary btn-sm" href="Nhanvien/Edit/@nv.NvId">
                                                     <i class="fas fa-pencil-alt">
                                                     </i>
                                                     Sửa
@@ -96,7 +78,7 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                        }       
+                                    }
                                 </tbody>
                             </table>
                         </div>
