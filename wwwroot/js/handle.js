@@ -205,47 +205,50 @@ $(document).ready(function(){
       function checkPage(){
         const urlParams = new URLSearchParams(window.location.search);
         const myParam = urlParams.get('page');
+        if(myParam == null){
+            showPageDetail();
+        }
         if(myParam == "nhanvien"){
             showPageNV();
         }
-        if(myParam == null){
+        if(myParam == "khachhang"){
             showPageKH();
         }
-        if(myParam == "chiphi"){
-            showPageCP();
-        }
+       
       }
       checkPage();
+      function showPageDetail(){
+        $("#link-customer").removeClass( "active");
+        $("#link-nv").removeClass("active");
+        $("#link-detail").addClass("active");
+        $("#list-customer").hide();
+        $("#list-nv").hide();
+        //$("#list-detail").show();
+        var url = window.location.pathname;
+        window.history.replaceState('', '', url);
+      }
       function showPageNV(){
         $("#link-customer").removeClass( "active");
-        $("#link-cp").removeClass( "active");
+        $("#link-detail").removeClass("active");
         $("#link-nv").addClass("active");
         $("#list-customer").hide();
-        $("#list-cp").hide();
         $("#list-nv").show();
         var url = window.location.pathname;
         window.history.replaceState('', '', url+"?page=nhanvien");
       }
       function showPageKH(){
         $("#link-nv").removeClass( "active");
-        $("#link-cp").removeClass( "active");
+        $("#link-detail").removeClass("active");
         $("#link-customer").addClass("active");
         $("#list-customer").show();
         $("#list-nv").hide();
-        $("#list-cp").hide();
         var url = window.location.pathname;
-        window.history.replaceState('', '', url);
+        window.history.replaceState('', '', url+"?page=khachhang");
       }
-      function showPageCP(){
-        $("#link-nv").removeClass( "active");
-        $("#link-customer").removeClass( "active");
-        $("#link-cp").addClass("active");
-        $("#list-cp").show();
-        $("#list-nv").hide();
-        $("#list-customer").hide();
-        var url = window.location.pathname;
-        window.history.replaceState('', '', url+"?page=chiphi"); 
-      }
+      
+      $("#link-detail").click(function(){
+          showPageDetail();
+      });
       $("#link-nv").click(function(){
           showPageNV();
         })

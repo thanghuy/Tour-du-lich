@@ -1,0 +1,79 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Quản lý chi phí";
+}
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Quản lý chi phí</h1>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                <li class="breadcrumb-item active">Chi phí</li>
+              </ol>
+            </div>
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+      <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <form action="" method="GET">
+                        <div class="row">
+                            <div class="col-7">
+                                <select name="id" class="form-control">
+                                    <option selected='true'>Tất cả</option>
+                                </select>
+                            </div>
+                            <div class="col-1">
+                                <button type="submit" class="form-control btn btn-primary">Xem</button>
+                            </div>
+                            <div class="col-2">
+                                <a href="/ChiPhi/Create" class="form-control btn btn-primary">Thêm chi phí mới</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                  <div class="card-body">
+                    <table class="table table-bordered table-hover" id="table-chi-phi">
+                      <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Tên tour</th>
+                            <th scope="col">Tên đoàn</th>
+                            <th scope="col">Loại</th>
+                            <th scope="col">Chi tiết</th>
+                            <th scope="col">Tổng tiền</th>
+                            <th scope="col">Thao tác</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>D01</td>
+                            <td>T01</td>
+                            <td>2020-10-12</td>
+                            <td>2020-10-16</td>
+                            <td>3</td>
+                            <td>
+                              <a class="btn btn-danger btn-sm" href="#">
+                                <i class="fas fa-trash"></i>
+                              </a>
+                            </td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </div>
+      </section>
+  </div>
+  <!-- /.content-wrapper -->
