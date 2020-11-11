@@ -108,6 +108,40 @@ namespace tour.Controllers
             nguoidiRepo.UpdateKH(newList,idND);
             return Json(null);
         }
+        public ActionResult themnhanvien(){
+            var idnv = Request.Query["idnv"];
+            string list_nv = nguoidiRepo.getNV(idND);
+            string[] list = list_nv.Split(",");
+            bool result = false;
+            foreach(var i in list){
+                if(idnv == i){
+                    result = false;
+                    break;
+                }
+                else{
+                    result = true;
+                }
+            }
+            
+            list_nv += ","+idnv;
+            NhanViens kh = null;
+            if(result){
+                nguoidiRepo.UpdateNV(list_nv,idND); 
+                kh = nhanVienRepo.Get(Convert.ToInt32(idnv));
+            }
+            return Json(kh);
+        }
+        public ActionResult xoanhanvien(){
+            string idnv = Request.Query["idnv"];
+            string list_nv = nguoidiRepo.getNV(idND);
+            string[] list = list_nv.Split(',');
+            int numIndex = Array.IndexOf(list,idnv);
+            List<string> tmp = new List<string>(list);
+            tmp.RemoveAt(numIndex);
+            string newList = string.Join(",",tmp);
+            nguoidiRepo.UpdateNV(newList,idND);
+            return Json(null);
+        }
         // GET: DoanController/Details/5
         public ActionResult Details(int id)
         {

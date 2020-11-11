@@ -130,8 +130,8 @@
                     <div class="col-12">
                       <div class="row">
                         <div class="col">
-                            <select class="form-control">
-                                <option selected='true'>Chọn nhân viên</option>
+                            <select class="form-control"  id="op-nv-doan">
+                                <option selected='true' value="0">Chọn nhân viên</option>
                                 @foreach (NhanViens items in listNvs)
                                 {
                                     <option value="@items.NvId">@items.NvTen - @items.Nhiemvu</option>
@@ -139,7 +139,7 @@
                             </select>
                         </div>
                         <div class="col">
-                          <button class="btn btn-primary">Thêm nhân viên</button>
+                          <button class="btn btn-primary" id="add-nv-op">Thêm nhân viên</button>
                         </div>
                       </div>
                       
@@ -167,9 +167,9 @@
                                   <td>@item.NvEmail</td>
                                   <td>@item.Nhiemvu</td>
                                   <td>
-                                      <a class="btn btn-danger btn-sm" href="#">
+                                      <button class="btn btn-danger btn-sm delete-nv" value="@item.NvId">
                                           <i class="fas fa-trash"></i>
-                                      </a>
+                                      </button>
                                   </td>
                               </tr>
                           }

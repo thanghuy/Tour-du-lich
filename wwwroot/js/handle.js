@@ -259,12 +259,11 @@ $(document).ready(function(){
     $("#table-doan").DataTable();
     // data table nguoi di
     var mytables = $("#table-nguoi-di").DataTable({
-        "paging": false,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
+        "paging": true,
+        "lengthChange": 5,
+        "searching": true,
+        "ordering": 5,
         "info": false,
-        "autoWidth": false,
     });
     $('#table-nguoi-di').on( 'click', '.delete-kh', function () {
         var idkh = $(this).val();
@@ -283,7 +282,60 @@ $(document).ready(function(){
         });
         mytables.row($(this).parents('tr')).remove().draw();
     } );
-    
+    //
+    var tablenv = $("#table-nhan-vien").DataTable({
+        "paging": true,
+        "lengthChange": 5,
+        "searching": true,
+        "ordering": 5,
+        "info": false,
+    });
+    $("#add-nv-op").click(function(){
+        var idnv = $("#op-nv-doan").val();
+        if(idnv == 0){
+            alert("Mời bạn chọn nhân viên");
+        }
+        else{
+            $.ajax({
+                type: "GET",
+                url: "/Doan/themnhanvien/?idnv="+idnv,
+                data: null,
+                dataType: "json",  
+                contentType: "application/json; charset=utf-8",  
+                success: function (data) {
+                    console.log(data);
+                    if(data == null){
+                        alert("Nhân viên này đã thêm");
+                    }
+                    else{
+                        var a = $("#table-nhan-vien").DataTable();
+                        var b = '<button class="btn btn-danger btn-sm delete-nv" value="'+data.nvId+'"><i class="fas fa-trash"></i></button>';
+                        a.row.add([data.nvId,data.nvTen,data.nvSdt,data.nvEmail,data.nhiemvu,b]).draw();
+                    }
+                },
+                error: function (req, status, error) {
+                    console.log(msg);
+                }
+            }); 
+        }
+    })
+    $('#table-nhan-vien').on( 'click', '.delete-nv', function () {
+        var idnv = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: "/Doan/xoanhanvien/?idnv="+idnv,
+            data: null,
+            dataType: "json",  
+            contentType: "application/json; charset=utf-8",  
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (req, status, error) {
+                console.log(msg);
+            }
+        });
+        tablenv.row($(this).parents('tr')).remove().draw();
+    } );
     //xử lý chọn địa điểm cho tour
     var list_location = [];
     $("#select-location-tour").change(function(){
