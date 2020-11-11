@@ -1,0 +1,103 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Quản lý khách hàng";
+}
+@model IEnumerable<tour.Models.KhachHangs>
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Danh sách khách hàng</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Danh sách khách hàng</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="btn-group btn-add" role="group" aria-label="Basic example">
+                                <a href="/KhachHangs/Create" class="btn btn-primary">Thêm khách hàng</a>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-hover" id="tableXemGiaTour">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">
+                                            Id
+                                        </th>
+                                        <th scope="col">
+                                            Tên khách hàng
+                                        </th>
+                                        <th scope="col">
+                                            Số điện thoại
+                                        </th>
+                                        <th scope="col">
+                                            Email
+                                        </th>
+                                        <th scope="col">
+                                            Ngày sinh
+                                        </th>
+                                        <th scope="col">
+                                            CMND
+                                        </th>
+                                        <th scope="col">Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.KhId)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.KhTen)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.KhSdt)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.KhEmail)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.KhNgaysinh)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.KhCmnd)
+                                        </td>
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.KhId" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-pencil-alt">
+                                                </i>
+                                                Sửa
+                                            </a>
+                                            <a class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </section>
+</div>

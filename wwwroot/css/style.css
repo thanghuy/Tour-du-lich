@@ -7,9 +7,12 @@ body {
 .check-main-tour{
   padding: 0 !important;
 }
-.check-place{
-  padding: 7px;
-  margin-bottom: 0px !important;
+.NvNgaysinhss {
+    visibility: hidden;
+}
+.check-place {
+    padding: 7px;
+    margin-bottom: 0px !important;
 }
 .check-place:hover{
   background-color: #f1f1f1;

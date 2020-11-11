@@ -191,11 +191,21 @@ $(document).ready(function(){
         }
     })
     function loadBirthay(){
-        for(var i = 1;i <= 31;i++){
-            $(".day-nv").append("<option>"+i+"</option>");
+        for (var i = 1; i <= 31; i++){
+            if (i < 10) {
+                $(".day-nv").append("<option>" + 0 + i + "</option>");
+            }
+            else {
+                $(".day-nv").append("<option>" + i + "</option>");
+            }
         }
-        for(var i = 1;i <= 12;i++){
-            $(".month-nv").append("<option>"+i+"</option>");
+        for (var i = 1; i <= 12; i++){
+            if (i < 10) {
+                $(".month-nv").append("<option>" + 0 + i + "</option>");
+            }
+            else {
+                $(".month-nv").append("<option>" + i + "</option>");
+            }
         }
         for(var i = new Date().getFullYear(); i > 1950; i--){
             $(".year-nv").append("<option>"+i+"</option>");
@@ -408,7 +418,20 @@ $(document).ready(function(){
             $("#kq-list-place").val(list_location);
         })
     })
-    
+    var DateOfBirth = [0, 0, 0];
+    $("#ngay").change(() => {
+        DateOfBirth[0] = $("#ngay").val();
+        $("#NvNgaysinh").val(DateOfBirth[2] + "-" + DateOfBirth[1] + "-" + DateOfBirth[0]);
+    });
+    $("#thang").change(() => {
+        DateOfBirth[1] = $("#thang").val();
+        $("#NvNgaysinh").val(DateOfBirth[2] + "-" + DateOfBirth[1] + "-" + DateOfBirth[0]);
+    });
+    $("#nam").change(() => {
+        DateOfBirth[2] = $("#nam").val();
+        $("#NvNgaysinh").val(DateOfBirth[2] + "-" + DateOfBirth[1] + "-" + DateOfBirth[0]);
+        $(".ngaysinhhide").hide();
+    });
 });
 /*function ValidateSelectList() {
     if ($("#ToudId")[0].selectedIndex = 0) {
@@ -418,14 +441,3 @@ $(document).ready(function(){
         return true;
     }
 }*/
-var DateOfBirth = [0,0,0];
-$("#ngay").change(() => {
-    DateOfBirth[0] = $("#ngay").val();
-    $("#NvNgaysinh").val(DateOfBirth[0] +"/"+ DateOfBirth[1] +"/"+ DateOfBirth[2]);
-});
-$("#thang").change(() => {
-    DateOfBirth[1] = $("#thang").val();
-    $("#NvNgaysinh").val(DateOfBirth[0] + "/" + DateOfBirth[1] + "/" + DateOfBirth[2]);});
-$("#nam").change(() => {
-    DateOfBirth[2] = $("#nam").val();
-    $("#NvNgaysinh").val(DateOfBirth[0] + "/" + DateOfBirth[1] + "/" + DateOfBirth[2]);});

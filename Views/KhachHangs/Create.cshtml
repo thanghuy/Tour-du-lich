@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Quản lý khách hàng";
+}
+@model tour.Models.KhachHangs
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Thêm khách hàng mới</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Thêm khách hàng mới</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+        <div class="container-fluid card">
+            <div class="col-12">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-6" style="padding: 20px;">
+                            <div class="form-group">
+                                <label>Tên khách hàng</label>
+                                <input asp-for="KhTen" type="text" class="form-control" placeholder="Nhập tên khách hàng">
+                                <span class="text-danger" asp-validation-for="KhTen"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Số điện thoại</label>
+                                <input asp-for="KhSdt" type="text" class="form-control" placeholder="Nhập số điện thoại">
+                                <span class="text-danger" asp-validation-for="KhSdt"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input asp-for="KhEmail" type="text" class="form-control" placeholder="Nhập email">
+                                <span class="text-danger" asp-validation-for="KhEmail"></span>
+                            </div>
+                        </div>
+                        <div class="col-6" style="padding: 20px;">
+                            <div class="form-group">
+                                <label>Ngày sinh</label>
+                                <input asp-for="KhNgaysinh" type="date" data-date-format="DD MMMM YYYY" data-date="" class="form-control" placeholder="Nhập ngày sinh">
+                                <span class="text-danger" asp-validation-for="KhNgaysinh"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>CMND</label>
+                                <input asp-for="KhCmnd" type="text" class="form-control" placeholder="Nhập CMND">
+                                <span class="text-danger" asp-validation-for="KhCmnd"></span>
+                            </div>
+                        </div>
+                            <div class="modal-footer col-12">
+                                <button type="submit" class="btn btn-primary">Lưu</button>
+                            </div>
+                        </div>
+</form>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
