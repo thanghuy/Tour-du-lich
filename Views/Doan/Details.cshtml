@@ -129,7 +129,7 @@
                   <div class="card-header">
                     <div class="col-12">
                       <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <select class="form-control"  id="op-nv-doan">
                                 <option selected='true' value="0">Chọn nhân viên</option>
                                 @foreach (NhanViens items in listNvs)
@@ -138,8 +138,11 @@
                                 }
                             </select>
                         </div>
-                        <div class="col">
+                        <div class="col-2">
                           <button class="btn btn-primary" id="add-nv-op">Thêm nhân viên</button>
+                        </div>
+                        <div class="col-2">
+                            <a href="/Nhanvien/Create" class="btn btn-primary">Thêm mới</a>
                         </div>
                       </div>
                       
@@ -266,7 +269,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-          <button type="button" class="btn btn-primary" id="save-kh">Lưu</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" id="save-kh">Lưu</button>
         </div>
       </div>
     </div>

@@ -157,6 +157,8 @@ $(document).ready(function(){
                     }
                 }); 
             }
+            $("#list_customer_main").empty();
+
         })
     })
     $("#add-kh-op").click(function(){
