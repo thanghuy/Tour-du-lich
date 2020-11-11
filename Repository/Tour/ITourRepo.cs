@@ -16,6 +16,7 @@ namespace tour.Repository.Tour
         int Count();
         int AddAndGetLastId(Tours t);
         bool Delete(int id);
+        ChiTietTourVM CreateNewTour(int id);
     }
 }
 
