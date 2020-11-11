@@ -44,17 +44,19 @@
                             </div>
                         </div>
                         <div class="col-6" style="padding: 20px;">
+                            <input type="hidden" asp-for="NvNgaysinh" />
+                            <span class="text-danger" asp-validation-for="NvNgaysinh"></span>
                             <div class="row">
                                 <div class="col-12">
                                     <label>Ngày sinh</label>
                                     <div class="d-flex justify-content-end">
-                                        <selects class="form-control day-nv">
-                                            <option value='' selected='true'>Ngày</option>
-                                        </selects>
-                                        <select class="form-control month-nv">
+                                        <select id="ngay" class="form-control day-nv">
+                                            <option value='0' selected='true'>Ngày</option>
+                                        </select>
+                                        <select id="thang" class="form-control month-nv">
                                             <option value='1' selected='true'>Tháng</option>
                                         </select>
-                                        <select class="form-control year-nv">
+                                        <select id="nam" class="form-control year-nv">
                                             <option value='1' selected='true'>Năm</option>
                                         </select>
                                     </div>
