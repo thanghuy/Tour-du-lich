@@ -142,14 +142,14 @@ $(document).ready(function(){
                 };
                 $.ajax({
                     type: "POST",
-                    url: "/Doan/themkhach",
+                    url: "/Doan/themkhachmoi",
                     data: JSON.stringify(list_khs),
                     dataType: "json",  
                     contentType: "application/json; charset=utf-8",  
                     success: function (data) {
                         var a = $("#table-nguoi-di").DataTable();
                         var b = '<a class="btn btn-primary btn-sm" href="#">'
-                        +'<i class="fas fa-pencil-alt"></i>Sửa</a><a class="btn btn-danger btn-sm" href="#"><i class="fas fa-trash"></i></a>';
+                        +'<i class="fas fa-pencil-alt"></i> Sửa</a> <button class="btn btn-danger btn-sm delete-kh"  value="'+data.khId+'"><i class="fas fa-trash"></i></button>';
                         a.row.add([data.khId,data.khTen,data.khSdt,data.khNgaysinh,data.khEmail,data.khCmnd,b]).draw();
                     },
                     error: function (req, status, error) {
@@ -158,6 +158,35 @@ $(document).ready(function(){
                 }); 
             }
         })
+    })
+    $("#add-kh-op").click(function(){
+        var idkh = $("#list-op-kh").val();
+        if(idkh == 0){
+            alert("Mời bạn chọn khách hàng");
+        }
+        else{
+            $.ajax({
+                type: "GET",
+                url: "/Doan/themkhach/?idkh="+idkh,
+                data: null,
+                dataType: "json",  
+                contentType: "application/json; charset=utf-8",  
+                success: function (data) {
+                    if(data == null){
+                        alert("Khách hàng này đã thêm");
+                    }
+                    else{
+                        var a = $("#table-nguoi-di").DataTable();
+                        var b = '<a class="btn btn-primary btn-sm" href="#">'
+                        +'<i class="fas fa-pencil-alt"></i> Sửa</a> <button class="btn btn-danger btn-sm delete-kh" value="'+data.khId+'"><i class="fas fa-trash"></i></button>';
+                        a.row.add([data.khId,data.khTen,data.khSdt,data.khNgaysinh,data.khEmail,data.khCmnd,b]).draw();
+                    }
+                },
+                error: function (req, status, error) {
+                    console.log(msg);
+                }
+            }); 
+        }
     })
     function loadBirthay(){
         for(var i = 1;i <= 31;i++){
@@ -229,7 +258,7 @@ $(document).ready(function(){
     // data table doan
     $("#table-doan").DataTable();
     // data table nguoi di
-    $("#table-nguoi-di").DataTable({
+    var mytables = $("#table-nguoi-di").DataTable({
         "paging": false,
         "lengthChange": false,
         "searching": false,
@@ -237,7 +266,24 @@ $(document).ready(function(){
         "info": false,
         "autoWidth": false,
     });
-
+    $('#table-nguoi-di').on( 'click', '.delete-kh', function () {
+        var idkh = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: "/Doan/xoakhachhang/?idkh="+idkh,
+            data: null,
+            dataType: "json",  
+            contentType: "application/json; charset=utf-8",  
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (req, status, error) {
+                console.log(msg);
+            }
+        });
+        mytables.row($(this).parents('tr')).remove().draw();
+    } );
+    
     //xử lý chọn địa điểm cho tour
     var list_location = [];
     $("#select-location-tour").change(function(){

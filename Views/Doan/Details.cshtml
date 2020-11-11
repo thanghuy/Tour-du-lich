@@ -4,6 +4,7 @@
     var listkh = ViewBag.kh;
     var listNv = ViewBag.nv;
     var listNvs = ViewBag.nvs;
+    var listkhall = ViewBag.khall;
 }
   <div class="content-wrapper">
     <section class="content-header">
@@ -63,9 +64,25 @@
               <div class="col-12">
                 <div class="card" id="list-customer">
                   <div class="card-header">
-                    <div class="btn-group btn-add">
-                      <button class="btn btn-primary" data-toggle="modal" data-target="#form-add">Thêm người đi</button>
-                    </div>
+                      <div class="col-12">
+                          <div class="row">
+                              <div class="col-7">
+                                  <select class="form-control" id="list-op-kh">
+                                      <option selected='true' value="0">Chọn khách hàng</option>
+                                      @foreach (KhachHangs items in listkhall)
+                                      {
+                                          <option value="@items.KhId">@items.KhTen</option>
+                                      }
+                                  </select>
+                              </div>
+                              <div class="col-2">
+                                  <button class="btn btn-primary" id="add-kh-op">Thêm khách hàng</button>
+                              </div>
+                              <div class="col-2">
+                                  <button class="btn btn-primary" data-toggle="modal" data-target="#form-add">Thêm mới</button>
+                              </div>
+                          </div>
+                      </div>
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
@@ -97,9 +114,9 @@
                                           </i>
                                           Sửa
                                       </a>
-                                      <a class="btn btn-danger btn-sm" href="#">
+                                      <button class="btn btn-danger btn-sm delete-kh" value="@item.KhId">
                                           <i class="fas fa-trash"></i>
-                                      </a>
+                                      </button>
                                   </td>
                               </tr>
                           }
@@ -241,51 +258,7 @@
                 </div>
                 <div class="col-12 collapse form_list_customer">
                   <div class="card" id="list_customer_main">
-                    <!-- <ul class="list-group list-group-flush">
-                      <li class="list-group-item">Khách hàng 1</li>
-                      <li class="list-group-item">
-                        <div class="row">
-                          <div class="col">
-                            <label>Họ tên</label>
-                            <input type="text" class="form-control" placeholder="Nhập họ tên">
-                          </div>
-                          <div class="col">
-                            <label>Số CMND</label>
-                            <input type="text" class="form-control" placeholder="Nhập số chứng minh">
-                          </div>
-                          <div class="col">
-                            <label>Địa chỉ</label>
-                            <input type="text" class="form-control" placeholder="Nhập địa chỉ">
-                          </div>
-                          <div class="col">
-                            <label>Số điện thoại</label>
-                            <input type="text" class="form-control" placeholder="Nhập số điện thoại">
-                          </div>
-                          <div class="col-3">
-                            <label>Ngày sinh</label>
-                            <div class="d-flex justify-content-end">
-                              <select class="form-control">
-                                <option value='0' selected='true'>Ngày</option>
-                                <option>2</option>
-                              </select>
-                              <select class="form-control">
-                                <option value='1' selected='true'>Tháng</option>
-                                <option>2</option>
-                              </select>
-                              <select class="form-control">
-                                <option value='1' selected='true'>Năm</option>
-                                <option>2</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="list-group-item">
-                        <div class="d-flex justify-content-end">Trị giá :&nbsp
-                          <label class="text-danger">2.399.000 VNĐ</label>
-                        </div>
-                      </li>
-                    </ul> -->
+             
                   </div>
                 </div>
             </div>

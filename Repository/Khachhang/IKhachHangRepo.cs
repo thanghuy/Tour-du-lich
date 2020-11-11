@@ -9,10 +9,10 @@ namespace tour.Repository.Khachhang
     public interface IKhachhangRepo
     {
         KhachHangs Get(int id);
-        bool Add(KhachHangs d);
+        int Add(KhachHangs d);
         bool Update(KhachHangs d);
         List<KhachHangs> GetAll(string id);
-        IEnumerable<KhachHangs> GetAllID(int id);
+        IEnumerable<KhachHangs> GetAlll();
         int Count();
     }
 }

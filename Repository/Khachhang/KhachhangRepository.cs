@@ -12,9 +12,11 @@ namespace tour.Repository.Khachhang
         {
         }
 
-        public bool Add(KhachHangs d)
+        public int Add(KhachHangs d)
         {
-            throw new NotImplementedException();
+            _context.Add(d);
+            _context.SaveChanges();
+            return d.KhId;
         }
 
         public int Count()
@@ -24,17 +26,16 @@ namespace tour.Repository.Khachhang
 
         public KhachHangs Get(int id)
         {
-            throw new NotImplementedException();
+            return _context.KhachHangs.Find(id);
         }
 
         public List<KhachHangs> GetAll(String id)
         {
             string[] list_id = id.Split(",");
             List<KhachHangs> kh = new List<KhachHangs>();
-            var db = _context;
             foreach (var i in list_id)
             {
-               var query = (from c in db.KhachHangs
+               var query = (from c in _context.KhachHangs
                             where c.KhId == Convert.ToInt32(i)
                             select c).ToList();
                 kh.AddRange(query);
@@ -42,9 +43,9 @@ namespace tour.Repository.Khachhang
             return kh;
         }
 
-        public IEnumerable<KhachHangs> GetAllID(int id)
+        public IEnumerable<KhachHangs> GetAlll()
         {
-            throw new NotImplementedException();
+            return _context.KhachHangs.AsEnumerable();
         }
 
         public bool Update(KhachHangs d)

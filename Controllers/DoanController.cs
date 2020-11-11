@@ -25,6 +25,7 @@ namespace tour.Controllers
         private readonly INguoidiRepo nguoidiRepo;
         private readonly IKhachhangRepo khachhangRepo;
         private readonly INhanVienRepo nhanVienRepo;
+        public static int idND;
 
         public DoanController(IDoanRepo doanService, ITourRepo tour, IGiaRepo gia,INguoidiRepo nguoidiRepo,IKhachhangRepo khachhangRepo,INhanVienRepo nhanVienRepo
             )
@@ -65,18 +66,58 @@ namespace tour.Controllers
             return Redirect("Index"); 
         }
         [HttpPost]
-        public IActionResult themkhach([FromBody]KhachHangs kh)
+        public IActionResult themkhachmoi([FromBody] KhachHangs kh)
         {
+            int idkh = khachhangRepo.Add(kh);
+            string list_kh = nguoidiRepo.getKH(idND);
+            list_kh += "," + idkh;
+            nguoidiRepo.UpdateKH(list_kh, idND);
             return Json(kh);
+        }
+        public ActionResult themkhach(){
+            var idkh = Request.Query["idkh"];
+            string list_kh = nguoidiRepo.getKH(idND);
+            string[] list = list_kh.Split(",");
+            bool result = false;
+            foreach(var i in list){
+                if(idkh == i){
+                    result = false;
+                    break;
+                }
+                else{
+                    result = true;
+                }
+            }
+            
+            list_kh += ","+idkh;
+            KhachHangs kh = null;
+            if(result){
+                nguoidiRepo.UpdateKH(list_kh,idND); 
+                kh = khachhangRepo.Get(Convert.ToInt32(idkh));
+            }
+            return Json(kh);
+        }
+        public ActionResult xoakhachhang(){
+            string idkh = Request.Query["idkh"];
+            string list_kh = nguoidiRepo.getKH(idND);
+            string[] list = list_kh.Split(',');
+            int numIndex = Array.IndexOf(list,idkh);
+            List<string> tmp = new List<string>(list);
+            tmp.RemoveAt(numIndex);
+            string newList = string.Join(",",tmp);
+            nguoidiRepo.UpdateKH(newList,idND);
+            return Json(null);
         }
         // GET: DoanController/Details/5
         public ActionResult Details(int id)
         {
+            idND = id;
             string strId = nguoidiRepo.getKH(id);
             string strIdnv = nguoidiRepo.getNV(id);
             ViewBag.kh = khachhangRepo.GetAll(strId);
             ViewBag.nv = nhanVienRepo.GetAllId(strIdnv);
             ViewBag.nvs = nhanVienRepo.GetAll();
+            ViewBag.khall = khachhangRepo.GetAlll();
             return View();
         }
 

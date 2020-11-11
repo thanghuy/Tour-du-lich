@@ -46,9 +46,18 @@ namespace tour.Repository.Nguoidi
         {
             return _context.NguoiDis.Where(i => i.DoanId == id).Select(c=>c.Danhsachnhanvien).FirstOrDefault();
         }
-        public bool Update(NguoiDis d)
+        public bool UpdateKH(string list_kh,int id)
         {
-            throw new NotImplementedException();
+            NguoiDis s = _context.NguoiDis.Find(id);
+            s.Danhsachkhach = list_kh;
+            _context.NguoiDis.Attach(s);
+            _context.Entry(s).Property(x => x.Danhsachkhach).IsModified = true;
+            return _context.SaveChanges()!=0;
+        }
+        public bool DeleteKH(string list_kh,string id)
+        {
+            string[] a = list_kh.Split(",");
+            return false;
         }
     }
 }
