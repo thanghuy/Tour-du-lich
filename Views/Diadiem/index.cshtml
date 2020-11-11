@@ -34,7 +34,7 @@
                   <table class="table table-bordered table-hover" id="tableXemGiaTour">
                     <thead class="thead-light">
                       <tr>
-                        <th scope="col">Mã địa điểm</th>
+                        <th scope="col">Id</th>
                         <th scope="col">Tên địa điểm</th>
                         <th scope="col">Thành phố</th>
                         <th scope="col">Mô tả</th>
@@ -48,7 +48,11 @@
                             <th>@d.DiadiemId</th>
                             <td>@d.Ten</td>
                             <td>@d.Thanhpho</td>
-                            <td>@d.Mota</td>
+                            <td>
+                                <span class="d-inline-block text-truncate" style="max-width: 300px">
+                                    @d.Mota
+                                </span>
+                            </td>
                             <td>
                                 <a href="DiaDiem/Edit/@d.DiadiemId" class="btn btn-primary btn-sm">
                                     <i class="fas fa-pencil-alt">

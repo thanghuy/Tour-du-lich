@@ -35,5 +35,15 @@ namespace tour.Controllers
             }
             return View();
         }
+        public IActionResult Edit(int id)
+        {
+            return View(nhanVienRepo.Get(id));
+        }
+        [HttpPost]
+        public IActionResult Edit(NhanViens nhanViens)
+        {
+            nhanVienRepo.Update(nhanViens);
+            return RedirectToAction("Index");
+        }
     }
 }

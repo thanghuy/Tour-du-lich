@@ -413,3 +413,14 @@ $(document).ready(function(){
         return true;
     }
 }*/
+var DateOfBirth = [0,0,0];
+$("#ngay").change(() => {
+    DateOfBirth[0] = $("#ngay").val();
+    $("#NvNgaysinh").val(DateOfBirth[0] +"/"+ DateOfBirth[1] +"/"+ DateOfBirth[2]);
+});
+$("#thang").change(() => {
+    DateOfBirth[1] = $("#thang").val();
+    $("#NvNgaysinh").val(DateOfBirth[0] + "/" + DateOfBirth[1] + "/" + DateOfBirth[2]);});
+$("#nam").change(() => {
+    DateOfBirth[2] = $("#nam").val();
+    $("#NvNgaysinh").val(DateOfBirth[0] + "/" + DateOfBirth[1] + "/" + DateOfBirth[2]);});

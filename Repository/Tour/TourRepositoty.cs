@@ -30,6 +30,18 @@ namespace tour.Repository.Tour
             throw new NotImplementedException();
         }
 
+        public ChiTietTourVM CreateNewTour(int id)
+        {
+           Tours tours = _context.Tours.Find(id);
+            return new ChiTietTourVM()
+            {
+                TourId = tours.TourId,
+                TenTour = tours.Ten,
+                Mota = tours.Mota,
+                IdLoai = tours.LoaiId
+            };
+        }
+
         public bool Delete(int id)
         {
             Tours tour = _context.Tours.Find(id);

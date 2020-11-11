@@ -82,13 +82,14 @@ namespace tour.Controllers
                     }
                 }
             }
-            return Redirect("index");
+            return RedirectToAction("index");
         }
-        public IActionResult Edit(int? id,ChiTietTourVM chiTietTourVM)
+        public IActionResult Edit(int? id)
         {
             ViewBag.ThanhPho = diaDiemRepo.GetGroupNameCity();
             ViewBag.Loai = loaiRepo.GetAll();
-            return View();
+            ChiTietTourVM chiTietTour = tourRepo.CreateNewTour(id ?? 1);
+            return View(chiTietTour);
         }
         [HttpPost]
         public IActionResult Edit(ChiTietTourVM chiTietTourVM)

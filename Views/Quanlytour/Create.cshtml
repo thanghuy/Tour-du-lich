@@ -1,11 +1,11 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Quản lý tour";
-    @*var Loai = ViewData["Loai"] as IEnumerable<Loais>;*@
     var Loai = ViewBag.Loai as IEnumerable<Loais>;
     var ThanhPho = ViewBag.ThanhPho as IEnumerable<DiaDiems>;
 }
 @model tour.ViewModels.ChiTietTourVM;
+@Html.HiddenFor(model => model.IdDiaDiem);
 <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">

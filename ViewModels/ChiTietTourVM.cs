@@ -23,7 +23,9 @@ namespace tour.ViewModels
         public string Mota { get; set; }
 
         [Required]
+        [MinLength(1)]
         public string IdDiaDiem { get; set; }
+        
         public string TenDiaDiem { get; set; }
         public string ThanhPho { get; set; }
         [Required]

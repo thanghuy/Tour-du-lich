@@ -34,7 +34,8 @@ namespace tour.Repository.NhanVien
 
         public bool Update(NhanViens d)
         {
-            throw new NotImplementedException();
+            _context.NhanViens.Update(d);
+            return _context.SaveChanges()!=0;
         }
 
         List<NhanViens> INhanVienRepo.GetAllId(string id)
