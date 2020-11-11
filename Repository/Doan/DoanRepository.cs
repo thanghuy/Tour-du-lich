@@ -13,10 +13,11 @@ namespace tour.Repository.Doan
         {
         }
 
-        public bool Add(Doans d)
+        public int Add(Doans d)
         {
             _context.Add(d);
-            return _context.SaveChanges() != 0;
+            _context.SaveChanges();
+            return d.DoanId;
         }
 
         public int Count()

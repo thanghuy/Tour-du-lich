@@ -17,7 +17,6 @@ namespace tour.Repository.NhanVien
             _context.Add(d);
             return _context.SaveChanges()!=0;
         }
-
         public int Count()
         {
             throw new NotImplementedException();
@@ -25,7 +24,7 @@ namespace tour.Repository.NhanVien
 
         public NhanViens Get(int id)
         {
-            throw new NotImplementedException();
+            return _context.NhanViens.Find(id);
         }
 
         public IEnumerable<NhanViens> GetAll()
@@ -36,6 +35,21 @@ namespace tour.Repository.NhanVien
         public bool Update(NhanViens d)
         {
             throw new NotImplementedException();
+        }
+
+        List<NhanViens> INhanVienRepo.GetAllId(string id)
+        {
+            string[] list_id = id.Split(",");
+            List<NhanViens> nv = new List<NhanViens>();
+            var db = _context;
+            foreach (var i in list_id)
+            {
+                var query = (from c in db.NhanViens
+                             where c.NvId == Convert.ToInt32(i)
+                             select c).ToList();
+                nv.AddRange(query);
+            }
+            return nv;
         }
     }
 }

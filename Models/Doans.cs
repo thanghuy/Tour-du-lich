@@ -17,5 +17,19 @@ namespace tour.Models
         public DateTime NgayVe { get; set; }
         [Required(ErrorMessage ="Chi tiết không được để trống")]
         public string ChiTietChuongTrinh { get; set; }
+        public string NgayDiFormat
+        {
+            get
+            {
+                return string.Format("{0:dd-MM-yyyy}", NgayDi);
+            }
+        }
+        public string NgayVeFormat
+        {
+            get
+            {
+                return string.Format("{0:dd-MM-yyyy}", NgayVe);
+            }
+        }
     }
 }

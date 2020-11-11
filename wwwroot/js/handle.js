@@ -66,41 +66,36 @@ $(document).ready(function(){
                 +'<div class="row">'
                 +'  <div class="col">'
                 +'    <label>Họ tên</label>'
-                +'    <input type="text" class="form-control test" placeholder="Nhập họ tên" id="name'+i+'">'
+                +'    <input name="full-name[]" type="text" class="form-control test" placeholder="Nhập họ tên">'
                 +'  </div>'
                 +'  <div class="col">'
                 +'    <label>Số CMND</label>'
-                +'    <input type="text" class="form-control test" placeholder="Nhập số chứng minh">'
+                +'    <input name="cmnd[]" type="text" class="form-control test" placeholder="Nhập số chứng minh">'
                 +'  </div>'
                 +'  <div class="col">'
                 +'    <label>Email</label>'
-                +'    <input type="text" class="form-control test" placeholder="Nhập email">'
+                +'    <input name="email[]" type="text" class="form-control test" placeholder="Nhập email">'
                 +'  </div>'
                 +'  <div class="col">'
                 +'    <label>Số điện thoại</label>'
-                +'    <input type="text" class="form-control test" placeholder="Nhập số điện thoại">'
+                +'    <input name="sdt[]" type="text" class="form-control test" placeholder="Nhập số điện thoại">'
                 +'  </div>'
                 +'  <div class="col-3">'
                 +'    <label>Ngày sinh</label>'
                 +'    <div class="d-flex justify-content-end">'
-                +'      <select class="form-control day-kh">'
+                +'      <select name="ngay[]" class="form-control day-kh">'
                 +'      <option value="0" selected="true">Ngày</option>'
                 +'    </select>'
-                +'    <select class="form-control month-kh">'
+                +'    <select name="thang[]" class="form-control month-kh">'
                 +'      <option value="1" selected="true">Tháng</option>'
                 +'    </select>'
-                +'    <select class="form-control year-kh">'
+                +'    <select name="nam[]" class="form-control year-kh">'
                 +'      <option value="1" selected="true">Năm</option>'
                 +'    </select>'
                 +'  </div>'
                 +'</div>'
                 +'  </div>'
                 +'    </li>'
-                +'<li class="list-group-item">'
-                +' <div class="d-flex justify-content-end">Trị giá :&nbsp'
-                +'  <label class="text-danger">2.399.000 VNĐ</label>'
-                +'</div>'
-                +'</li>'
             +'</ul>';
         }
         $("#list_customer_main").html(a);
@@ -113,13 +108,85 @@ $(document).ready(function(){
         for(var i = new Date().getFullYear(); i > 1950; i--){
             $(".year-kh").append("<option>"+i+"</option>");
         }
-        var tam = [];
-        $("#btn_save_tour").click(function(){
-            $(".test").each(function(){
-                tam.push($(this).val());
+        $("#save-kh").click(function(){
+            var name = $('input[name^=full-name]').map(function(idx, elem) {
+                return $(elem).val();
+              });
+            var cmnd = $('input[name^=cmnd]').map(function(idx, elem) {
+                return $(elem).val();
+              });
+            var sdt = $('input[name^=sdt]').map(function(idx, elem) {
+            return $(elem).val();
             });
-            console.log(tam);
+            var email = $('input[name^=email]').map(function(idx, elem) {
+                return $(elem).val();
+            });
+            var ngay = $('select[name^=ngay]').map(function(idx, elem) {
+                return $(elem).val();
+            });
+            var thang = $('select[name^=thang]').map(function(idx, elem) {
+                return $(elem).val();
+            });
+            var nam = $('select[name^=nam]').map(function(idx, elem) {
+                return $(elem).val();
+            });
+            for(var k = 0 ; k < total ;k++){
+                var ngaysinh = ngay[k] +"-"+thang[k]+"-"+nam[k];
+                var list_khs = {
+                    "KhTen" : name[k],
+                    "KhCmnd" : cmnd[k],
+                    "KhSdt" : sdt[k],
+                    "KhEmail" : email[k],
+                    "KhNgaysinh" : ngaysinh
+                    
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "/Doan/themkhachmoi",
+                    data: JSON.stringify(list_khs),
+                    dataType: "json",  
+                    contentType: "application/json; charset=utf-8",  
+                    success: function (data) {
+                        var a = $("#table-nguoi-di").DataTable();
+                        var b = '<a class="btn btn-primary btn-sm" href="#">'
+                        +'<i class="fas fa-pencil-alt"></i> Sửa</a> <button class="btn btn-danger btn-sm delete-kh"  value="'+data.khId+'"><i class="fas fa-trash"></i></button>';
+                        a.row.add([data.khId,data.khTen,data.khSdt,data.khNgaysinh,data.khEmail,data.khCmnd,b]).draw();
+                    },
+                    error: function (req, status, error) {
+                        console.log(msg);
+                    }
+                }); 
+            }
         })
+    })
+    $("#add-kh-op").click(function(){
+        var idkh = $("#list-op-kh").val();
+        if(idkh == 0){
+            alert("Mời bạn chọn khách hàng");
+        }
+        else{
+            $.ajax({
+                type: "GET",
+                url: "/Doan/themkhach/?idkh="+idkh,
+                data: null,
+                dataType: "json",  
+                contentType: "application/json; charset=utf-8",  
+                success: function (data) {
+                    if(data == null){
+                        alert("Khách hàng này đã thêm");
+                    }
+                    else{
+                        var a = $("#table-nguoi-di").DataTable();
+                        var b = '<a class="btn btn-primary btn-sm" href="#">'
+                        +'<i class="fas fa-pencil-alt"></i> Sửa</a> <button class="btn btn-danger btn-sm delete-kh" value="'+data.khId+'"><i class="fas fa-trash"></i></button>';
+                        a.row.add([data.khId,data.khTen,data.khSdt,data.khNgaysinh,data.khEmail,data.khCmnd,b]).draw();
+                    }
+                },
+                error: function (req, status, error) {
+                    console.log(msg);
+                }
+            }); 
+        }
     })
     function loadBirthay(){
         for(var i = 1;i <= 31;i++){
@@ -133,44 +200,142 @@ $(document).ready(function(){
         }
       }
       loadBirthay();
-      $("#link-nv").click(function(){
+      function checkPage(){
+        const urlParams = new URLSearchParams(window.location.search);
+        const myParam = urlParams.get('page');
+        if(myParam == "nhanvien"){
+            showPageNV();
+        }
+        if(myParam == null){
+            showPageKH();
+        }
+        if(myParam == "chiphi"){
+            showPageCP();
+        }
+      }
+      checkPage();
+      function showPageNV(){
         $("#link-customer").removeClass( "active");
         $("#link-cp").removeClass( "active");
         $("#link-nv").addClass("active");
         $("#list-customer").hide();
         $("#list-cp").hide();
         $("#list-nv").show();
-    })
-    $("#link-customer").click(function(){
+        var url = window.location.pathname;
+        window.history.replaceState('', '', url+"?page=nhanvien");
+      }
+      function showPageKH(){
         $("#link-nv").removeClass( "active");
         $("#link-cp").removeClass( "active");
         $("#link-customer").addClass("active");
         $("#list-customer").show();
         $("#list-nv").hide();
         $("#list-cp").hide();
-    })
-    $("#link-cp").click(function(){
+        var url = window.location.pathname;
+        window.history.replaceState('', '', url);
+      }
+      function showPageCP(){
         $("#link-nv").removeClass( "active");
         $("#link-customer").removeClass( "active");
         $("#link-cp").addClass("active");
         $("#list-cp").show();
         $("#list-nv").hide();
         $("#list-customer").hide();
-    })
+        var url = window.location.pathname;
+        window.history.replaceState('', '', url+"?page=chiphi"); 
+      }
+      $("#link-nv").click(function(){
+          showPageNV();
+        })
+        $("#link-customer").click(function(){
+            showPageKH();
+        })
+        $("#link-cp").click(function(){
+            showPageCP();
+        })
     // data table tour
     $("#tableXemGiaTour").DataTable();
     // data table doan
     $("#table-doan").DataTable();
     // data table nguoi di
-    $("#table-nguoi-di").DataTable({
-        "paging": false,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
+    var mytables = $("#table-nguoi-di").DataTable({
+        "paging": true,
+        "lengthChange": 5,
+        "searching": true,
+        "ordering": 5,
         "info": false,
-        "autoWidth": false,
     });
-
+    $('#table-nguoi-di').on( 'click', '.delete-kh', function () {
+        var idkh = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: "/Doan/xoakhachhang/?idkh="+idkh,
+            data: null,
+            dataType: "json",  
+            contentType: "application/json; charset=utf-8",  
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (req, status, error) {
+                console.log(msg);
+            }
+        });
+        mytables.row($(this).parents('tr')).remove().draw();
+    } );
+    //
+    var tablenv = $("#table-nhan-vien").DataTable({
+        "paging": true,
+        "lengthChange": 5,
+        "searching": true,
+        "ordering": 5,
+        "info": false,
+    });
+    $("#add-nv-op").click(function(){
+        var idnv = $("#op-nv-doan").val();
+        if(idnv == 0){
+            alert("Mời bạn chọn nhân viên");
+        }
+        else{
+            $.ajax({
+                type: "GET",
+                url: "/Doan/themnhanvien/?idnv="+idnv,
+                data: null,
+                dataType: "json",  
+                contentType: "application/json; charset=utf-8",  
+                success: function (data) {
+                    console.log(data);
+                    if(data == null){
+                        alert("Nhân viên này đã thêm");
+                    }
+                    else{
+                        var a = $("#table-nhan-vien").DataTable();
+                        var b = '<button class="btn btn-danger btn-sm delete-nv" value="'+data.nvId+'"><i class="fas fa-trash"></i></button>';
+                        a.row.add([data.nvId,data.nvTen,data.nvSdt,data.nvEmail,data.nhiemvu,b]).draw();
+                    }
+                },
+                error: function (req, status, error) {
+                    console.log(msg);
+                }
+            }); 
+        }
+    })
+    $('#table-nhan-vien').on( 'click', '.delete-nv', function () {
+        var idnv = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: "/Doan/xoanhanvien/?idnv="+idnv,
+            data: null,
+            dataType: "json",  
+            contentType: "application/json; charset=utf-8",  
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (req, status, error) {
+                console.log(msg);
+            }
+        });
+        tablenv.row($(this).parents('tr')).remove().draw();
+    } );
     //xử lý chọn địa điểm cho tour
     var list_location = [];
     $("#select-location-tour").change(function () {

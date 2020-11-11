@@ -1,6 +1,10 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Chi tiết đoàn";
+    var listkh = ViewBag.kh;
+    var listNv = ViewBag.nv;
+    var listNvs = ViewBag.nvs;
+    var listkhall = ViewBag.khall;
 }
   <div class="content-wrapper">
     <section class="content-header">
@@ -24,13 +28,13 @@
               <div class="col-12">
                 <ul class="nav nav-tabs">
                   <li class="nav-item">
-                    <a class="nav-link active" href="#" id="link-customer">Danh sách người đi</a>
+                    <button class="nav-link btn" id="link-customer">Danh sách người đi</button>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#" id="link-nv">Nhân viên</a>
+                    <button class="nav-link btn" id="link-nv">Nhân viên</button>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#" id="link-cp">Chi phí</a>
+                    <button class="nav-link btn" id="link-cp">Chi phí</button>
                   </li>
                 </ul>
               </div>
@@ -60,9 +64,25 @@
               <div class="col-12">
                 <div class="card" id="list-customer">
                   <div class="card-header">
-                    <div class="btn-group btn-add">
-                      <button class="btn btn-primary" data-toggle="modal" data-target="#form-add">Thêm người đi</button>
-                    </div>
+                      <div class="col-12">
+                          <div class="row">
+                              <div class="col-7">
+                                  <select class="form-control" id="list-op-kh">
+                                      <option selected='true' value="0">Chọn khách hàng</option>
+                                      @foreach (KhachHangs items in listkhall)
+                                      {
+                                          <option value="@items.KhId">@items.KhTen</option>
+                                      }
+                                  </select>
+                              </div>
+                              <div class="col-2">
+                                  <button class="btn btn-primary" id="add-kh-op">Thêm khách hàng</button>
+                              </div>
+                              <div class="col-2">
+                                  <button class="btn btn-primary" data-toggle="modal" data-target="#form-add">Thêm mới</button>
+                              </div>
+                          </div>
+                      </div>
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
@@ -78,25 +98,28 @@
                             <th scope="col">Thao tác</th>
                           </tr>
                         </thead>
-                        <tbody>
-                          <tr>
-                            <td>D01</td>
-                            <td>T01</td>
-                            <td>2020-10-12</td>
-                            <td>2020-10-16</td>
-                            <td>3</td>
-                            <td>3</td>
-                            <td>
-                              <a class="btn btn-primary btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Sửa
-                              </a>
-                              <a class="btn btn-danger btn-sm" href="#">
-                                <i class="fas fa-trash"></i>
-                              </a>
-                            </td>
-                          </tr>
+                      <tbody>
+                          @foreach (KhachHangs item in listkh)
+                          {
+                              <tr>
+                                  <td>@item.KhId</td>
+                                  <td>@item.KhTen</td>
+                                  <td>@item.KhSdt</td>
+                                  <td>@item.KhNgaysinh</td>
+                                  <td>@item.KhEmail</td>
+                                  <td>@item.KhCmnd</td>
+                                  <td>
+                                      <a class="btn btn-primary btn-sm" href="#">
+                                          <i class="fas fa-pencil-alt">
+                                          </i>
+                                          Sửa
+                                      </a>
+                                      <button class="btn btn-danger btn-sm delete-kh" value="@item.KhId">
+                                          <i class="fas fa-trash"></i>
+                                      </button>
+                                  </td>
+                              </tr>
+                          }
                       </tbody>
                     </table>
                   </div>
@@ -107,17 +130,16 @@
                     <div class="col-12">
                       <div class="row">
                         <div class="col">
-                          <select class="form-control" id="select_tour">
-                            <option value='0' selected='true'>Chọn nhân viên</option>
-                            <option value="1">Đà lạt - Nha trang</option>
-                            <option>Nha trang - Đà nẵng - Huế</option>
-                            <option>Nha trang - Đà nẵng - Huế</option>
-                            <option>Nha trang - Đà nẵng - Huế</option>
-                            <option>Nha trang - Đà nẵng - Huế</option>
-                          </select>
+                            <select class="form-control"  id="op-nv-doan">
+                                <option selected='true' value="0">Chọn nhân viên</option>
+                                @foreach (NhanViens items in listNvs)
+                                {
+                                    <option value="@items.NvId">@items.NvTen - @items.Nhiemvu</option>
+                                }
+                            </select>
                         </div>
                         <div class="col">
-                          <button class="btn btn-primary">Thêm nhân viên</button>
+                          <button class="btn btn-primary" id="add-nv-op">Thêm nhân viên</button>
                         </div>
                       </div>
                       
@@ -135,19 +157,22 @@
                             <th scope="col">Thao tác</th>
                           </tr>
                         </thead>
-                        <tbody>
-                          <tr>
-                            <td>D01</td>
-                            <td>T01</td>
-                            <td>2020-10-12</td>
-                            <td>2020-10-16</td>
-                            <td>3</td>
-                            <td>
-                              <a class="btn btn-danger btn-sm" href="#">
-                                <i class="fas fa-trash"></i>
-                              </a>
-                            </td>
-                          </tr>
+                      <tbody>
+                          @foreach (NhanViens item in listNv)
+                          {
+                              <tr>
+                                  <td>@item.NvId</td>
+                                  <td>@item.NvTen</td>
+                                  <td>@item.NvSdt</td>
+                                  <td>@item.NvEmail</td>
+                                  <td>@item.Nhiemvu</td>
+                                  <td>
+                                      <button class="btn btn-danger btn-sm delete-nv" value="@item.NvId">
+                                          <i class="fas fa-trash"></i>
+                                      </button>
+                                  </td>
+                              </tr>
+                          }
                       </tbody>
                     </table>
                   </div>
@@ -233,51 +258,7 @@
                 </div>
                 <div class="col-12 collapse form_list_customer">
                   <div class="card" id="list_customer_main">
-                    <!-- <ul class="list-group list-group-flush">
-                      <li class="list-group-item">Khách hàng 1</li>
-                      <li class="list-group-item">
-                        <div class="row">
-                          <div class="col">
-                            <label>Họ tên</label>
-                            <input type="text" class="form-control" placeholder="Nhập họ tên">
-                          </div>
-                          <div class="col">
-                            <label>Số CMND</label>
-                            <input type="text" class="form-control" placeholder="Nhập số chứng minh">
-                          </div>
-                          <div class="col">
-                            <label>Địa chỉ</label>
-                            <input type="text" class="form-control" placeholder="Nhập địa chỉ">
-                          </div>
-                          <div class="col">
-                            <label>Số điện thoại</label>
-                            <input type="text" class="form-control" placeholder="Nhập số điện thoại">
-                          </div>
-                          <div class="col-3">
-                            <label>Ngày sinh</label>
-                            <div class="d-flex justify-content-end">
-                              <select class="form-control">
-                                <option value='0' selected='true'>Ngày</option>
-                                <option>2</option>
-                              </select>
-                              <select class="form-control">
-                                <option value='1' selected='true'>Tháng</option>
-                                <option>2</option>
-                              </select>
-                              <select class="form-control">
-                                <option value='1' selected='true'>Năm</option>
-                                <option>2</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="list-group-item">
-                        <div class="d-flex justify-content-end">Trị giá :&nbsp
-                          <label class="text-danger">2.399.000 VNĐ</label>
-                        </div>
-                      </li>
-                    </ul> -->
+             
                   </div>
                 </div>
             </div>
@@ -285,7 +266,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-          <button type="button" class="btn btn-primary">Lưu</button>
+          <button type="button" class="btn btn-primary" id="save-kh">Lưu</button>
         </div>
       </div>
     </div>
