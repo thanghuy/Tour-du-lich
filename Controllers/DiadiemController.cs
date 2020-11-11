@@ -2,6 +2,7 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using tour.Models;
+using tour.Repository.ChiTiet;
 using tour.Repository.DiaDiem;
 
 namespace tour.Controllers
@@ -10,10 +11,13 @@ namespace tour.Controllers
     {
         private readonly IDiaDiemRepo diaDiemRepo;
         private readonly ILogger<DiadiemController> _logger;
-        public DiadiemController(IDiaDiemRepo diaDiemRepo, ILogger<DiadiemController> logger)
+        private readonly IChiTietRepo chiTietRepo;
+
+        public DiadiemController(IDiaDiemRepo diaDiemRepo, ILogger<DiadiemController> logger,IChiTietRepo chiTietRepo)
         {
             this.diaDiemRepo = diaDiemRepo;
             _logger = logger;
+            this.chiTietRepo = chiTietRepo;
         }
 
         public IActionResult index()
@@ -33,5 +37,22 @@ namespace tour.Controllers
             }
             return View();
         }
+        public IActionResult Edit(int id)
+        {
+            return View(diaDiemRepo.Get(id));
+        }
+        [HttpPost]
+        public IActionResult Edit(DiaDiems diaDiems)
+        {
+            diaDiemRepo.Update(diaDiems);
+            return RedirectToAction("index");
+        }
+        public IActionResult Delete(int id)
+        {
+            diaDiemRepo.Delete(id);
+            chiTietRepo.DeleteByDiaDiemId(id);
+            return RedirectToAction("index");
+        }
+
     }
 }

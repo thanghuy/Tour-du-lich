@@ -173,16 +173,41 @@ $(document).ready(function(){
 
     //xử lý chọn địa điểm cho tour
     var list_location = [];
-    $("#select-location-tour").change(function(){
+    $("#select-location-tour").change(function () {
+        var location = $("#select-location-tour").val();
         var list_location_giaodien = "";
-        for(var i = 0; i < 3;i++){
+
+        $.ajax({
+            type: "GET",
+            url: "/Quanlytour/GetLocation/?location=" + location,
+            data: null,
+            dataType: "text",
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            success: function (data) {
+                var result = $.parseJSON(data);
+                console.log(result.data);
+                for (var item of result.data) {
+                    list_location_giaodien += '<div class="form-group check-place" id="p-' + item.diadiemId + '">'
+                        + '<input class="form-check-input check-value listbox1" type="checkbox" value="' + item.diadiemId + '" id="defaultCheck' + item.diadiemId + '">'
+                        + '<label class="form-check-label name-place" for="defaultCheck' + item.diadiemId + '">'
+                        + item.ten
+                        + '</label>'
+                        + '</div>';
+                }
+                $("#check-main-tour-to").html(list_location_giaodien);
+            },
+            error: function (req, status, error) {
+                console.log(msg);
+            }
+        });
+        /*for(var i = 0; i < 3;i++){
             list_location_giaodien +='<div class="form-group check-place" id="p-'+i+'">'
             +'<input class="form-check-input check-value listbox1" type="checkbox" value="'+i+'" id="defaultCheck'+i+'">'
             +'<label class="form-check-label name-place" for="defaultCheck'+i+'">'
             +'Địa điểm '+i
             +'</label>'
           +'</div>';
-        }
+        }*/
         $("#check-main-tour-to").html(list_location_giaodien);
         $("#location-add").click(function(){
             var arr = [];
@@ -215,3 +240,11 @@ $(document).ready(function(){
     })
     
 });
+/*function ValidateSelectList() {
+    if ($("#ToudId")[0].selectedIndex = 0) {
+        $("#Tour_Id").text("ádhasd");
+        return false;
+    } else {
+        return true;
+    }
+}*/

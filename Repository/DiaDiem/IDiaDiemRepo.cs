@@ -13,5 +13,8 @@ namespace tour.Repository.DiaDiem
         bool Update(DiaDiems d);
         IEnumerable<DiaDiems> GetAll();
         int Count();
+        IEnumerable<DiaDiems> GetGroupNameCity();
+        IEnumerable<DiaDiems> FindByName(String name);
+        bool Delete(int id);
     }
 }

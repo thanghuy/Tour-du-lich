@@ -1,91 +1,102 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Quản lý giá";
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+    Gias gias;
 }
 @model IEnumerable<Gias>
- <div class="content-wrapper">
+<div class="content-wrapper">
     <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Danh sách giá theo ngày</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-              <li class="breadcrumb-item active">Danh sách giá</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Danh sách giá theo ngày</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Danh sách giá</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
     </section>
     <section class="content">
-      <div class="container-fluid">
-          <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <div class="btn-group btn-add" role="group" aria-label="Basic example">
-                    <a href="/Quanlygia/Create" class="btn btn-primary">Thêm giá mới</a>
-                  </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <form action="" method="GET">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <select name="id" class="form-control">
+                                            <option selected='true'>Tất cả</option>
+                                            @foreach (Tours t in ViewBag.Tour)
+                                            {
+                                                <option value="@t.TourId">@t.Ten</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-1">
+                                        <button type="submit" class="form-control btn btn-primary">Xem</button>
+                                    </div>
+                                    <div class="col-3">
+                                        <a href="/Quanlygia/Create" class="form-control btn btn-primary">Thêm giá mới</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-hover" id="tableXemGiaTour">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">STT</th>
+                                        <th scope="col">Giá</th>
+                                        <th scope="col">Giá từ</th>
+                                        <th scope="col">Giá đến</th>
+                                        <th scope="col">Tour được áp dụng</th>
+                                        <th scope="col">Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var p in Model)
+                                    {
+                                        <tr>
+                                            <th>@p.GiaId</th>
+                                            <td>@string.Format(info, "{0:c}", p.Sotien)</td>
+                                            <td>@p.Tungay</td>
+                                            <td>@p.Denngay</td>
+                                            <td>@foreach (Tours tours in ViewBag.Tour) 
+                                                {
+                                                    @if (tours.TourId == p.ToudId)
+                                                    {
+                                                        @tours.Ten
+                                                    }
+                                                }
+                                            </td>
+                                            <td>
+                                                <a href="Quanlygia/Edit/@p.GiaId" name="update" value="update" class="btn btn-primary btn-sm">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                    Sửa
+                                                </a>
+                                                <a href="Quanlygia/Delete/@p.GiaId" class="btn btn-danger btn-sm" href="#">
+                                                    <i class="fas fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table class="table table-bordered table-hover" id="tableXemGiaTour">
-                    <thead class="thead-light">
-                      <tr>
-                        <th scope="col">Id giá</th>
-                        <th scope="col">Giá</th>
-                        <th scope="col">Giá từ</th>
-                        <th scope="col">Giá đến</th>
-                        <th scope="col">Hành động</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                        @*<tr>
-          <th>DL001</th>
-          <td>1.500.000 VNĐ</td>
-          <td>2-2-2020</td>
-          <td>5-5-2020</td>
-          <td>
-            <a class="btn btn-primary btn-sm" href="#">
-              <i class="fas fa-pencil-alt">
-              </i>
-              Sửa
-            </a>
-            <a class="btn btn-danger btn-sm" href="#">
-              <i class="fas fa-trash"></i>
-            </a>
-          </td>
-        </tr>
-*@                  @foreach (var p in Model)
-                        {
-                            <tr>
-                                <th>@p.GiaId</th>
-                                <td>@p.Sotien VNĐ</td>
-                                <td>@p.Tungay</td>
-                                <td>@p.Denngay</td>
-                                <td>
-                                    <a class="btn btn-primary btn-sm" href="#">
-                                        <i class="fas fa-pencil-alt">
-                                        </i>
-                                        Sửa
-                                    </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                  </table>
-                </div>
-                <!-- /.card-body -->
-              </div>
+                <!-- /.col -->
             </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-      </div>
+            <!-- /.row -->
+        </div>
     </section>
-  </div>
+</div>

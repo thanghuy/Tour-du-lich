@@ -2,3 +2,15 @@ bin/**
 obj/Debug/**
 bin/
 obj/Debug/
+.vs/tour/v16/.suo
+obj/Debug/netcoreapp3.1/tour.assets.cache
+obj/Debug/netcoreapp3.1/tour.csproj.FileListAbsolute.txt
+obj/Debug/netcoreapp3.1/tour.Views.dll
+obj/project.assets.json
+obj/tour.csproj.nuget.dgspec.json
+obj/tour.csproj.nuget.g.props
+*.dll
+.vs/tour/v16/.suo
+*.cache
+*.txt
+*.dll

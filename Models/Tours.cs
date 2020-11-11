@@ -6,6 +6,7 @@ namespace tour.Models
 {
     public partial class Tours
     {
+
         public int TourId { get; set; }
 
         [Required]
