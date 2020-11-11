@@ -42,8 +42,7 @@
                         </div>
                     </div>
                     <div class="col-6" style="padding: 20px;">
-                        <input type="hidden" asp-for="NvNgaysinh" />
-                        <span class="text-danger" asp-validation-for="NvNgaysinh"></span>
+                        <input class="NvNgaysinhss" type="date" asp-for="NvNgaysinh"/>
                         <div class="row">
                             <div class="col-12">
                                 <label>Ngày sinh</label>
@@ -58,8 +57,11 @@
                                         <option value='1' selected='true'>Năm</option>
                                     </select>
                                 </div>
+                                <span class="text-danger ngaysinhhide" asp-validation-for="NvNgaysinh"></span>
                             </div>
+
                         </div>
+
                         <div class="row" style="margin-top: 16px;">
                             <div class="col-12">
                                 <label>Nhiệm vụ</label>

@@ -175,11 +175,7 @@ namespace tour.Models
 
             modelBuilder.Entity<NhanViens>(entity =>
             {
-<<<<<<< HEAD
                 entity.HasKey(e => e.NvId);
-=======
-                entity.HasKey(e=>e.NvId);
->>>>>>> pr/12
 
                 entity.Property(e => e.NvEmail)
                     .HasColumnName("nv_email")
