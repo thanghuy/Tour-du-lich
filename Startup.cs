@@ -16,6 +16,8 @@ using tour.Repository.Loai;
 using tour.Repository.NhanVien;
 using tour.Repository.Tour;
 using tour.Repository.Doan;
+using tour.Repository.Khachhang;
+using tour.Repository.Nguoidi;
 
 namespace tour
 {
@@ -51,6 +53,8 @@ namespace tour
             services.AddScoped<ITourRepo, TourRepositoty>();
             // services.AddScoped<IDoanService, DoanService>();
             services.AddScoped<IDoanRepo, DoanRepository>();
+            services.AddScoped<INguoidiRepo, NguoidiRepository>();
+            services.AddScoped<IKhachhangRepo, KhachangRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

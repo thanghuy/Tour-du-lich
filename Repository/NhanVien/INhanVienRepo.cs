@@ -11,6 +11,7 @@ namespace tour.Repository.NhanVien
         NhanViens Get(int id);
         bool Add(NhanViens d);
         bool Update(NhanViens d);
+        List<NhanViens> GetAllId(string id);
         IEnumerable<NhanViens> GetAll();
         int Count();
     }

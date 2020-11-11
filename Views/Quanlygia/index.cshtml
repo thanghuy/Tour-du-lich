@@ -25,9 +25,19 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <div class="btn-group btn-add" role="group" aria-label="Basic example">
-                    <a href="/Quanlygia/Create" class="btn btn-primary">Thêm giá mới</a>
-                  </div>
+                   <div class="row">
+                      <div class="col-7">
+                        <select class="form-control">
+                            <option selected='true'>Chọn tour</option>
+                        </select>
+                      </div>
+                      <div class="col-1">
+                        <button class="form-control btn btn-primary">Xem</button>
+                      </div>
+                      <div class="col-3">
+                        <a href="/Quanlygia/Create" class="form-control btn btn-primary">Thêm giá mới</a>
+                      </div>
+                    </div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -42,23 +52,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @*<tr>
-          <th>DL001</th>
-          <td>1.500.000 VNĐ</td>
-          <td>2-2-2020</td>
-          <td>5-5-2020</td>
-          <td>
-            <a class="btn btn-primary btn-sm" href="#">
-              <i class="fas fa-pencil-alt">
-              </i>
-              Sửa
-            </a>
-            <a class="btn btn-danger btn-sm" href="#">
-              <i class="fas fa-trash"></i>
-            </a>
-          </td>
-        </tr>
-*@                  @foreach (var p in Model)
+                    @foreach (var p in Model)
                         {
                             <tr>
                                 <th>@p.GiaId</th>

@@ -1,6 +1,9 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Chi tiết đoàn";
+    var listkh = ViewBag.kh;
+    var listNv = ViewBag.nv;
+    var listNvs = ViewBag.nvs;
 }
   <div class="content-wrapper">
     <section class="content-header">
@@ -24,13 +27,13 @@
               <div class="col-12">
                 <ul class="nav nav-tabs">
                   <li class="nav-item">
-                    <a class="nav-link active" href="#" id="link-customer">Danh sách người đi</a>
+                    <button class="nav-link btn" id="link-customer">Danh sách người đi</button>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#" id="link-nv">Nhân viên</a>
+                    <button class="nav-link btn" id="link-nv">Nhân viên</button>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#" id="link-cp">Chi phí</a>
+                    <button class="nav-link btn" id="link-cp">Chi phí</button>
                   </li>
                 </ul>
               </div>
@@ -78,25 +81,28 @@
                             <th scope="col">Thao tác</th>
                           </tr>
                         </thead>
-                        <tbody>
-                          <tr>
-                            <td>D01</td>
-                            <td>T01</td>
-                            <td>2020-10-12</td>
-                            <td>2020-10-16</td>
-                            <td>3</td>
-                            <td>3</td>
-                            <td>
-                              <a class="btn btn-primary btn-sm" href="#">
-                                <i class="fas fa-pencil-alt">
-                                </i>
-                                Sửa
-                              </a>
-                              <a class="btn btn-danger btn-sm" href="#">
-                                <i class="fas fa-trash"></i>
-                              </a>
-                            </td>
-                          </tr>
+                      <tbody>
+                          @foreach (KhachHangs item in listkh)
+                          {
+                              <tr>
+                                  <td>@item.KhId</td>
+                                  <td>@item.KhTen</td>
+                                  <td>@item.KhSdt</td>
+                                  <td>@item.KhNgaysinh</td>
+                                  <td>@item.KhEmail</td>
+                                  <td>@item.KhCmnd</td>
+                                  <td>
+                                      <a class="btn btn-primary btn-sm" href="#">
+                                          <i class="fas fa-pencil-alt">
+                                          </i>
+                                          Sửa
+                                      </a>
+                                      <a class="btn btn-danger btn-sm" href="#">
+                                          <i class="fas fa-trash"></i>
+                                      </a>
+                                  </td>
+                              </tr>
+                          }
                       </tbody>
                     </table>
                   </div>
@@ -107,14 +113,13 @@
                     <div class="col-12">
                       <div class="row">
                         <div class="col">
-                          <select class="form-control" id="select_tour">
-                            <option value='0' selected='true'>Chọn nhân viên</option>
-                            <option value="1">Đà lạt - Nha trang</option>
-                            <option>Nha trang - Đà nẵng - Huế</option>
-                            <option>Nha trang - Đà nẵng - Huế</option>
-                            <option>Nha trang - Đà nẵng - Huế</option>
-                            <option>Nha trang - Đà nẵng - Huế</option>
-                          </select>
+                            <select class="form-control">
+                                <option selected='true'>Chọn nhân viên</option>
+                                @foreach (NhanViens items in listNvs)
+                                {
+                                    <option value="@items.NvId">@items.NvTen - @items.Nhiemvu</option>
+                                }
+                            </select>
                         </div>
                         <div class="col">
                           <button class="btn btn-primary">Thêm nhân viên</button>
@@ -135,19 +140,22 @@
                             <th scope="col">Thao tác</th>
                           </tr>
                         </thead>
-                        <tbody>
-                          <tr>
-                            <td>D01</td>
-                            <td>T01</td>
-                            <td>2020-10-12</td>
-                            <td>2020-10-16</td>
-                            <td>3</td>
-                            <td>
-                              <a class="btn btn-danger btn-sm" href="#">
-                                <i class="fas fa-trash"></i>
-                              </a>
-                            </td>
-                          </tr>
+                      <tbody>
+                          @foreach (NhanViens item in listNv)
+                          {
+                              <tr>
+                                  <td>@item.NvId</td>
+                                  <td>@item.NvTen</td>
+                                  <td>@item.NvSdt</td>
+                                  <td>@item.NvEmail</td>
+                                  <td>@item.Nhiemvu</td>
+                                  <td>
+                                      <a class="btn btn-danger btn-sm" href="#">
+                                          <i class="fas fa-trash"></i>
+                                      </a>
+                                  </td>
+                              </tr>
+                          }
                       </tbody>
                     </table>
                   </div>
@@ -285,7 +293,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-          <button type="button" class="btn btn-primary">Lưu</button>
+          <button type="button" class="btn btn-primary" id="save-kh">Lưu</button>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ namespace tour.Repository.Doan
     public interface IDoanRepo
     {
         Doans Get(int id);
-        bool Add(Doans d);
+        int Add(Doans d);
         bool Update(Doans d);
         IEnumerable<Doans> GetAll();
         int Count();
