@@ -37,9 +37,14 @@ namespace tour.Repository.Gia
             return _context.SaveChanges()!=0;
         }
 
-        public Gias Get(int id)
+        public Gias GetById(int id)
         {
             return _context.Gias.Find(id);
+        }
+
+        public Gias Get(int TourId)
+        {
+            return _context.Gias.Where(g=>g.ToudId==TourId).FirstOrDefault();
         }
 
         public int Get(object sotien)

@@ -47,7 +47,14 @@ namespace tour.Controllers
         public int getGia()
         {
             var id = Request.Query["id"];
-            return gia.Get(Convert.ToInt32(id)).Sotien;
+            try
+            {
+                return gia.Get(Convert.ToInt32(id)).Sotien;
+            }
+            catch(Exception e)
+            {
+                return 0;
+            }
         }
         public ActionResult themdoan()
         {
