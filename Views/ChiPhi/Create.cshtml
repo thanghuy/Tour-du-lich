@@ -37,9 +37,10 @@
                                     <div class="form-group">
                                     <label>Loại chi phí</label>
                                     <select class="form-control">
-                                        <option value='0' selected='true'>Hướng dẫn viên</option>
-                                        <option value='1'>Thông dịch viên</option>
-                                        <option value='2'>Tài xế</option>
+                                        @foreach(LoaiChiPhis l in ViewBag.LoaiChiPhi)
+                                        {
+                                            <option value="@l.ChiphiId">@l.Ten</option>
+                                        }
                                     </select>
                                     </div>
                                 </div>

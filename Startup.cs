@@ -19,6 +19,7 @@ using tour.Repository.Doan;
 using tour.Repository.ChiTiet;
 using tour.Repository.Khachhang;
 using tour.Repository.Nguoidi;
+using tour.Repository.LoaiChiPhi;
 
 namespace tour
 {
@@ -53,6 +54,8 @@ namespace tour
             services.AddSingleton<IDataAccess, DataAccess.Internal.DataAccess>();
             services.AddScoped<IDoanAccess, DoanAccess>();
             services.AddScoped<ITourRepo, TourRepositoty>();
+            services.AddScoped<ILoaiChiPhiRepo, LoaiChiPhiRepository>();
+            services.AddScoped<Repository.Repository, Repository.Repository>();
             // services.AddScoped<IDoanService, DoanService>();
             services.AddScoped<IDoanRepo, DoanRepository>();
             services.AddScoped<INguoidiRepo, NguoidiRepository>();
