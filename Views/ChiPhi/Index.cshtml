@@ -35,7 +35,7 @@
                                 <button type="submit" class="form-control btn btn-primary">Xem</button>
                             </div>
                             <div class="col-2">
-                                <a href="/ChiPhi/Create" class="form-control btn btn-primary">Thêm chi phí mới</a>
+                                <a href="/ChiPhi/Createloai" class="form-control btn btn-primary">Thêm loại chi phí</a>
                             </div>
                         </div>
                     </form>
@@ -44,11 +44,11 @@
                     <table class="table table-bordered table-hover" id="table-chi-phi">
                       <thead class="thead-light">
                         <tr>
-                            <th scope="col">Tên tour</th>
+                            <th scope="col">Hóa đơn</th>
                             <th scope="col">Tên đoàn</th>
                             <th scope="col">Loại</th>
                             <th scope="col">Chi tiết</th>
-                            <th scope="col">Tổng tiền</th>
+                            <th scope="col">Giá tiền</th>
                             <th scope="col">Thao tác</th>
                           </tr>
                         </thead>
@@ -65,6 +65,27 @@
                               </a>
                             </td>
                           </tr>
+                          <tr>
+                            <td>D01</td>
+                            <td>T01</td>
+                            <td>2020-10-12</td>
+                            <td>2020-10-16</td>
+                            <td>3</td>
+                            <td>
+                              <a class="btn btn-danger btn-sm" href="#">
+                                <i class="fas fa-trash"></i>
+                              </a>
+                            </td>
+                          </tr>
+                          
+                          <tr>
+                            <td colspan="6">
+                              <label>Tổng tiền : </label>
+                              <label class="text-danger">1.500.000 VNĐ</label>
+                              <a href="/ChiPhi/Create" class="btn btn-primary float-right">Thêm chi phí mới</a>
+                            </td>
+                          </tr>
+                          
                       </tbody>
                     </table>
                   </div>

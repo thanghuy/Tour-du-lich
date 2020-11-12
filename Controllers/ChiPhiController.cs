@@ -12,5 +12,9 @@ namespace tour.Controllers
         {
             return View();
         }
+        public IActionResult Createloai(int iddoan)
+        {
+            return View();
+        }
     }
 }
