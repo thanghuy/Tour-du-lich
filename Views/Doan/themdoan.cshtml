@@ -45,13 +45,6 @@
                                 <span class="text-danger" asp-validation-for="NgayVe"></span>
                             </div>
                         </div>
-                        <div class="row" style="margin-top: 10px;">
-                            <div class="col">
-                                <label>Chi tiết chương trình</label>
-                                <textarea asp-for="ChiTietChuongTrinh" class="form-control"></textarea>
-                                <span class="text-danger" asp-validation-for="ChiTietChuongTrinh"></span>
-                            </div>
-                        </div>
                         <div class="form-group">
                             <label>Chọn tour</label>
                             <select asp-for="TourId" class="form-control" id="select-tour-price">
@@ -67,6 +60,13 @@
                         <div class="form-group">
                             <label>Giá</label>
                             <input type="number" class="form-control" id="price-tour-d" readonly>
+                        </div>
+                        <div class="row" style="margin-top: 10px;">
+                            <div class="col">
+                                <label>Chi tiết chương trình</label>
+                                <textarea asp-for="ChiTietChuongTrinh" class="form-control"></textarea>
+                                <span class="text-danger" asp-validation-for="ChiTietChuongTrinh"></span>
+                            </div>
                         </div>
                     </div>
                     <div class="col-12" style="padding: 20px;">
