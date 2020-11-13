@@ -14,9 +14,11 @@ namespace tour.Repository.Nguoidi
         bool UpdateNV(string list_kh,int id);
         IEnumerable<NguoiDis> GetAll();
         IEnumerable<NguoiDis> GetAllID(int id);
-        int Count();
+        int CountKH(string list_kh);
+        int CountNV(string list_nv);
         String getKH(int id);
         String getNV(int id);
         bool DeleteKH(string list_kh,string id);
+        bool removeIndex(string list_kh,string list_nv,int id);
     }
 }

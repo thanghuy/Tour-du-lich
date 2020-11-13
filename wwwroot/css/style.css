@@ -4,8 +4,31 @@ body {
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
-.check-main-tour{
-  padding: 0 !important;
+.title-tour-cp-top {
+    width: 100%;
+    height: 50px;
+    padding-left: 10px;
+    background-color: aliceblue;
+    margin-top: -8px;
+    margin-bottom: 15px;
+}
+
+.title-tour-cp-top h4 {
+    line-height: 50px;
+}
+.title-tour-cp{
+    width : 100%;
+    height : 50px;
+    padding-left:10px;
+    background-color :aliceblue;
+    margin-top:15px;
+    margin-bottom:15px;
+}
+.title-tour-cp h4 {
+    line-height: 50px;
+}
+.check-main-tour {
+    padding: 0 !important;
 }
 .NvNgaysinhss {
     visibility: hidden;

@@ -27,7 +27,7 @@ namespace tour.Repository.Doan
 
         public Doans Get(int id)
         {
-            throw new NotImplementedException();
+            return _context.Doans.Find(id);
         }
 
         public IEnumerable<Doans> GetAll()
@@ -42,7 +42,8 @@ namespace tour.Repository.Doan
 
         public bool Update(Doans d)
         {
-            throw new NotImplementedException();
+            _context.Doans.Update(d);
+            return _context.SaveChanges()!=0;
         }
     }
 }

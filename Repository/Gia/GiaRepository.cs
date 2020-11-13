@@ -39,7 +39,8 @@ namespace tour.Repository.Gia
 
         public Gias Get(int id)
         {
-            return _context.Gias.Find(id);
+            DateTime today = DateTime.Today;
+            return _context.Gias.Where(c => c.ToudId == id && c.Tungay <= today && today <= c.Denngay).First();
         }
 
         public int Get(object sotien)

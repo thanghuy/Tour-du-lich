@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Web;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,7 +27,7 @@ namespace tour.Controllers
         private readonly IKhachhangRepo khachhangRepo;
         private readonly INhanVienRepo nhanVienRepo;
         public static int idND;
-
+        public static int idTours;
         public DoanController(IDoanRepo doanService, ITourRepo tour, IGiaRepo gia,INguoidiRepo nguoidiRepo,IKhachhangRepo khachhangRepo,INhanVienRepo nhanVienRepo
             )
         {
@@ -47,7 +48,14 @@ namespace tour.Controllers
         public int getGia()
         {
             var id = Request.Query["id"];
-            return gia.Get(Convert.ToInt32(id)).Sotien;
+            try
+            {
+             return gia.Get(Convert.ToInt32(id)).Sotien;   
+            }
+            catch (System.Exception ex)
+            {
+               return 0;
+            }
         }
         public ActionResult themdoan()
         {
@@ -145,14 +153,30 @@ namespace tour.Controllers
         // GET: DoanController/Details/5
         public ActionResult Details(int id)
         {
+            
             idND = id;
             string strId = nguoidiRepo.getKH(id);
             string strIdnv = nguoidiRepo.getNV(id);
+            Doans d = _doanService.Get(id);
+            idTours = d.TourId;
+            ViewBag.doan = d;
             ViewBag.kh = khachhangRepo.GetAll(strId);
             ViewBag.nv = nhanVienRepo.GetAllId(strIdnv);
             ViewBag.nvs = nhanVienRepo.GetAll();
             ViewBag.khall = khachhangRepo.GetAlll();
+            ViewBag.gia = gia.Get(Convert.ToInt32(d.TourId));
+            ViewBag.slKh = nguoidiRepo.CountKH(strId);
+            ViewBag.slNV = nguoidiRepo.CountNV(strIdnv);
+            ViewBag.tongtien = tongTien();
+            ViewBag.tour = tour.Get(d.TourId);
             return View();
+        }
+        public int tongTien(){
+            string strId = nguoidiRepo.getKH(idND);
+            int giatour = gia.Get(idTours).Sotien;
+            int slkh = nguoidiRepo.CountKH(strId);
+            int total = giatour * slkh;
+            return total;
         }
 
         // GET: DoanController/Create
@@ -179,16 +203,18 @@ namespace tour.Controllers
         // GET: DoanController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            ViewBag.tour = tour.GetAll();
+            return View(_doanService.Get(id));
         }
 
         // POST: DoanController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Doans doans)
         {
             try
             {
+                _doanService.Update(doans);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -196,6 +222,7 @@ namespace tour.Controllers
                 return View();
             }
         }
+
 
         // GET: DoanController/Delete/5
         public ActionResult Delete(int id)

@@ -1,5 +1,26 @@
 $(document).ready(function(){
-
+    $(function () {
+        // Summernote
+        $('.detail-ct-tour').summernote();
+      })
+    // $(function(){
+    //     $("#price-tour-tod").text("demo");
+    // })
+    function setTongTien(){
+        $.ajax({
+            type: "GET",
+            url: "/Doan/tongtien",
+            data: null,
+            dataType: "json",  
+            contentType: "application/json; charset=utf-8",  
+            success: function (data) {
+                $("#price-tour-tod").text(data+" VNĐ");
+            },
+            error: function (req, status, error) {
+                console.log(msg);
+            }
+        });
+    }
     function themDiaDiem(){
         $("#themdiadiem").on("click",function(){
             var soluong = $("#soluong").val();
@@ -151,6 +172,7 @@ $(document).ready(function(){
                         var b = '<a class="btn btn-primary btn-sm" href="#">'
                         +'<i class="fas fa-pencil-alt"></i> Sửa</a> <button class="btn btn-danger btn-sm delete-kh"  value="'+data.khId+'"><i class="fas fa-trash"></i></button>';
                         a.row.add([data.khId,data.khTen,data.khSdt,data.khNgaysinh,data.khEmail,data.khCmnd,b]).draw();
+                        setTongTien();
                     },
                     error: function (req, status, error) {
                         console.log(msg);
@@ -183,6 +205,7 @@ $(document).ready(function(){
                         +'<i class="fas fa-pencil-alt"></i> Sửa</a> <button class="btn btn-danger btn-sm delete-kh" value="'+data.khId+'"><i class="fas fa-trash"></i></button>';
                         a.row.add([data.khId,data.khTen,data.khSdt,data.khNgaysinh,data.khEmail,data.khCmnd,b]).draw();
                     }
+                    setTongTien();
                 },
                 error: function (req, status, error) {
                     console.log(msg);
@@ -233,7 +256,7 @@ $(document).ready(function(){
         $("#link-detail").addClass("active");
         $("#list-customer").hide();
         $("#list-nv").hide();
-        //$("#list-detail").show();
+        $("#detail-ct-tour").show();
         var url = window.location.pathname;
         window.history.replaceState('', '', url);
       }
@@ -242,6 +265,7 @@ $(document).ready(function(){
         $("#link-detail").removeClass("active");
         $("#link-nv").addClass("active");
         $("#list-customer").hide();
+        $("#detail-ct-tour").hide();
         $("#list-nv").show();
         var url = window.location.pathname;
         window.history.replaceState('', '', url+"?page=nhanvien");
@@ -252,6 +276,7 @@ $(document).ready(function(){
         $("#link-customer").addClass("active");
         $("#list-customer").show();
         $("#list-nv").hide();
+        $("#detail-ct-tour").hide();
         var url = window.location.pathname;
         window.history.replaceState('', '', url+"?page=khachhang");
       }
@@ -290,6 +315,7 @@ $(document).ready(function(){
             contentType: "application/json; charset=utf-8",  
             success: function (data) {
                 console.log(data);
+                setTongTien();
             },
             error: function (req, status, error) {
                 console.log(msg);

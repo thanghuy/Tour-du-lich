@@ -19,5 +19,11 @@ namespace tour.Models
 
         [Required]
         public int? ToudId { get; set; }
+        public int Sotienformat{
+            get {
+                int sotien = Convert.ToInt32(string.Format("{0:C}", Sotien.ToString()));
+                return sotien;
+            }
+        }
     }
 }

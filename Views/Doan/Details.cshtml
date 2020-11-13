@@ -5,13 +5,19 @@
     var listNv = ViewBag.nv;
     var listNvs = ViewBag.nvs;
     var listkhall = ViewBag.khall;
+    Doans d = ViewBag.doan;
+    Gias g = ViewBag.gia;
+    var slkh = ViewBag.slKH;
+    var slnv = ViewBag.slNV;
+    var tongtien = ViewBag.tongtien;
+    Tours tour = ViewBag.tour;
 }
   <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Chi tiết đoàn</h1>
+                <h1>Chi tiết đoàn</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -36,32 +42,54 @@
                   <li class="nav-item">
                     <button class="nav-link btn" id="link-nv">Nhân viên</button>
                   </li>
-                </ul>
-              </div>
-              <div class="col-12">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <div class="d-flex justify-content-start">
-                      <div class="bd-highlight">Số lượng nhân viên :
-                        <span class="text-black">1</span>
-                      </div>
-                      <div class="bd-highlight">Số lượng khách :
-                        <span class="text-black">1</span>
-                      </div>
-                      <div class="bd-highlight">Giá tour :
-                        <span class="text-danger">1.500.000 VNĐ</span>
-                      </div>
-                      <div class="bd-highlight">Tổng chi phí :
-                        <span class="text-danger">1.500.000 VNĐ</span>
-                      </div>
-                      <div class="bd-highlight">Tổng tiền :
-                        <span class="text-danger">1.500.000 VNĐ</span>
-                      </div>
-                    </div>
+                  <li class="nav-item">
+                    <a class="nav-link btn" href="/ChiPhi/@d.DoanId">Xem chi phí</a>
                   </li>
                 </ul>
               </div>
               <div class="col-12">
+                  <div class="card" id="detail-ct-tour" style="padding-top:10px;">
+                      <div class="title-tour-cp-top">
+                          <h4>Thông tin đoàn</h4>
+                      </div>
+                      <div class="col-12" style="padding-left:12px;">
+                          <ul class="list-group">
+                              <li class="list-group-item">
+                                  <div class="d-flex justify-content-start">
+                                      <div class="bd-highlight">
+                                          Số lượng nhân viên :
+                                          <span class="text-black">@slnv</span>
+                                      </div>
+                                      <div class="bd-highlight">
+                                          Số lượng khách :
+                                          <span class="text-black">@slkh</span>
+                                      </div>
+                                      <div class="bd-highlight">
+                                          Giá tour :
+                                          <span class="text-danger">@g.Sotien VNĐ</span>
+                                      </div>
+                                      <div class="bd-highlight">
+                                          Tổng tiền :
+                                          <span class="text-danger" id="price-tour-tod">@tongtien VNĐ</span>
+                                      </div>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="title-tour-cp">
+                          <h4>Chi tiết tour</h4>
+                      </div>
+                      <div class="col-12" style="padding-left:12px;">
+                          <label>Tên tour : @tour.Ten</label>
+                          <p><label>Mô tả : </label> @tour.Mota</p>
+                      </div>
+                      <div class="title-tour-cp">
+                          <h4>Chi tiết chương trình</h4>
+                      </div>
+                      <div class="col-12" style="padding-left:12px;">
+                          @Html.Raw(d.ChiTietChuongTrinh)
+                      </div>
+                  </div>
                 <div class="card" id="list-customer">
                   <div class="card-header">
                       <div class="col-12">

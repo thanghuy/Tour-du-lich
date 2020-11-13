@@ -39,7 +39,6 @@
                             <th scope="col">Tên đoàn</th>
                             <th scope="col">Ngày đi</th>
                             <th scope="col">Ngày về</th>
-                            <th scope="col">Tổng tiền</th>
                             <th scope="col">Hành động</th>
                           </tr>
                         </thead>
@@ -52,16 +51,12 @@
                                   <td>@item.Ten</td>
                                   <td>@item.NgayDiFormat</td>
                                   <td>@item.NgayVeFormat</td>
-                                  <td>1.000.000</td>
                                   <td>
                                       <a href="/Doan/Details/@item.DoanId" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>
-                                      <a class="btn btn-primary btn-sm" href="#">
+                                      <a class="btn btn-primary btn-sm" href="/Doan/Edit/@item.DoanId">
                                           <i class="fas fa-pencil-alt">
                                           </i>
                                           Sửa
-                                      </a>
-                                      <a class="btn btn-danger btn-sm" href="#">
-                                          <i class="fas fa-trash"></i>
                                       </a>
                                   </td>
                               </tr>

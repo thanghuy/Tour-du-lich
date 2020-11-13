@@ -51,7 +51,7 @@ namespace tour.Repository.Tour
 
         public Tours Get(int id)
         {
-            throw new NotImplementedException();
+            return _context.Tours.Find(id);
         }
 
         public IEnumerable<Tours> GetAll()
