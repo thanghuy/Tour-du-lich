@@ -8,13 +8,13 @@ namespace tour.Models
     {
         public int GiaId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Số tiền không được để trống!")]
         public int Sotien { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Ngày bắt đầu không được để trống!")]
         public DateTime Tungay { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Ngày kết thúc không được để trống!")]
         public DateTime Denngay { get; set; }
 
         [Required]
@@ -25,5 +25,7 @@ namespace tour.Models
                 return sotien;
             }
         }
+
+        public string FormatGia() => string.Format("{0:#,0}", Sotien);
     }
 }

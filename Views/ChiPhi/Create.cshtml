@@ -2,6 +2,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Thêm chi phí";
 }
+@model tour.ViewModels.QuanLyChiPhi;
 <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
@@ -21,41 +22,46 @@
     <section class="content">
         <div class="container-fluid card">
             <div class="col-12">
-                <form method="post">
+                <form method="post" action="/ChiPhi/Create/">
                     <div class="row">
                         <div class="col-12" style="padding: 20px;">
                              <div class="row">
                                 <div class="col-6" style="padding: 20px;">
                                     <div class="form-group">
                                     <label>Tên tour</label>
-                                    <input type="text" class="form-control" readonly>
+                                    <input asp-for="TenTour" type="text" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
-                                    <label>Tên đoàn</label>
-                                    <input type="text" class="form-control" readonly>
+                                        <label>Tên đoàn</label>
+                                        <input asp-for="IdDoan" type="hidden" class="form-control" readonly>
+                                        <input asp-for="TenDoan" type="text" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                     <label>Loại chi phí</label>
-                                    <select class="form-control">
-                                        <option value='0' selected='true'>Hướng dẫn viên</option>
-                                        <option value='1'>Thông dịch viên</option>
-                                        <option value='2'>Tài xế</option>
+                                    <select asp-for="IdLoaiChiPhi" class="form-control">
+                                        @foreach(LoaiChiPhis l in ViewBag.LoaiChiPhi)
+                                        {
+                                            <option value="@l.ChiphiId">@l.Ten</option>
+                                        }
                                     </select>
                                     </div>
                                 </div>
                                 <div class="col-6" style="padding: 20px;">
                                     <div class="form-group">
-                                    <label>Nội dung</label>
-                                    <input type="text" class="form-control" placeholder="Nhập nội dung">
+                                        <label>Nội dung</label>
+                                        <input asp-for="NoiDung" type="text" class="form-control" placeholder="Nhập nội dung">
+                                        <span class="text-danger" asp-validation-for="NoiDung"></span>
                                     </div>
                                     <div class="form-group">
-                                    <label>Hóa đơn</label>
-                                    <input type="text" class="form-control" placeholder="Nhập mã hóa đơn">
+                                        <label>Hóa đơn</label>
+                                        <input asp-for="HoaDon" type="text" class="form-control" placeholder="Nhập mã hóa đơn">
+                                        <span class="text-danger" asp-validation-for="HoaDon"></span>
                                     </div>
                                     <div class="form-group">
-                                    <label>Giá</label>
-                                    <input type="number" class="form-control" placeholder="Nhập giá">
-                                </div>
+                                        <label>Giá</label>
+                                        <input asp-for="Gia" type="number" class="form-control" placeholder="Nhập giá">
+                                        <span class="text-danger" asp-validation-for="Gia"></span>
+                                    </div>
                                 </div>
                                 </div>
                         </div>

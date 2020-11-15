@@ -9,5 +9,6 @@ namespace tour.Models
         public int DoanId { get; set; }
         public float Tongchiphi { get; set; }
         public string Chitiet { get; set; }
+        public string Hoadon { get; set; }
     }
 }

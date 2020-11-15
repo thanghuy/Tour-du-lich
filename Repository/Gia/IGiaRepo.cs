@@ -9,11 +9,11 @@ namespace tour.Repository.Gia
 {
     public interface IGiaRepo
     {
-        Gias Get(int id);
+        Gias GetById(int id);
         bool Add(Gias d);
         IEnumerable<Gias> GetAll();
         int Count();
-        int Get(object sotien);
+        Gias Get(int TourId);
         IEnumerable<Gias> GetAllGiasByIdLoai(int? id);
         bool Update(Gias gias);
         bool Delele(int id);

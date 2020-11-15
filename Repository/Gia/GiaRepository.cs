@@ -37,10 +37,15 @@ namespace tour.Repository.Gia
             return _context.SaveChanges()!=0;
         }
 
-        public Gias Get(int id)
+        public Gias GetById(int id)
         {
             DateTime today = DateTime.Today;
             return _context.Gias.Where(c => c.ToudId == id && c.Tungay <= today && today <= c.Denngay).First();
+        }
+
+        public Gias Get(int TourId)
+        {
+            return _context.Gias.Where(g=>g.ToudId==TourId).FirstOrDefault();
         }
 
         public int Get(object sotien)

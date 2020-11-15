@@ -67,7 +67,7 @@ namespace tour.Controllers
         {
             if (ModelState.IsValid)
             {
-                Gias GiaCu = giaRepo.Get(GiaMoi.GiaId);
+                Gias GiaCu = giaRepo.GetById(GiaMoi.GiaId);
                 GiaCu.ToudId = GiaMoi.ToudId;
                 GiaCu.Tungay = GiaMoi.Tungay;
                 GiaCu.Denngay = GiaMoi.Denngay;

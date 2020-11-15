@@ -8,13 +8,13 @@ namespace tour.Models
     {
         public int DiadiemId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Thành phố không được để trống!")]
         public string Thanhpho { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Tên địa điểm không được để trống!")]
         public string Ten { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Mô tả không được để trống!")]
         public string Mota { get; set; }
     }
 }
