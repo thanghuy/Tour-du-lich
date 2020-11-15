@@ -20,9 +20,8 @@ namespace tour.Repository.ChiPhi
             {
                 DoanId = quanLyChiPhi.IdDoan,
                 Tongchiphi = quanLyChiPhi.Gia,
-                Chitiet = ct,
+                Chitiet = ct+"," + quanLyChiPhi.NoiDung,
                 Hoadon = quanLyChiPhi.HoaDon,
-                Noidung = quanLyChiPhi.NoiDung
             }
                 );
             return _context.SaveChanges() != 0;

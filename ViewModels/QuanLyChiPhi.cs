@@ -24,5 +24,7 @@ namespace tour.ViewModels
         public int Gia{ get; set; }
         [Required]
         public string ChiTiet { get; set; }
+
+        public string FormatGia() => string.Format("{0:#,0}", Gia);
     }
 }

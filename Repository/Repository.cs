@@ -36,10 +36,11 @@ namespace tour.Repository
                        t => t.TourId,
                        d => d.TourId,
                (t, d) => new { t, d }
-               ).Select(s=> new ChiTietDoanhThu() { 
-                    IdDoan = s.d.DoanId,
-                    TenDoan = s.d.Ten,
-                    IdTour = s.t.TourId
+               ).Select(s => new ChiTietDoanhThu()
+               {
+                   IdDoan = s.d.DoanId,
+                   TenDoan = s.d.Ten,
+                   IdTour = s.t.TourId
                }).ToList();
             foreach (ChiTietDoanhThu chiTiet in ds)
             {
@@ -82,7 +83,7 @@ namespace tour.Repository
                 tk.TongChiPhi = getTongChiPhi(tk.IdTour);
             }
             return tour.ToList();
-        } 
+        }
 
         private int getTongChiPhi(int idTour)
         {
@@ -94,9 +95,9 @@ namespace tour.Repository
                ).Join(
                     _context.ChiPhis,
                     combine2 => combine2.d.DoanId,
-                    c=> c.DoanId,
-                    (combine2,c) =>new { combine2, c }
-                ).Select(s=> new { TongChiPhi = s.c.Tongchiphi}).Sum(x=>(int)x.TongChiPhi);
+                    c => c.DoanId,
+                    (combine2, c) => new { combine2, c }
+                ).Select(s => new { TongChiPhi = s.c.Tongchiphi }).Sum(x => (int)x.TongChiPhi);
         }
 
         private int getTongDoanDi(int idTour)
@@ -121,11 +122,12 @@ namespace tour.Repository
                     combine2 => combine2.t.TourId,
                     g => g.ToudId,
                     (combine2, g) => new { combine2, g }
-                ).Select(c=>new { TongDoanhThu = c.g.Sotien}).Sum(c=>c.TongDoanhThu);
+                ).Select(c => new { TongDoanhThu = c.g.Sotien }).Sum(c => c.TongDoanhThu);
         }
-        internal IEnumerable<ChiPhis> GetChiTietHoaDon(int id)
+        internal List<ChiPhis> GetChiTietHoaDon(int id)
         {
-            return _context.ChiPhis.Where(c => c.DoanId == id).AsEnumerable();
+            List<ChiPhis> ds = _context.ChiPhis.Where(c => c.DoanId == id).ToList();
+            return ds;
         }
     }
 }

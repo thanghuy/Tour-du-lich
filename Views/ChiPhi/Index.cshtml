@@ -63,8 +63,8 @@
                                       {
                                           <tr>
                                               <td>@quanLy.Hoadon</td>
-                                              <td>@quanLy.Chitiet</td>
-                                              <td>@quanLy.Noidung</td>
+                                              <td>@quanLy.Chitiet.Split(",")[0]</td>
+                                              <td>@quanLy.Chitiet.Split(",")[1]</td>
                                               <td>@string.Format("{0:#,0}",quanLy.Tongchiphi) VNĐ</td>
                                               <td>
                                                   <a class="btn btn-danger btn-sm" href="/ChiPhi/Delete/@quanLy.ChiphiId">

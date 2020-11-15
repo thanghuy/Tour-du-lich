@@ -19,5 +19,7 @@ namespace tour.Models
 
         [Required]
         public int? ToudId { get; set; }
+
+        public string FormatGia() => string.Format("{0:#,0}", Sotien);
     }
 }
