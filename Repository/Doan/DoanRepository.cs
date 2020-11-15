@@ -27,7 +27,7 @@ namespace tour.Repository.Doan
 
         public Doans Get(int id)
         {
-            throw new NotImplementedException();
+            return _context.Doans.Find(id);
         }
 
         public IEnumerable<Doans> GetAll()

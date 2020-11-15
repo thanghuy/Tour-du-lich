@@ -1,21 +1,20 @@
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Quản lý giá";
-    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
-    Gias gias;
+    ViewData["Title"] = "Thống kê doanh thu Tour";
+    int i = 1;
 }
-@model IEnumerable<Gias>
+@model List<tour.ViewModels.ThongKeTour>;
 <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Danh sách giá theo ngày</h1>
+                    <h1>Thống kê theo Tour</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-                        <li class="breadcrumb-item active">Danh sách giá</li>
+                        <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Thống kê</li>
                     </ol>
                 </div>
             </div>
@@ -26,16 +25,12 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
+@*                        <div class="card-header">
                             <form action="" method="GET">
                                 <div class="row">
                                     <div class="col-7">
                                         <select name="id" class="form-control">
                                             <option selected='true'>Tất cả</option>
-                                            @foreach (Tours t in ViewBag.Tour)
-                                            {
-                                                <option value="@t.TourId">@t.Ten</option>
-                                            }
                                         </select>
                                     </div>
                                     <div class="col-1">
@@ -46,44 +41,36 @@
                                     </div>
                                 </div>
                             </form>
-                        </div>
+                        </div>*@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table class="table table-bordered table-hover" id="tableXemGiaTour">
                                 <thead class="thead-light">
                                     <tr>
                                         <th scope="col">STT</th>
-                                        <th scope="col">Giá</th>
-                                        <th scope="col">Giá từ</th>
-                                        <th scope="col">Giá đến</th>
-                                        <th scope="col">Tour được áp dụng</th>
+                                        <th scope="col">Tour</th>
+                                        <th scope="col">Tổng số đoàn đi</th>
+                                        <th scope="col">Tổng doanh thu</th>
+                                        <th scope="col">Tổng chi phí</th>
+                                        <th scope="col">Lãi</th>
                                         <th scope="col">Hành động</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var p in Model)
+                                    @foreach (tour.ViewModels.ThongKeTour t in Model)
                                     {
                                         <tr>
-                                            <th>@p.GiaId</th>
-                                            <td>@string.Format("{0:#,0}", p.Sotien) VNĐ</td>
-                                            <td>@p.Tungay</td>
-                                            <td>@p.Denngay</td>
-                                            <td>@foreach (Tours tours in ViewBag.Tour) 
-                                                {
-                                                    @if (tours.TourId == p.ToudId)
-                                                    {
-                                                        @tours.Ten
-                                                    }
-                                                }
-                                            </td>
+                                            <th>@(i++)</th>
+                                            <td>@t.TenTour</td>
+                                            <td>@t.TongDoanDi</td>
+                                            <td>@string.Format("{0:#,0}", @t.TongDoanhThu)</td>
+                                            <td>@string.Format("{0:#,0}", @t.TongChiPhi)</td>
+                                            <td>@string.Format("{0:#,0}", (@t.TongDoanhThu - @t.TongChiPhi))</td>
                                             <td>
-                                                <a href="Quanlygia/Edit/@p.GiaId" name="update" value="update" class="btn btn-primary btn-sm">
+                                                <a href="ThongKe/Details/@t.IdTour" name="update" value="update" class="btn btn-primary btn-sm">
                                                     <i class="fas fa-pencil-alt">
                                                     </i>
-                                                    Sửa
-                                                </a>
-                                                <a href="Quanlygia/Delete/@p.GiaId" class="btn btn-danger btn-sm" href="#">
-                                                    <i class="fas fa-trash"></i>
+                                                    Chi tiết
                                                 </a>
                                             </td>
                                         </tr>
@@ -100,3 +87,4 @@
         </div>
     </section>
 </div>
+<!-- /.content-wrapper -->

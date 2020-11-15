@@ -1,0 +1,110 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Thống kê doanh thu Tour";
+    int i = 1;
+}
+@model List<tour.ViewModels.ChiTietDoanhThu>;
+<div class="content-wrapper">
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Thống kê theo Tour</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Thống kê</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <form action="" method="GET">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <select id="ChonTour" name="id" class="form-control">
+                                            <option>Chọn tour</option>
+                                            @foreach (Tours t in ViewBag.Tour)
+                                            {
+                                                <option value="@t.TourId">@t.Ten</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-1">
+                                        <a href="" id="ThongKeTour" class="form-control btn btn-primary">Xem</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-hover" id="table-chi-phi">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">STT</th>
+                                        <th scope="col">Đoàn đi</th>
+                                        <th scope="col">Số khách</th>
+                                        <th scope="col">Giá Tour</th>
+                                        <th scope="col">Doanh thu</th>
+                                        <th scope="col">Tổng chi phí</th>
+                                        <th scope="col">Lãi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (tour.ViewModels.ChiTietDoanhThu ct in Model)
+                                    {
+                                        <tr>
+                                            <th>@(i++)</th>
+                                            <td>@ct.TenDoan</td>
+                                            <td>@ct.SoKhach</td>
+                                            <td>
+                                                @string.Format("{0:#,0}", @ct.GiaTour)
+                                            </td>
+                                            <td>
+                                                <a href="ThongKe/Details/" name="update" value="update" class="btn btn-primary btn-sm">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                    Chi tiết
+                                                </a>
+                                                @string.Format("{0:#,0}", @ct.DoanhThu)
+                                            </td>
+                                            <td>
+                                                <a href="/ChiPhi/@ct.IdDoan" name="update" value="update" class="btn btn-primary btn-sm">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                    Chi tiết
+                                                </a>
+                                                @string.Format("{0:#,0}", @ct.TongChiPhi)
+                                            </td>
+                                            <td>@string.Format("{0:#,0}", (@ct.DoanhThu - @ct.TongChiPhi))</td>
+                                        </tr>
+                                    }
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td><b>Tổng</b></td>
+                                        <td><b>@string.Format("{0:#,0}", Model.Sum(s => s.DoanhThu))</b></td>
+                                        <td><b>@string.Format("{0:#,0}", Model.Sum(s => s.TongChiPhi))</b></td>
+                                        <td><b>@string.Format("{0:#,0}", (@Model.Sum(s => s.DoanhThu) - @Model.Sum(s => s.TongChiPhi)))</b></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+    </section>
+</div>
+<!-- /.content-wrapper -->

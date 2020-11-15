@@ -15,11 +15,14 @@ namespace tour.ViewModels
         [Required]
         public string TenDoan { get; set; }
         public int IdLoaiChiPhi { get; set; }
+        public string TenLoai { get; set; }
         [Required]
         public string NoiDung { get; set; }
         [Required]
         public string HoaDon { get; set; }
         [Required]
         public int Gia{ get; set; }
+        [Required]
+        public string ChiTiet { get; set; }
     }
 }

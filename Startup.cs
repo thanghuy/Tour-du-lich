@@ -20,6 +20,7 @@ using tour.Repository.ChiTiet;
 using tour.Repository.Khachhang;
 using tour.Repository.Nguoidi;
 using tour.Repository.LoaiChiPhi;
+using tour.Repository.ChiPhi;
 
 namespace tour
 {
@@ -56,6 +57,7 @@ namespace tour
             services.AddScoped<ITourRepo, TourRepositoty>();
             services.AddScoped<ILoaiChiPhiRepo, LoaiChiPhiRepository>();
             services.AddScoped<Repository.Repository, Repository.Repository>();
+            services.AddScoped<IChiPhiRepo, ChiPhiRepository>();
             // services.AddScoped<IDoanService, DoanService>();
             services.AddScoped<IDoanRepo, DoanRepository>();
             services.AddScoped<INguoidiRepo, NguoidiRepository>();

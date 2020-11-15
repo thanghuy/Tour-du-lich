@@ -2,6 +2,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Quản lý chi phí";
 }
+@model IEnumerable<tour.Models.ChiPhis>;
 <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
@@ -22,77 +23,71 @@
         <div class="container-fluid">
             <div class="row">
               <div class="col-12">
-                <div class="card">
-                  <div class="card-header">
-                    <form action="" method="GET">
-                        <div class="row">
-                            <div class="col-7">
-                                <select name="id" class="form-control">
-                                    @foreach (Doans t in ViewBag.Doans)
-                                    {
-                                        <option value="@t.DoanId">@t.Ten</option>
-                                    }
-                                </select>
-                            </div>
-                            <div class="col-1">
-                                <button type="submit" class="form-control btn btn-primary">Xem</button>
-                            </div>
-                            <div class="col-2">
-                                <a href="/ChiPhi/Createloai" class="form-control btn btn-primary">Thêm loại chi phí</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                  <div class="card-body">
-                    <table class="table table-bordered table-hover" id="table-chi-phi">
-                      <thead class="thead-light">
-                        <tr>
-                            <th scope="col">Hóa đơn</th>
-                            <th scope="col">Tên đoàn</th>
-                            <th scope="col">Loại</th>
-                            <th scope="col">Chi tiết</th>
-                            <th scope="col">Giá tiền</th>
-                            <th scope="col">Thao tác</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>D01</td>
-                            <td>T01</td>
-                            <td>2020-10-12</td>
-                            <td>2020-10-16</td>
-                            <td>3</td>
-                            <td>
-                              <a class="btn btn-danger btn-sm" href="#">
-                                <i class="fas fa-trash"></i>
-                              </a>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>D01</td>
-                            <td>T01</td>
-                            <td>2020-10-12</td>
-                            <td>2020-10-16</td>
-                            <td>3</td>
-                            <td>
-                              <a class="btn btn-danger btn-sm" href="#">
-                                <i class="fas fa-trash"></i>
-                              </a>
-                            </td>
-                          </tr>
-                          
-                          <tr>
-                            <td colspan="6">
-                              <label>Tổng tiền : </label>
-                              <label class="text-danger">1.500.000 VNĐ</label>
-                              <a href="/ChiPhi/Create" class="btn btn-primary float-right">Thêm chi phí mới</a>
-                            </td>
-                          </tr>
-                          
-                      </tbody>
-                    </table>
+                  <div class="card">
+                      <div class="card-header">
+                          <form action="" method="GET">
+                              <div class="row">
+                                  <div class="col-7">
+                                      <select name="id" id="DoanSL" class="form-control">
+                                          <option value="0">Chọn đoàn</option>
+                                          @foreach (Doans t in ViewBag.Doans)
+                                          {
+                                              <option value="@t.DoanId">@t.Ten</option>
+                                          }
+                                      </select>
+                                  </div>
+                                  <div class="col-1">
+                                      <a id="LinkDoan" href="/ChiPhi/" class="form-control btn btn-primary">Xem</a>
+                                  </div>
+                                  <div class="col-2">
+                                      <a href="/ChiPhi/Createloai" class="form-control btn btn-primary">Thêm loại chi phí</a>
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                      @if (Model.Count() != 0)
+                      {
+                          <div class="card-body">
+                              <table class="table table-bordered table-hover" id="table-chi-phi">
+                                  <thead class="thead-light">
+                                      <tr>
+                                          <th scope="col">Hóa đơn</th>
+                                          <th scope="col">Loại</th>
+                                          <th scope="col">Tên Chi Phí</th>
+                                          <th scope="col">Giá tiền</th>
+                                          <th scope="col">Thao tác</th>
+                                      </tr>
+                                  </thead> 
+                                  <tbody>
+                                      @foreach (tour.Models.ChiPhis quanLy in Model)
+                                      {
+                                          <tr>
+                                              <td>@quanLy.Hoadon</td>
+                                              <td>@quanLy.Chitiet</td>
+                                              <td>@quanLy.Noidung</td>
+                                              <td>@string.Format("{0:#,0}",quanLy.Tongchiphi) VNĐ</td>
+                                              <td>
+                                                  <a class="btn btn-danger btn-sm" href="/ChiPhi/Delete/@quanLy.ChiphiId">
+                                                      <i class="fas fa-trash"></i>
+                                                  </a>
+                                              </td>
+                                          </tr>
+                                      }
+                                      <tr>
+                                          <td colspan="6">
+                                              <label>Tổng tiền : </label>
+                                              <label class="text-danger">
+                                                  @string.Format("{0:#,0}", @Model.Sum(i => i.Tongchiphi)) VNĐ
+                                              </label>
+                                              <a id="CreateDoan" href="/ChiPhi/Create/" class="btn btn-primary float-right">Thêm chi phí mới</a>
+                                          </td>
+                                      </tr>
+
+                                  </tbody>
+                              </table>
+                          </div>
+                      }
                   </div>
-                </div>
               </div>
               <!-- /.col -->
             </div>

@@ -441,3 +441,19 @@ $(document).ready(function(){
         return true;
     }
 }*/
+
+$("#DoanSL").change(() => {
+    $("#CreateDoan").attr("href", "/ChiPhi/Create/" + $("#DoanSL").val());
+    $("#LinkDoan").attr("href", "/ChiPhi/" + $("#DoanSL").val());
+});
+
+$("#ExpandTest").click(() => {
+    if ($("#Event").css("display") == "block") {
+        $("#Event").css("display", "none");
+    } else {
+        $("#Event").css("display", "block");
+    }
+});
+$("#ChonTour").change(() => {
+    $("#ThongKeTour").attr("href", "/ThongKe/Details/" + $("#ChonTour")[0].value);
+});

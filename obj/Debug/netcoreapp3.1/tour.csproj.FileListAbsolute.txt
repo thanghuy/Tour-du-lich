@@ -418,7 +418,6 @@ C:\Users\Hieu\Documents\GitHub\Tour-du-lich\bin\Debug\netcoreapp3.1\runtimes\win
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.csprojAssemblyReference.cache
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.AssemblyInfoInputs.cache
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.AssemblyInfo.cs
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.csproj.CoreCompileInputs.cache
@@ -430,6 +429,7 @@ C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.TagHelp
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.TagHelpers.output.cache
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.RazorCoreGenerate.cache
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\ChiPhi\Create.cshtml.g.cs
+C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\ChiPhi\Createloai.cshtml.g.cs
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\ChiPhi\Index.cshtml.g.cs
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Diadiem\Edit.cshtml.g.cs
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Diadiem\index.cshtml.g.cs
@@ -458,6 +458,8 @@ C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\ThongKe\Details.cshtml.g.cs
+C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\ThongKe\Index.cshtml.g.cs
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.RazorTargetAssemblyInfo.cache
@@ -469,4 +471,3 @@ C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\staticwebass
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.dll
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.pdb
 C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\tour.genruntimeconfig.cache
-C:\Users\Hieu\Documents\GitHub\Tour-du-lich\obj\Debug\netcoreapp3.1\Razor\Views\ChiPhi\Createloai.cshtml.g.cs
