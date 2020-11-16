@@ -55,7 +55,14 @@ namespace tour.Repository
 
         private int getGiaTour(int idTour)
         {
-            return _context.Gias.Where(g => g.ToudId == idTour).Select(s => new { s.Sotien }).First().Sotien;
+            try
+            {
+                return _context.Gias.Where(g => g.ToudId == idTour).Select(s => new { s.Sotien }).First().Sotien;
+            }
+            catch(Exception e)
+            {
+                return 0;
+            }
         }
 
         private int getTongChiPhiCuaDoan(int doanId)
@@ -65,7 +72,9 @@ namespace tour.Repository
 
         private int getSoKhach(int idDoan)
         {
-            return _context.NguoiDis.Where(c => c.DoanId == idDoan).Select(c => new { KH = c.Danhsachkhach }).First().KH.Split(";").Length;
+            string[] kh = _context.NguoiDis.Where(c => c.DoanId == idDoan).Select(c => new { KH = c.Danhsachkhach }).First().KH.Split(",");
+            if (kh.Length == 1 && kh[0].Equals("0")) return 0;
+            else return kh.Length-1;
         }
 
         internal List<ThongKeTour> ThongKeAllTour()
@@ -78,11 +87,38 @@ namespace tour.Repository
             ).ToList();
             foreach (ThongKeTour tk in tour)
             {
-                tk.TongDoanhThu = getTongDoanhThu(tk.IdTour);
+                tk.TongDoanhThu = getGiaTour(tk.IdTour)*getTongSoKhach(tk.IdTour);
                 tk.TongDoanDi = getTongDoanDi(tk.IdTour);
                 tk.TongChiPhi = getTongChiPhi(tk.IdTour);
             }
             return tour.ToList();
+        }
+
+        private int getTongSoKhach(int idTour)
+        {
+            IEnumerable<string> ds = _context.Tours.Where(t => t.TourId == idTour).Join(
+                   _context.Doans,
+                       t => t.TourId,
+                       d => d.TourId,
+               (t, d) => new { t, d }
+               ).Join(
+                _context.NguoiDis,
+                combine2=>combine2.d.DoanId,
+                n=>n.DoanId,
+                (combine2,n)=> new {combine2,n}
+                ).Select(c=>c.n.Danhsachkhach);
+            int tong = 0;
+            foreach(string s in ds)
+            {
+                string[] mang = s.Split(",");
+                if (mang.Length == 1 && mang[0].Equals("0"))
+                {
+
+                }
+                else tong +=mang.Length - 1;
+                Console.WriteLine(tong);
+            }
+            return tong;
         }
 
         private int getTongChiPhi(int idTour)
