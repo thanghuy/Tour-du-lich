@@ -12,7 +12,9 @@ $("#select-tour-price").change(function () {
         data: null,
         dataType: "text",
         success: function (data) {
-            $("#price-tour-d").val(data);
+            var x = parseInt(data);
+            x = x.toLocaleString('vi', {style : 'currency', currency : 'VND'});
+            $("#price-tour-d").val(x);
         },
         error: function (req, status, error) {
             console.log(msg);

@@ -1,70 +1,120 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Thống kê doanh thu Tour";
+    int i = 1;
 }
+@model List<tour.ViewModels.ThongKeTour>;
 <div class="content-wrapper">
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Danh sách địa điểm</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
-              <li class="breadcrumb-item active">Danh sách địa điểm</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
+    <section class="content-header" style="margin-bottom: -10px;"></section>
     <section class="content">
-      <div class="container-fluid">
-          <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <div class="btn-group btn-add" role="group" aria-label="Basic example">
-                    <a href="../quanlydiadiem/adddiadiem.html" class="btn btn-primary">Thêm địa điểm mới</a>
-                  </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                    <div class="inner">
+                        <h4>150.000.000 VNĐ</h4>
+
+                        <p>Tổng doanh thu</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <table class="table table-bordered table-hover" id="tableXemGiaTour">
-                    <thead class="thead-light">
-                      <tr>
-                        <th scope="col">Mã địa điểm</th>
-                        <th scope="col">Tên địa điểm</th>
-                        <th scope="col">Thành phố</th>
-                        <th scope="col">Mô tả</th>
-                        <th scope="col">Hành động</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th>DL001</th>
-                        <td>Đà lạt</td>
-                        <td>Đà lạt</td>
-                        <td>Mô tả</td>
-                        <td>
-                          <a class="btn btn-primary btn-sm" href="#">
-                            <i class="fas fa-pencil-alt">
-                            </i>
-                            Sửa
-                          </a>
-                          <a class="btn btn-danger btn-sm" href="#">
-                            <i class="fas fa-trash"></i>
-                          </a>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                    <div class="inner">
+                        <h4>53.000.000 VNĐ</h4>
+
+                        <p>Tổng lợi nhuận</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
                 </div>
-                <!-- /.card-body -->
-              </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-warning">
+                    <div class="inner">
+                        <h4>44</h4>
+
+                        <p>Số tour đang khai thác</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h4>65</h4>
+
+                        <p>Số địa điểm đang khai thác</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-pie-graph"></i>
+                    </div>
+                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
             </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-      </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="table table-bordered table-hover" id="tableXemGiaTour">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">STT</th>
+                                        <th scope="col">Tour</th>
+                                        <th scope="col">Tổng số đoàn đi</th>
+                                        <th scope="col">Tổng doanh thu</th>
+                                        <th scope="col">Tổng chi phí</th>
+                                        <th scope="col">Lãi</th>
+                                        <th scope="col">Hành động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (tour.ViewModels.ThongKeTour t in Model)
+                                    {
+                                        <tr>
+                                            <th>@(i++)</th>
+                                            <td>@t.TenTour</td>
+                                            <td>@t.TongDoanDi</td>
+                                            <td>@string.Format("{0:#,0}", @t.TongDoanhThu)</td>
+                                            <td>@string.Format("{0:#,0}", @t.TongChiPhi)</td>
+                                            <td>@string.Format("{0:#,0}", (@t.TongDoanhThu - @t.TongChiPhi))</td>
+                                            <td>
+                                                <a href="Home/Details/@t.IdTour" name="update" value="update" class="btn btn-primary btn-sm">
+                                                    <i class="fas fa-pencil-alt">
+                                                    </i>
+                                                    Chi tiết
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
     </section>
-  </div>
+</div>
+<!-- /.content-wrapper -->

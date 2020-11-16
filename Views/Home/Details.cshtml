@@ -2,6 +2,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Thống kê doanh thu Tour";
     int i = 1;
+    Tours tour = ViewBag.nameTour;
 }
 @model List<tour.ViewModels.ChiTietDoanhThu>;
 <div class="content-wrapper">
@@ -48,6 +49,9 @@
                             <table class="table table-bordered table-hover" id="table-chi-phi">
                                 <thead class="thead-light">
                                     <tr>
+                                        <th colspan="7" scope="col">Tên tour : @tour.Ten</th>
+                                    </tr>
+                                    <tr>
                                         <th scope="col">STT</th>
                                         <th scope="col">Đoàn đi</th>
                                         <th scope="col">Số khách</th>
@@ -68,7 +72,7 @@
                                                 @string.Format("{0:#,0}", @ct.GiaTour)
                                             </td>
                                             <td>
-                                                <a href="ThongKe/Details/" name="update" value="update" class="btn btn-primary btn-sm">
+                                                <a href="Home/Details/" name="update" value="update" class="btn btn-primary btn-sm">
                                                     <i class="fas fa-pencil-alt">
                                                     </i>
                                                     Chi tiết

@@ -9062,19 +9062,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Hieu\\.nuget\\packages\\": {}
+    "C:\\Users\\huyth\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Hieu\\Documents\\GitHub\\Tour-du-lich\\tour.csproj",
+      "projectUniqueName": "C:\\Users\\huyth\\OneDrive\\Máy tính\\Tour\\tour\\tour.csproj",
       "projectName": "tour",
-      "projectPath": "C:\\Users\\Hieu\\Documents\\GitHub\\Tour-du-lich\\tour.csproj",
-      "packagesPath": "C:\\Users\\Hieu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Hieu\\Documents\\GitHub\\Tour-du-lich\\obj\\",
+      "projectPath": "C:\\Users\\huyth\\OneDrive\\Máy tính\\Tour\\tour\\tour.csproj",
+      "packagesPath": "C:\\Users\\huyth\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\huyth\\OneDrive\\Máy tính\\Tour\\tour\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Hieu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\huyth\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

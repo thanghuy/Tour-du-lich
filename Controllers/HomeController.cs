@@ -1,33 +1,38 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
+using System.Linq;
+using System.Threading.Tasks;
 using tour.Models;
+using tour.Repository.Tour;
+
 
 namespace tour.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly Repository.Repository repo;
+        private readonly ITourRepo tourRepo;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(Repository.Repository repo,ITourRepo tourRepo)
         {
-            _logger = logger;
+            this.repo = repo;
+            this.tourRepo = tourRepo;
         }
 
         public IActionResult Index()
         {
-            return View();
+           return View(repo.ThongKeAllTour());
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public ActionResult Details(int id)
         {
-            return View();
+            ViewBag.Tour = tourRepo.GetAll();
+            ViewBag.nameTour = tourRepo.Get(id);
+            return View(repo.GetChiTietDoanhThu(id));
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }

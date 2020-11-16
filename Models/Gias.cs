@@ -19,13 +19,13 @@ namespace tour.Models
 
         [Required]
         public int? ToudId { get; set; }
-        public int Sotienformat{
+        public int Sotienformat {
             get {
                 int sotien = Convert.ToInt32(string.Format("{0:C}", Sotien.ToString()));
                 return sotien;
             }
         }
 
-        public string FormatGia() => string.Format("{0:#,0}", Sotien);
+        public string FormatGia { get { return string.Format("{0:#,0}", Sotien); } }
     }
 }

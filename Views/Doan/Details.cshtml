@@ -9,7 +9,7 @@
     Gias g = ViewBag.gia;
     var slkh = ViewBag.slKH;
     var slnv = ViewBag.slNV;
-    var tongtien = ViewBag.tongtien;
+    int tongtien = ViewBag.tongtien;
     Tours tour = ViewBag.tour;
 }
   <div class="content-wrapper">
@@ -58,19 +58,19 @@
                                   <div class="d-flex justify-content-start">
                                       <div class="bd-highlight">
                                           Số lượng nhân viên :
-                                          <span class="text-black">@slnv</span>
+                                          <span class="text-black"  id="soluongnv">@slnv</span>
                                       </div>
                                       <div class="bd-highlight">
                                           Số lượng khách :
-                                          <span class="text-black">@slkh</span>
+                                          <span class="text-black" id="soluongkh">@slkh</span>
                                       </div>
                                       <div class="bd-highlight">
                                           Giá tour :
-                                          <span class="text-danger">@g.Sotien VNĐ</span>
+                                          <span class="text-danger">@g.FormatGia VNĐ</span>
                                       </div>
                                       <div class="bd-highlight">
                                           Tổng tiền :
-                                          <span class="text-danger" id="price-tour-tod">@tongtien VNĐ</span>
+                                          <span class="text-danger" id="price-tour-tod">@{@string.Format("{0:#,0}", tongtien)} VNĐ</span>
                                       </div>
                                   </div>
                               </li>

@@ -4,6 +4,10 @@ body {
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
+.fas{
+  width: 25px !important;
+  text-align: center;
+}
 .title-tour-cp-top {
     width: 100%;
     height: 50px;

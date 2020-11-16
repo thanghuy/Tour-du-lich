@@ -20,6 +20,7 @@ namespace tour.Controllers
         private readonly ITourRepo tourRepo;
         private readonly Repository.Repository repo;
         private readonly IChiPhiRepo chiPhiRepo;
+        public static int idd;
 
         public ChiPhiController(ILoaiChiPhiRepo loaiChiPhiRepo,IDoanRepo doanRepo, Repository.Repository repo,IChiPhiRepo chiPhiRepo)
         {
@@ -37,6 +38,9 @@ namespace tour.Controllers
         {
             ViewBag.Doans = doanRepo.GetAll();
             int idDoan = id ?? 0;
+            ViewBag.id = idDoan;
+            idd = idDoan;
+            ViewBag.doan = doanRepo.Get(idDoan);
             if (idDoan != 0)
             {
                 return View(repo.GetChiTietHoaDon(idDoan));
@@ -44,16 +48,16 @@ namespace tour.Controllers
             return View(new List<ChiPhis>());
         }
         [HttpGet]
-        public IActionResult Create(int? id)
+        public IActionResult Create(int id)
         {
             ViewBag.LoaiChiPhi = loaiChiPhiRepo.GetAll();
-            return View(repo.GetGroupQL(id??0));
+            return View(repo.GetGroupQL(id));
         }
         [HttpPost]
         public IActionResult Create(QuanLyChiPhi quanLyChiPhi)
         {
             Console.WriteLine(chiPhiRepo.Add(quanLyChiPhi).ToString());
-            return RedirectToAction("Index");
+            return Redirect("/ChiPhi/"+idd);
         }
         public IActionResult Createloai()
         {

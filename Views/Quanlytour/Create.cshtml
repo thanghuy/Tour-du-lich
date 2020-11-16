@@ -68,13 +68,21 @@
                                     </div>
                                 </div>
                                 <div class="col-1 justify-content-center align-self-center">
-                                    <button type="button" class="btn btn-outline-primary form-control" style="margin-bottom:10px;" id="location-add">></button>
-                                    <button type="button" class="btn btn-outline-primary form-control" id="location-de"><</button>
+                                    <button type="button" class="btn btn-outline-primary form-control" style="margin-bottom:10px;" id="location-add">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-right" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary form-control" id="location-de">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-left" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                                        </svg>
+                                    </button>
                                 </div>
                                 <div class="col-4">
                                     <label>Kết quả</label>
                                     <div class="form-group">
-                                        <input asp-for="IdDiaDiem" type="hidden" class="form-control" id="kq-list-place">
+                                        <input asp-for="IdDiaDiem" type="hidden " class="form-control" id="kq-list-place">
                                         <span class="text-danger" asp-validation-for="IdDiaDiem"></span>
                                         <button class="btn btn-outline-primary form-control">Xóa tất cả</button>
                                     </div>
@@ -82,6 +90,18 @@
                                         <div class="card-body check-main-tour list-place2" id="check-main-tour-form">
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-1 justify-content-center align-self-center">
+                                    <button type="button" class="btn btn-outline-primary form-control" style="margin-bottom:10px;" id="location-up">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary form-control" id="location-down">
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                                        </svg>
+                                    </button>
                                 </div>
                                 <div class="modal-footer col-12">
                                     <button type="submit" class="btn btn-primary">Lưu</button>

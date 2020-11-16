@@ -16,6 +16,19 @@
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <form class="form-inline ml-3" action="/Search" method="GET">
+                <div class="input-group input-group-sm">
+                    <input class="form-control" type="search" name="key" placeholder="Nhập tên cần tìm">
+                </div>
+                <div class="col-auto my-1">
+                    <select class="form-control form-control-sm" name="op">
+                        <option value="0">Tìm theo đoàn</option>
+                        <option value="1">Tìm theo tour</option>
+                        <option value="2">Tìm theo khách</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-sm btn-primary">Tìm kiếm</button>
+            </form>
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
@@ -44,77 +57,46 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
                             <a href="/Quanlytour" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-map-marked-alt"></i>
                                 <p>Quản lý tour</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/Doan" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                               <i class="fas fa-users"></i>
                                 <p>Quản lý đoàn</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/Quanlygia" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-file-invoice-dollar"></i>
                                 <p>Quản lý giá</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/ChiPhi" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                 <i class="fas fa-hand-holding-usd"></i>
                                 <p>Quản lý chi phí</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/DiaDiem" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-map-marker-alt"></i>
                                 <p>Quản lý địa điểm</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/Nhanvien" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-user"></i>
                                 <p>Quản lý nhân viên</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="/KhachHangs" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-book-reader"></i>
                                 <p>Quản lý khách hàng</p>
                             </a>
                         </li>
-                        @**@
-                        <li class="nav-item" id="ExpandTest">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Thống kê
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul id="Event" style="display:none" class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/ThongKe" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thống kê theo Tour</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thống kê chi phí</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thống kê Tour nhân viên</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        @**@
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

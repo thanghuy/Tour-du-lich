@@ -14,12 +14,24 @@ $(document).ready(function(){
             dataType: "json",  
             contentType: "application/json; charset=utf-8",  
             success: function (data) {
-                $("#price-tour-tod").text(data+" VNĐ");
+                var x = parseInt(data);
+                x = x.toLocaleString('vi', {style : 'currency', currency : 'VND'});
+                $("#price-tour-tod").text(x);
             },
             error: function (req, status, error) {
                 console.log(msg);
             }
         });
+    }
+    function setSLNV(soluong) {
+        var a = $("#soluongnv").text();
+        var total = parseInt(a) + parseInt(soluong);
+        $("#soluongnv").text(total);
+    }
+    function setSLKH(soluong) {
+        var a = $("#soluongkh").text();
+        var total = parseInt(a) + parseInt(soluong);
+        $("#soluongkh").text(total);
     }
     function themDiaDiem(){
         $("#themdiadiem").on("click",function(){
@@ -173,6 +185,7 @@ $(document).ready(function(){
                         +'<i class="fas fa-pencil-alt"></i> Sửa</a> <button class="btn btn-danger btn-sm delete-kh"  value="'+data.khId+'"><i class="fas fa-trash"></i></button>';
                         a.row.add([data.khId,data.khTen,data.khSdt,data.khNgaysinh,data.khEmail,data.khCmnd,b]).draw();
                         setTongTien();
+                        setSLKH(total);
                     },
                     error: function (req, status, error) {
                         console.log(msg);
@@ -206,6 +219,7 @@ $(document).ready(function(){
                         a.row.add([data.khId,data.khTen,data.khSdt,data.khNgaysinh,data.khEmail,data.khCmnd,b]).draw();
                     }
                     setTongTien();
+                    setSLKH(1);
                 },
                 error: function (req, status, error) {
                     console.log(msg);
@@ -316,6 +330,7 @@ $(document).ready(function(){
             success: function (data) {
                 console.log(data);
                 setTongTien();
+                setSLKH(-1);
             },
             error: function (req, status, error) {
                 console.log(msg);
@@ -351,7 +366,8 @@ $(document).ready(function(){
                     else{
                         var a = $("#table-nhan-vien").DataTable();
                         var b = '<button class="btn btn-danger btn-sm delete-nv" value="'+data.nvId+'"><i class="fas fa-trash"></i></button>';
-                        a.row.add([data.nvId,data.nvTen,data.nvSdt,data.nvEmail,data.nhiemvu,b]).draw();
+                        a.row.add([data.nvId, data.nvTen, data.nvSdt, data.nvEmail, data.nhiemvu, b]).draw();
+                        setSLNV(1);
                     }
                 },
                 error: function (req, status, error) {
@@ -370,6 +386,7 @@ $(document).ready(function(){
             contentType: "application/json; charset=utf-8",  
             success: function (data) {
                 console.log(data);
+                setSLNV(-1);
             },
             error: function (req, status, error) {
                 console.log(msg);
@@ -443,6 +460,36 @@ $(document).ready(function(){
             //$('#check-main-tour-to').append($("#p-"+item).clone());  
             $("#kq-list-place").val(list_location);
         })
+        $("#location-up").click(function () {
+            $('.listbox1:checked').each(function () {
+                var $current = $(this).parents('.check-place');
+                var $previous = $current.prev('.check-place');
+                var index = list_location.indexOf($(this).val());
+                if($previous.length !== 0 ){
+                    var t = list_location[index - 1];
+                    list_location[index - 1] = list_location[index];
+                    list_location[index] = t;
+                    $current.insertBefore($previous);
+                    $("#kq-list-place").val(list_location);
+                }
+                $(this).prop('checked', false); 
+            });
+        })
+        $("#location-down").click(function () {
+            $('.listbox1:checked').each(function () {
+                var $current = $(this).closest('.check-place')
+                var $next = $current.next('.check-place');
+                var index = list_location.indexOf($(this).val());
+                if($next.length !== 0){
+                    var t = list_location[index + 1];
+                    list_location[index + 1] = list_location[index];
+                    list_location[index] = t;
+                  $current.insertAfter($next);
+                  $("#kq-list-place").val(list_location);
+                }
+                $(this).prop('checked', false); 
+            });
+        })
     })
     var DateOfBirth = [0, 0, 0];
     $("#ngay").change(() => {
@@ -481,5 +528,5 @@ $("#ExpandTest").click(() => {
     }
 });
 $("#ChonTour").change(() => {
-    $("#ThongKeTour").attr("href", "/ThongKe/Details/" + $("#ChonTour")[0].value);
+    $("#ThongKeTour").attr("href", "/Home/Details/" + $("#ChonTour")[0].value);
 });

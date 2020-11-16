@@ -1,6 +1,8 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Quản lý chi phí";
+    int idoan = ViewBag.id;
+    Doans d = ViewBag.doan;
 }
 @model IEnumerable<tour.Models.ChiPhis>;
 <div class="content-wrapper">
@@ -45,10 +47,20 @@
                               </div>
                           </form>
                       </div>
-                      @if (Model.Count() != 0)
-                      {
+                      
                           <div class="card-body">
                               <table class="table table-bordered table-hover" id="table-chi-phi">
+                                  @if (@d is null)
+                                  {
+                                      <h2>Chọn doàn để xem chi tiết</h2>
+                                  }
+                                  else
+                                  {
+                                  <thead class="thead-light">
+                                      <tr>
+                                          <th colspan="5" scope="col">Tên đoàn : @d.Ten</th>
+                                      </tr>
+                                  </thead>
                                   <thead class="thead-light">
                                       <tr>
                                           <th scope="col">Hóa đơn</th>
@@ -57,21 +69,24 @@
                                           <th scope="col">Giá tiền</th>
                                           <th scope="col">Thao tác</th>
                                       </tr>
-                                  </thead> 
+                                  </thead>
                                   <tbody>
-                                      @foreach (tour.Models.ChiPhis quanLy in Model)
+                                      @if (Model.Count() != 0)
                                       {
-                                          <tr>
-                                              <td>@quanLy.Hoadon</td>
-                                              <td>@quanLy.Chitiet.Split(",")[0]</td>
-                                              <td>@quanLy.Chitiet.Split(",")[1]</td>
-                                              <td>@string.Format("{0:#,0}",quanLy.Tongchiphi) VNĐ</td>
-                                              <td>
-                                                  <a class="btn btn-danger btn-sm" href="/ChiPhi/Delete/@quanLy.ChiphiId">
-                                                      <i class="fas fa-trash"></i>
-                                                  </a>
-                                              </td>
-                                          </tr>
+                                          @foreach (tour.Models.ChiPhis quanLy in Model)
+                                          {
+                                              <tr>
+                                                  <td>@quanLy.Hoadon</td>
+                                                  <td>@quanLy.Chitiet.Split(",")[0]</td>
+                                                  <td>@quanLy.Chitiet.Split(",")[1]</td>
+                                                  <td>@string.Format("{0:#,0}", quanLy.Tongchiphi) VNĐ</td>
+                                                  <td>
+                                                      <a class="btn btn-danger btn-sm" href="/ChiPhi/Delete/@quanLy.ChiphiId">
+                                                          <i class="fas fa-trash"></i>
+                                                      </a>
+                                                  </td>
+                                              </tr>
+                                          }
                                       }
                                       <tr>
                                           <td colspan="6">
@@ -79,14 +94,14 @@
                                               <label class="text-danger">
                                                   @string.Format("{0:#,0}", @Model.Sum(i => i.Tongchiphi)) VNĐ
                                               </label>
-                                              <a id="CreateDoan" href="/ChiPhi/Create/" class="btn btn-primary float-right">Thêm chi phí mới</a>
+                                              <a id="CreateDoan" href="/ChiPhi/Create/@idoan" class="btn btn-primary float-right">Thêm chi phí mới</a>
                                           </td>
                                       </tr>
 
                                   </tbody>
+                                  }
                               </table>
                           </div>
-                      }
                   </div>
               </div>
               <!-- /.col -->
