@@ -423,14 +423,6 @@ $(document).ready(function(){
                 console.log(msg);
             }
         });
-        /*for(var i = 0; i < 3;i++){
-            list_location_giaodien +='<div class="form-group check-place" id="p-'+i+'">'
-            +'<input class="form-check-input check-value listbox1" type="checkbox" value="'+i+'" id="defaultCheck'+i+'">'
-            +'<label class="form-check-label name-place" for="defaultCheck'+i+'">'
-            +'Địa điểm '+i
-            +'</label>'
-          +'</div>';
-        }*/
         $("#check-main-tour-to").html(list_location_giaodien);
         $("#location-add").click(function(){
             var arr = [];
@@ -460,36 +452,38 @@ $(document).ready(function(){
             //$('#check-main-tour-to').append($("#p-"+item).clone());  
             $("#kq-list-place").val(list_location);
         })
-        $("#location-up").click(function () {
-            $('.listbox1:checked').each(function () {
-                var $current = $(this).parents('.check-place');
-                var $previous = $current.prev('.check-place');
-                var index = list_location.indexOf($(this).val());
-                if($previous.length !== 0 ){
-                    var t = list_location[index - 1];
-                    list_location[index - 1] = list_location[index];
-                    list_location[index] = t;
-                    $current.insertBefore($previous);
-                    $("#kq-list-place").val(list_location);
-                }
-                $(this).prop('checked', false); 
-            });
-        })
-        $("#location-down").click(function () {
-            $('.listbox1:checked').each(function () {
-                var $current = $(this).closest('.check-place')
-                var $next = $current.next('.check-place');
-                var index = list_location.indexOf($(this).val());
-                if($next.length !== 0){
-                    var t = list_location[index + 1];
-                    list_location[index + 1] = list_location[index];
-                    list_location[index] = t;
-                  $current.insertAfter($next);
-                  $("#kq-list-place").val(list_location);
-                }
-                $(this).prop('checked', false); 
-            });
-        })
+        
+    })
+    $("#location-up").click(function () {
+            
+        $('.listbox1:checked').each(function () {
+            var $current = $(this).parents('.check-place');
+            var $previous = $current.prev('.check-place');
+            var index = list_location.indexOf($(this).val());
+            if($previous.length !== 0 ){
+                var t = list_location[index - 1];
+                list_location[index - 1] = list_location[index];
+                list_location[index] = t;
+                $current.insertBefore($previous);
+                $("#kq-list-place").val(list_location);
+            }
+            // $(this).prop('checked', false); 
+        });
+    })
+    $("#location-down").click(function () {
+        $('.listbox1:checked').each(function () {
+            var $current = $(this).closest('.check-place')
+            var $next = $current.next('.check-place');
+            var index = list_location.indexOf($(this).val());
+            if($next.length !== 0){
+                var t = list_location[index + 1];
+                list_location[index + 1] = list_location[index];
+                list_location[index] = t;
+              $current.insertAfter($next);
+              $("#kq-list-place").val(list_location);
+            }
+            // $(this).prop('checked', false); 
+        });
     })
     var DateOfBirth = [0, 0, 0];
     $("#ngay").change(() => {

@@ -471,3 +471,4 @@ C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.dll
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.pdb
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\tour.genruntimeconfig.cache
 C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\Home\Details.cshtml.g.cs
+C:\Users\huyth\OneDrive\Máy tính\Tour\tour\obj\Debug\netcoreapp3.1\Razor\Views\Search\Index.cshtml.g.cs
