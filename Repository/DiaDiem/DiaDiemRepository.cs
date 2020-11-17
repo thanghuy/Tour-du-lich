@@ -22,7 +22,7 @@ namespace tour.Repository.DiaDiem
 
         public int Count()
         {
-            return 1;
+            return _context.DiaDiems.Count();
         }
 
         public bool Delete(int id)

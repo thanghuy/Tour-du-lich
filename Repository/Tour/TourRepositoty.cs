@@ -27,7 +27,7 @@ namespace tour.Repository.Tour
 
         public int Count()
         {
-            throw new NotImplementedException();
+            return _context.Tours.Count();
         }
 
         public ChiTietTourVM CreateNewTour(int id)

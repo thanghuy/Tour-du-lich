@@ -116,7 +116,6 @@ namespace tour.Repository
 
                 }
                 else tong +=mang.Length - 1;
-                Console.WriteLine(tong);
             }
             return tong;
         }

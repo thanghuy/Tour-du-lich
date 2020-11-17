@@ -167,7 +167,14 @@ namespace tour.Controllers
             ViewBag.gia = gia.Get(Convert.ToInt32(d.TourId));
             ViewBag.slKh = nguoidiRepo.CountKH(strId);
             ViewBag.slNV = nguoidiRepo.CountNV(strIdnv);
-            ViewBag.tongtien = tongTien();
+            try
+            {
+                ViewBag.tongtien = tongTien();   
+            }
+            catch (System.Exception ex)
+            {
+               ViewBag.tongtien = 0;
+            }
             ViewBag.tour = tour.Get(d.TourId);
             return View();
         }

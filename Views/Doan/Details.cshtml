@@ -66,7 +66,13 @@
                                       </div>
                                       <div class="bd-highlight">
                                           Giá tour :
-                                          <span class="text-danger">@g.FormatGia VNĐ</span>
+                                          @if(@g is null){
+                                            <span class="text-danger">0 VNĐ</span>
+                                          }
+                                          else{
+                                            <span class="text-danger">@g.FormatGia VNĐ</span>
+                                          }
+                                          
                                       </div>
                                       <div class="bd-highlight">
                                           Tổng tiền :
